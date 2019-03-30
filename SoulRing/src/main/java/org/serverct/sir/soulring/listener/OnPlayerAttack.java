@@ -23,12 +23,10 @@ public class OnPlayerAttack implements Listener {
     Random r = new Random();
 
     private Player damager;
-    private ItemStack damagerItem;
 
     private String color;
     private double value;
     private Player target;
-    private ItemStack targetItem;
     private PotionEffect potionEffect;
     private int duration;
 
@@ -36,8 +34,7 @@ public class OnPlayerAttack implements Listener {
     public void onDamage(EntityDamageByEntityEvent evt) {
         if (evt.getDamager() instanceof Player) {
             damager = (Player) evt.getDamager();
-            damagerItem = damager.getItemInHand();
-            damagerAttributesMap = AttributeManager.getInstance().getAttributesFromItem(damagerItem);
+            damagerAttributesMap = AttributeManager.getInstance().getAttributesFromPlayer(damager);
             // Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', " &d> &7玩家攻击事件触发."));
 
             if(damagerAttributesMap.keySet().contains(Attributes.VAMPIRE_RATE) && damagerAttributesMap.keySet().contains(Attributes.VAMPIRE_PERCENT)) {
@@ -93,8 +90,7 @@ public class OnPlayerAttack implements Listener {
 
             if(evt.getEntity() instanceof Player) {
                 target = (Player) evt.getEntity();
-                targetItem = target.getItemInHand();
-                targetAttributesMap = AttributeManager.getInstance().getAttributesFromItem(targetItem);
+                targetAttributesMap = AttributeManager.getInstance().getAttributesFromPlayer(target);
 
                 if (damagerAttributesMap.keySet().contains(Attributes.NAUSEA)) {
                     if (r.nextInt(100) <= damagerAttributesMap.get(Attributes.NAUSEA)) {

@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.serverct.sir.soulring.Attributes;
 import org.serverct.sir.soulring.SoulRing;
@@ -30,8 +31,10 @@ public class AttributeManager {
 
     private Map<Attributes, Double> attributesOnItem = new HashMap<>();
     private Map<Attributes, Double> cacheAttributesMap = new HashMap<>();
+    private Map<Attributes, Double> attributesOnPlayer = new HashMap<>();
 
     private List<String> inlayRings;
+    private ItemStack[] armors;
 
     public void loadAttributes() {
         FileConfiguration configData = SoulRing.getInstance().getConfig();
@@ -90,7 +93,7 @@ public class AttributeManager {
         return result;
     }
 
-    public String getFormatedValue(Attributes attribute, int value) {
+    public String getFormattedValue(Attributes attribute, int value) {
         if(value >= 0) {
             if(isPercentValue(attribute)) {
                 return ChatColor.GREEN + "+" + String.valueOf(value * 100) + "%";
@@ -115,12 +118,13 @@ public class AttributeManager {
     }
 
     public Map<Attributes, Double> getAttributesFromItem(ItemStack item) {
+        if(!attributesOnItem.isEmpty()) {
+            attributesOnItem.clear();
+        }
+        cacheAttributesMap.clear();
         if(SlotManager.getSlotManager().containSlot(item)) {
             inlayRings = SlotManager.getSlotManager().getInlayRings(item);
             if (!inlayRings.isEmpty()) {
-                if(!attributesOnItem.isEmpty()) {
-                    attributesOnItem.clear();
-                }
                 for (String key : inlayRings) {
                     cacheAttributesMap = RingManager.getRingManager().getRingAttributes(key);
                     for (Attributes attribute : cacheAttributesMap.keySet()) {
@@ -143,6 +147,37 @@ public class AttributeManager {
         }
 
         return attributesOnItem;
+    }
+
+    public Map<Attributes, Double> getAttributesFromPlayer(Player player) {
+        if(!attributesOnPlayer.isEmpty()) {
+            attributesOnPlayer.clear();
+        }
+        cacheAttributesMap.clear();
+
+        attributesOnPlayer = getAttributesFromItem(player.getItemInHand());
+        armors = player.getInventory().getArmorContents();
+
+        for(ItemStack armor : armors) {
+            cacheAttributesMap = getAttributesFromItem(armor);
+            for (Attributes attribute : cacheAttributesMap.keySet()) {
+                if (attributesOnPlayer.containsKey(attribute)) {
+                    if (isPercentValue(attribute)) {
+                        attributesOnPlayer.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute) * 100);
+                    } else {
+                        attributesOnPlayer.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute));
+                    }
+                } else {
+                    if (isPercentValue(attribute)) {
+                        attributesOnPlayer.put(attribute, cacheAttributesMap.get(attribute) * 100);
+                    } else {
+                        attributesOnPlayer.put(attribute, cacheAttributesMap.get(attribute));
+                    }
+                }
+            }
+        }
+
+        return attributesOnPlayer;
     }
 
     /*

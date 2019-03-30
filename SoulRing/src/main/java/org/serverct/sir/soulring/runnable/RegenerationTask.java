@@ -16,7 +16,11 @@ public class RegenerationTask extends BukkitRunnable {
     @Override
     public void run() {
         if(target.getHealth() < target.getMaxHealth()) {
-            target.setHealth(target.getHealth() + heal);
+            if(target.getHealth() + heal >= target.getHealth()) {
+                target.setHealth(target.getHealth());
+            } else {
+                target.setHealth(target.getHealth() + heal);
+            }
         }
     }
 }

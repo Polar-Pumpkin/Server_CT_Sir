@@ -24,6 +24,7 @@ public class Help implements SubCommand {
             "  &d/sr version &9- &7查看版本信息.",
             "  &d/sr reload &9- &7重载插件.",
             "",
+            "  &d/sr stat &9- &7查看自身属性.",
             "  &d/sr punch &7&l[&c行数&7&l] &9- &7给手中的武器打孔.",
             "  &d/sr ring &7&l<&c参数&7&l>",
             "    &9&l&o-> &dlist &9- &7列出所有魂环.",

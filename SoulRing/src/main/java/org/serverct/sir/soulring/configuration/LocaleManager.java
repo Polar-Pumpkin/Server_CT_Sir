@@ -21,6 +21,18 @@ public class LocaleManager {
         return localeManager;
     }
 
+    private String[] statsMsg = {
+            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
+            "",
+            "  &6&lSoul Ring &7| &d&l魂环 &7>>>",
+            "",
+            "  &9&l物品属性 &7>>>",
+            "",
+            "%AttributesPreview%",
+            "",
+            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
+    };
+
     private File localeFile = new File(SoulRing.getInstance().getDataFolder() + File.separator + "Locale.yml");
     private FileConfiguration localeData = YamlConfiguration.loadConfiguration(localeFile);
 
@@ -57,6 +69,7 @@ public class LocaleManager {
         commandMsg.set("RingSlotEmpty", "&7请在物品栏第 &c9 &7格放入目标魂环.");
         commandMsg.set("AmountError", "&7请勿对叠加物品打孔/吸收魂环.");
         commandMsg.set("TooManyRing", "&7请勿放入多个目标魂环.");
+        commandMsg.set("Stats", statsMsg);
 
         ConfigurationSection attributeMsg = localeData.createSection("Attributes");
         attributeMsg.set("VAMPIRE", "%color%&l生命吸取! &7为您恢复了 &c%amount% &7点生命值.");
@@ -86,7 +99,7 @@ public class LocaleManager {
                     String warnPrefix = localeData.getString("Plugins.Warn");
                     return ChatColor.translateAlternateColorCodes('&', pluginPrefix + warnPrefix + targetSection.getString(path));
                 case "ERROR":
-                    String errorPrefix = localeData.getString("Plugins.Warn");
+                    String errorPrefix = localeData.getString("Plugins.Error");
                     return ChatColor.translateAlternateColorCodes('&', pluginPrefix + errorPrefix + targetSection.getString(path));
                 default:
                     return null;
@@ -94,5 +107,9 @@ public class LocaleManager {
         }
 
         return null;
+    }
+
+    public FileConfiguration getLocaleData() {
+        return localeData;
     }
 }

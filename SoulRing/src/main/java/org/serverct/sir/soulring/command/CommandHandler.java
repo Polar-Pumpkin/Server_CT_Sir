@@ -21,6 +21,7 @@ public class CommandHandler implements CommandExecutor {
         registerSubCommand("ring", new Ring());
         registerSubCommand("punch", new Punch());
         registerSubCommand("reload", new Reload());
+        registerSubCommand("stat", new Stat());
     }
 
     public void registerSubCommand(String commandName, SubCommand subCommandClass) {
@@ -43,21 +44,10 @@ public class CommandHandler implements CommandExecutor {
         if(args.length == 0) {
             return subCommandMap.get("version").execute(sender, args);
         }
-        switch (args[0]) {
-            case "version":
-                return subCommandMap.get(args[0]).execute(sender, args);
-            case "help":
-                return subCommandMap.get(args[0]).execute(sender, args);
-            case "absorb":
-                return subCommandMap.get(args[0]).execute(sender, args);
-            case "ring":
-                return subCommandMap.get(args[0]).execute(sender, args);
-            case "punch":
-                return subCommandMap.get(args[0]).execute(sender, args);
-            case "reload":
-                return subCommandMap.get(args[0]).execute(sender, args);
-            default:
-                return subCommandMap.get("version").execute(sender, args);
+        if(subCommandMap.keySet().contains(args[0])) {
+            return subCommandMap.get(args[0]).execute(sender, args);
+        } else {
+            return subCommandMap.get("version").execute(sender, args);
         }
     }
 }

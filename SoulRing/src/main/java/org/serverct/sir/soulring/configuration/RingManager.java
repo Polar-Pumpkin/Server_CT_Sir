@@ -1,5 +1,6 @@
 package org.serverct.sir.soulring.configuration;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -238,7 +239,7 @@ public class RingManager {
                                     '&',
                                     settingData.getString("AttributePreview")
                                             .replace("%attribute%", AttributeManager.getInstance().getDisplay(Attributes.valueOf(attribute)))
-                                            .replace("%value%", AttributeManager.getInstance().getFormatedValue(Attributes.valueOf(attribute), section.getConfigurationSection("Attributes").getInt(attribute)))
+                                            .replace("%value%", AttributeManager.getInstance().getFormattedValue(Attributes.valueOf(attribute), section.getConfigurationSection("Attributes").getInt(attribute)))
                             )
                     );
                 } else {
@@ -312,5 +313,9 @@ public class RingManager {
         }
 
         return ringsAttributes;
+    }
+
+    public FileConfiguration getSettingData() {
+        return settingData;
     }
 }
