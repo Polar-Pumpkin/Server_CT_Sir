@@ -1,0 +1,12 @@
+name: ANOHANAMarry
+version: ${project.version}
+main: org.serverct.sir.anohanamarry.ANOHANAMarry
+authors: [EntityParrot_]
+description: A wedding plugin.
+commands:
+  anohanamarry:
+    description: Plugin's main command.
+    usage: Type /<command> help to check help message.
+    aliases: [am, amarry]
+depend: [SmartInvs]
+softdepend: [PlaceholderAPI, Vault]

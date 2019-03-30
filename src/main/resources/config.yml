@@ -1,0 +1,53 @@
+Placeholders: true
+Title:
+  FadeIn: 1
+  Stay: 5
+  FadeOut: 1
+Symbol:
+  Male: "&b♂&r"
+  Female: "&d♀&r"
+  Unknown: "&9⚥&r"
+  Single: "&7♥&r"
+  Married: "&c♥&r"
+  Action: "▸ "
+Share:
+  Exp:
+    Enable: true
+    Multiple: 0.3
+  Health:
+    Enable: true
+    Radius: 10
+LoveLevel:
+  # Mode: accumulation, requirement
+  Mode: requirement
+  Setting:
+    1: 100
+    2: 200
+    3: 300
+    4: 400
+Economy:
+  # Payer: sender, receiver, system(none)
+  # Receiver: sender, receiver, system(none)
+  Enable: true
+  Setting:
+    Propose:
+      Send:
+        Price: 500
+        Payer: "sender"
+        Receiver: "system"
+      Accept:
+        Price: 0
+        Payer: "receiver"
+        Receiver: "system"
+      Refuse:
+        Price: 0
+        Payer: "receiver"
+        Receiver: "system"
+    Marry:
+      Price: 0
+      Payer: "sender"
+      Receiver: "system"
+    Divorce:
+      Price: 0
+      Payer: "sender"
+      Receiver: "system"

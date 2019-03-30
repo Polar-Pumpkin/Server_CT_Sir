@@ -1,0 +1,51 @@
+Hooks:
+  Vault: true
+  PlaceholdersAPI: false
+Effect:
+  Enable: true
+  Success: VILLAGER_HAPPY
+  Failure: VILLAGER_ANGRY
+Sound:
+  Enable: true
+  Success: ENTITY_EXPERIENCE_ORB_PICKUP
+  Failure: BLOCK_ANVIL_DESTROY
+Validator: ":"
+Attributes:
+  VAMPIRE_RATE:
+    Enable: true
+    Display: "吸血几率"
+    Color: RED
+  VAMPIRE_PERCENT:
+    Enable: true
+    Display: "吸血回复"
+    Color: GREEN
+  CRITICAL_RATE:
+    Enable: true
+    Display: "暴击几率"
+    Color: GOLD
+  CRITICAL_DAMAGE:
+    Enable: true
+    Display: "暴击伤害"
+    Color: GOLD
+  REGENERATION:
+    Enable: true
+    Display: "生命恢复"
+    Color: RED
+  PHYSICAL_DEFENSE:
+    Enable: true
+    Display: "物理防御"
+    Color: BLUE
+  NAUSEA:
+    Enable: true
+    Display: "反胃几率"
+    Color: GRAY
+    Duration: 5
+  BURN:
+    Enable: true
+    Display: "点燃几率"
+    Color: RED
+  IMPRISONMENT:
+    Enable: true
+    Display: "禁锢几率"
+    Color: DARK_GRAY
+    Duration: 5
