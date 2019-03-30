@@ -231,14 +231,14 @@ public class RingManager {
         attributesPreviewLore = new ArrayList<>();
 
         for(String attribute : configuredAttributesList) {
-            if(Attributes.getAttributesList().contains(Attributes.valueOf(attribute))) {
-                if(Attributes.isEnabled(Attributes.valueOf(attribute))) {
+            if(AttributeManager.getInstance().getAllAttributes().contains(Attributes.valueOf(attribute))) {
+                if(AttributeManager.getInstance().hasEnabled(Attributes.valueOf(attribute))) {
                     attributesPreviewLore.add(
                             ChatColor.translateAlternateColorCodes(
                                     '&',
                                     settingData.getString("AttributePreview")
-                                            .replace("%attribute%", Attributes.getAttributeDisplay(Attributes.valueOf(attribute)))
-                                            .replace("%value%", Attributes.getAttributeAmount(Attributes.valueOf(attribute), section.getConfigurationSection("Attributes").getInt(attribute)))
+                                            .replace("%attribute%", AttributeManager.getInstance().getDisplay(Attributes.valueOf(attribute)))
+                                            .replace("%value%", AttributeManager.getInstance().getFormatedValue(Attributes.valueOf(attribute), section.getConfigurationSection("Attributes").getInt(attribute)))
                             )
                     );
                 } else {
@@ -300,8 +300,8 @@ public class RingManager {
         configuredAttributesList = section.getConfigurationSection("Attributes").getKeys(false);
 
         for(String attribute : configuredAttributesList) {
-            if(Attributes.getAttributesList().contains(Attributes.valueOf(attribute))) {
-                if(Attributes.isEnabled(Attributes.valueOf(attribute))) {
+            if(AttributeManager.getInstance().getAllAttributes().contains(Attributes.valueOf(attribute))) {
+                if(AttributeManager.getInstance().hasEnabled(Attributes.valueOf(attribute))) {
                     ringsAttributes.put(Attributes.valueOf(attribute), section.getConfigurationSection("Attributes").getDouble(attribute));
                 } else {
                     Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', " &e> &7获取魂环属性 &c" + section.toString() + " &7时遇到错误: &c(属性未启用)" + attribute + "&7."));

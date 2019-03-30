@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.serverct.sir.soulring.command.CommandHandler;
+import org.serverct.sir.soulring.configuration.AttributeManager;
 import org.serverct.sir.soulring.configuration.LocaleManager;
 import org.serverct.sir.soulring.configuration.RingManager;
 import org.serverct.sir.soulring.hook.VaultHook;
@@ -53,7 +54,7 @@ public final class SoulRing extends JavaPlugin {
 
         VaultHook.getInstance().loadVault();
 
-        Attributes.loadAttributes();
+        AttributeManager.getInstance().loadAttributes();
         RingManager.getRingManager().loadRings();
         LocaleManager.getLocaleManager().loadLanguage();
 

@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.serverct.sir.soulring.Attributes;
 import org.serverct.sir.soulring.SoulRing;
 import org.serverct.sir.soulring.command.SubCommand;
+import org.serverct.sir.soulring.configuration.AttributeManager;
 import org.serverct.sir.soulring.configuration.LocaleManager;
 import org.serverct.sir.soulring.configuration.RingManager;
 import org.serverct.sir.soulring.hook.VaultHook;
@@ -45,7 +46,7 @@ public class Reload implements SubCommand {
 
         VaultHook.getInstance().loadVault();
 
-        Attributes.loadAttributes();
+        AttributeManager.getInstance().loadAttributes();
         RingManager.getRingManager().loadRings();
         LocaleManager.getLocaleManager().loadLanguage();
 
