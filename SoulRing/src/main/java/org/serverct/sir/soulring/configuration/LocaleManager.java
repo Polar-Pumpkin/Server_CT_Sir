@@ -59,11 +59,12 @@ public class LocaleManager {
         commandMsg.set("TooManyRing", "&7请勿放入多个目标魂环.");
 
         ConfigurationSection attributeMsg = localeData.createSection("Attributes");
-        attributeMsg.set("VAMPIRE", "%color%&l生命吸取生效! &7为您恢复了 &c%amount% &7点生命值.");
+        attributeMsg.set("VAMPIRE", "%color%&l生命吸取! &7为您恢复了 &c%amount% &7点生命值.");
         attributeMsg.set("CRITICAL", "%color%&l暴击! &7打出 &c%amount% &7点伤害.");
-        attributeMsg.set("NAUSEA", "%color%&l反胃! &7你的攻击击中腹部使对手感到一阵恶心(持续 &c%amount% &7秒).");
-        attributeMsg.set("IMPRISONMENT", "%color%&l禁锢! &7你的攻击带来的剧痛使对手无法动弹(持续 &c%amount% &7秒).");
-        attributeMsg.set("BURN", "%color%&l引燃! &7你的攻击点着了对手的衣服.");
+        attributeMsg.set("NAUSEA", "%color%&l反胃! &7你的攻击击中腹部使敌人感到一阵恶心(持续 &c%amount% &7秒).");
+        attributeMsg.set("IMPRISONMENT", "%color%&l禁锢! &7你的攻击带来的剧痛使敌人无法动弹(持续 &c%amount% &7秒).");
+        attributeMsg.set("BURN", "%color%&l引燃! &7你的攻击点着了敌人的衣服.");
+        attributeMsg.set("PHYSICAL_DEFENSE", "%color%&l防御! &7你的魂环为你防御了 &c%amount% &7点敌人的攻击.");
 
         try {
             localeData.save(localeFile);

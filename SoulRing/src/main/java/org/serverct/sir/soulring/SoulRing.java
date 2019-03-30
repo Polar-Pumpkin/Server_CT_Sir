@@ -9,13 +9,14 @@ import org.serverct.sir.soulring.configuration.LocaleManager;
 import org.serverct.sir.soulring.configuration.RingManager;
 import org.serverct.sir.soulring.hook.VaultHook;
 import org.serverct.sir.soulring.listener.OnPlayerAttack;
+import org.serverct.sir.soulring.listener.OnPlayerHeld;
 
 import java.io.File;
 
 public final class SoulRing extends JavaPlugin {
 
     private static SoulRing INSTANCE;
-    public final static String PLUGIN_VERSION = "1.0-SNAPSHOT";
+    public final static String PLUGIN_VERSION = "1.0-RELEASE";
 
     public static SoulRing getInstance() {
         return INSTANCE;
@@ -62,6 +63,7 @@ public final class SoulRing extends JavaPlugin {
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7成功注册命令."));
 
         getServer().getPluginManager().registerEvents(new OnPlayerAttack(), this);
+        getServer().getPluginManager().registerEvents(new OnPlayerHeld(), this);
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7成功注册监听器."));
 
         String enableEndSuffix = "&a&l> &d&m------------------------------";

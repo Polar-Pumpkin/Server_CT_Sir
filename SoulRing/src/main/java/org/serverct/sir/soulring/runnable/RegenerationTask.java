@@ -6,9 +6,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class RegenerationTask extends BukkitRunnable {
 
     private Player target;
-    private int heal;
+    private double heal;
 
-    public RegenerationTask(Player player, int heal) {
+    public RegenerationTask(Player player, double heal) {
         this.target = player;
         this.heal = heal;
     }
@@ -16,7 +16,7 @@ public class RegenerationTask extends BukkitRunnable {
     @Override
     public void run() {
         if(target.getHealth() < target.getMaxHealth()) {
-            target.setHealth(target.getHealth() + (double) heal);
+            target.setHealth(target.getHealth() + heal);
         }
     }
 }

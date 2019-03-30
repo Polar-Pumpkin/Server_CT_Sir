@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
 import org.serverct.sir.soulring.Attributes;
 import org.serverct.sir.soulring.SoulRing;
 
@@ -26,6 +27,11 @@ public class AttributeManager {
 
     private Map<Attributes, String> attributesDisplayMap = new HashMap<>();
     private Map<Attributes, ChatColor> attributesColorMap = new HashMap<>();
+
+    private Map<Attributes, Double> attributesOnItem = new HashMap<>();
+    private Map<Attributes, Double> cacheAttributesMap = new HashMap<>();
+
+    private List<String> inlayRings;
 
     public void loadAttributes() {
         FileConfiguration configData = SoulRing.getInstance().getConfig();
@@ -108,6 +114,37 @@ public class AttributeManager {
         }
     }
 
+    public Map<Attributes, Double> getAttributesFromItem(ItemStack item) {
+        if(SlotManager.getSlotManager().containSlot(item)) {
+            inlayRings = SlotManager.getSlotManager().getInlayRings(item);
+            if (!inlayRings.isEmpty()) {
+                if(!attributesOnItem.isEmpty()) {
+                    attributesOnItem.clear();
+                }
+                for (String key : inlayRings) {
+                    cacheAttributesMap = RingManager.getRingManager().getRingAttributes(key);
+                    for (Attributes attribute : cacheAttributesMap.keySet()) {
+                        if (attributesOnItem.containsKey(attribute)) {
+                            if (isPercentValue(attribute)) {
+                                attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute) * 100);
+                            } else {
+                                attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute));
+                            }
+                        } else {
+                            if (isPercentValue(attribute)) {
+                                attributesOnItem.put(attribute, cacheAttributesMap.get(attribute) * 100);
+                            } else {
+                                attributesOnItem.put(attribute, cacheAttributesMap.get(attribute));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return attributesOnItem;
+    }
+
     /*
     public List<Attributes> getAttributesOwned(String[] lore) {
         List<String> loreWithoutColor = new ArrayList<>();
@@ -135,7 +172,6 @@ public class AttributeManager {
             case VAMPIRE_RATE:
             case VAMPIRE_PERCENT:
             case CRITICAL_RATE:
-            case PHYSICAL_DEFENSE:
             case NAUSEA:
             case BURN:
             case IMPRISONMENT:
