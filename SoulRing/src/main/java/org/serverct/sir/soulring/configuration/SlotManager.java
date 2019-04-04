@@ -18,6 +18,10 @@ public class SlotManager {
         return slotManager;
     }
 
+    private ItemMeta resultMeta;
+    private List<String> targetLore;
+    private List<String> resultLore;
+
     public int getFirstEmptySlot(ItemStack item) {
         int row = 0;
         if(item.getItemMeta().hasLore()) {
@@ -41,33 +45,49 @@ public class SlotManager {
         return -1;
     }
 
-    public boolean containSlot(ItemStack item) {
-        List<String> targetLore = item.getItemMeta().getLore();
-        if(targetLore.contains(RingManager.getRingManager().getEmptySlotDisplay())) {
-            return true;
+    public int countAllSlot(ItemStack item) {
+        int amount = 0;
+        if(item.hasItemMeta()) {
+            for(String lore : item.getItemMeta().getLore()) {
+                if(lore.contains(RingManager.getRingManager().getEmptySlotDisplay()) || lore.contains(RingManager.getRingManager().getFilledSlotDisplay())) {
+                    amount++;
+                }
+            }
         }
-        for(String lore : targetLore) {
-            if(lore.contains(RingManager.getRingManager().getFilledSlotDisplay())) {
+        return amount;
+    }
+
+    public boolean containSlot(ItemStack item) {
+        if(item.hasItemMeta()) {
+            targetLore = item.getItemMeta().getLore();
+
+            if(targetLore.contains(RingManager.getRingManager().getEmptySlotDisplay())) {
                 return true;
+            }
+            for(String lore : targetLore) {
+                if(lore.contains(RingManager.getRingManager().getFilledSlotDisplay())) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
     public List<String> getInlayRings(ItemStack item) {
-        List<String> targetLore = item.getItemMeta().getLore();
-        List<String> result = new ArrayList<>();
+        targetLore = item.getItemMeta().getLore();
+        resultLore = new ArrayList<>();
+
         for(String lore : targetLore) {
             if(lore.contains(RingManager.getRingManager().getFilledSlotDisplay())) {
-                result.add(RingManager.getRingManager().getRingKey(lore.replace(RingManager.getRingManager().getFilledSlotDisplay(), "")));
+                resultLore.add(RingManager.getRingManager().getRingKey(lore.replace(RingManager.getRingManager().getFilledSlotDisplay(), "")));
             }
         }
-        return result;
+        return resultLore;
     }
 
     public ItemStack inlay(ItemStack ringItem, ItemStack targetItem) {
-        ItemMeta resultMeta = targetItem.getItemMeta();
-        List<String> resultLore = resultMeta.getLore();
+        resultMeta = targetItem.getItemMeta();
+        resultLore = resultMeta.getLore();
 
         if(getFirstEmptySlot(targetItem) != -1) {
             if (RingManager.getRingManager().getRingDisplay(ringItem) != null) {
@@ -81,8 +101,8 @@ public class SlotManager {
     }
 
     public ItemStack punch(ItemStack item) {
-        ItemMeta resultMeta = item.getItemMeta();
-        List<String> resultLore = new ArrayList<>();
+        resultMeta = item.getItemMeta();
+        resultLore = new ArrayList<>();
 
         if(resultMeta.hasLore()) {
             resultLore.addAll(resultMeta.getLore());
@@ -103,8 +123,8 @@ public class SlotManager {
     }
 
     public ItemStack punch(ItemStack item, int index) {
-        ItemMeta resultMeta = item.getItemMeta();
-        List<String> resultLore = new ArrayList<>();
+        resultMeta = item.getItemMeta();
+        resultLore = new ArrayList<>();
 
         if(resultMeta.hasLore()) {
             resultLore.addAll(resultMeta.getLore());

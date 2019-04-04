@@ -51,113 +51,117 @@ public class Ring implements SubCommand {
         if(sender instanceof Player) {
             Player playerSender = (Player) sender;
 
-            if(args.length != 1) {
-                switch (args[1]) {
-                    case "create":
-                        break;
-                    case "remove":
-                        break;
-                    case "list":
-                        if(args.length == 2) {
-                            for(String msg : ringsListUpper) {
-                                playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
-                            }
-
-                            if(!RingManager.getRingManager().getLoadedRings().isEmpty()) {
-                                for(TextComponent msg : buildGetActionMessage()) {
-                                    playerSender.spigot().sendMessage(msg);
+            if(playerSender.hasPermission("SoulRing.Ring")) {
+                if(args.length != 1) {
+                    switch (args[1]) {
+                        case "create":
+                            break;
+                        case "remove":
+                            break;
+                        case "list":
+                            if(args.length == 2) {
+                                for(String msg : ringsListUpper) {
+                                    playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
                                 }
-                            } else {
-                                playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l无."));
-                            }
 
-                            for(String msg : ringsListLower) {
-                                playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
-                            }
-                        } else {
-                            playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
-                        }
-                        break;
-                    case "get":
-                        if(args.length == 4) {
-                            if(RingManager.getRingManager().getRing(args[2]) != null) {
-                                ItemStack targetRing = RingManager.getRingManager().getRing(args[2]);
-                                Matcher matcher = pattern.matcher(args[3]);
-
-                                if(matcher.find()) {
-                                    targetRing.setAmount(Integer.valueOf(args[3]));
+                                if(!RingManager.getRingManager().getLoadedRings().isEmpty()) {
+                                    for(TextComponent msg : buildGetActionMessage()) {
+                                        playerSender.spigot().sendMessage(msg);
+                                    }
                                 } else {
-                                    playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
-                                    return true;
+                                    playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l无."));
                                 }
 
-                                playerSender.getInventory().addItem(targetRing);
-
-                                playerSender.sendMessage(
-                                        ChatColor.translateAlternateColorCodes(
-                                                '&',
-                                                LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "RingReceivedSuccess")
-                                                        .replace("%amount%", args[3])
-                                                        .replace("%ringKey%", args[2])
-                                        )
-                                );
+                                for(String msg : ringsListLower) {
+                                    playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                                }
                             } else {
-                                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownRing"));
+                                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
                             }
-                        } else {
-                            playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
-                        }
-                        break;
-                    case"give":
-                        if(args.length == 5) {
-                            Player target = Bukkit.getPlayer(args[2]);
-                            if(target != null) {
-                                if(RingManager.getRingManager().getRing(args[3]) != null) {
-                                    ItemStack targetRing = RingManager.getRingManager().getRing(args[3]);
-                                    Matcher matcher = pattern.matcher(args[4]);
+                            break;
+                        case "get":
+                            if(args.length == 4) {
+                                if(RingManager.getRingManager().getRing(args[2]) != null) {
+                                    ItemStack targetRing = RingManager.getRingManager().getRing(args[2]);
+                                    Matcher matcher = pattern.matcher(args[3]);
 
                                     if(matcher.find()) {
-                                        targetRing.setAmount(Integer.parseInt(args[4]));
+                                        targetRing.setAmount(Integer.valueOf(args[3]));
                                     } else {
                                         playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
                                         return true;
                                     }
 
-                                    target.getInventory().addItem(targetRing);
+                                    playerSender.getInventory().addItem(targetRing);
 
                                     playerSender.sendMessage(
                                             ChatColor.translateAlternateColorCodes(
                                                     '&',
-                                                    LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "RingGaveSuccess")
-                                                            .replace("%player%", target.getName())
-                                                            .replace("%amount%", args[4])
-                                                            .replace("%ringKey%", args[3])
-                                                    )
-                                    );
-                                    target.sendMessage(
-                                            ChatColor.translateAlternateColorCodes(
-                                                    '&',
                                                     LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "RingReceivedSuccess")
-                                                            .replace("%amount%", args[4])
-                                                            .replace("%ringKey%", args[3])
+                                                            .replace("%amount%", args[3])
+                                                            .replace("%ringKey%", args[2])
                                             )
                                     );
                                 } else {
                                     playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownRing"));
                                 }
                             } else {
-                                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "PlayerOffline"));
+                                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
                             }
-                        } else {
+                            break;
+                        case"give":
+                            if(args.length == 5) {
+                                Player target = Bukkit.getPlayer(args[2]);
+                                if(target != null) {
+                                    if(RingManager.getRingManager().getRing(args[3]) != null) {
+                                        ItemStack targetRing = RingManager.getRingManager().getRing(args[3]);
+                                        Matcher matcher = pattern.matcher(args[4]);
+
+                                        if(matcher.find()) {
+                                            targetRing.setAmount(Integer.parseInt(args[4]));
+                                        } else {
+                                            playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
+                                            return true;
+                                        }
+
+                                        target.getInventory().addItem(targetRing);
+
+                                        playerSender.sendMessage(
+                                                ChatColor.translateAlternateColorCodes(
+                                                        '&',
+                                                        LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "RingGaveSuccess")
+                                                                .replace("%player%", target.getName())
+                                                                .replace("%amount%", args[4])
+                                                                .replace("%ringKey%", args[3])
+                                                )
+                                        );
+                                        target.sendMessage(
+                                                ChatColor.translateAlternateColorCodes(
+                                                        '&',
+                                                        LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "RingReceivedSuccess")
+                                                                .replace("%amount%", args[4])
+                                                                .replace("%ringKey%", args[3])
+                                                )
+                                        );
+                                    } else {
+                                        playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownRing"));
+                                    }
+                                } else {
+                                    playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "PlayerOffline"));
+                                }
+                            } else {
+                                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
+                            }
+                            break;
+                        default:
                             playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
-                        }
-                        break;
-                    default:
-                        playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
-                        break;
+                            break;
+                    }
+                } else {
+                    playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
                 }
             } else {
-                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
+                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Plugins", "NoPermission"));
             }
         } else {
             sender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Plugins", "NotPlayer"));

@@ -39,9 +39,9 @@ public class LocaleManager {
     public void loadLanguage() {
         if (!localeFile.exists()) {
             createDefaultLanguage();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7未找到语言文件, 已自动生成."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 未找到语言文件, 已自动生成."));
         } else {
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已加载语言文件."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 已加载语言文件."));
         }
 
         localeData = YamlConfiguration.loadConfiguration(localeFile);
@@ -54,6 +54,9 @@ public class LocaleManager {
         plugins.set("Warn", "&e&l&o>> ");
         plugins.set("Error", "&c&l&o>> ");
         plugins.set("NotPlayer", "&7此命令仅玩家可使用.");
+        plugins.set("NoPermission", "&7操作成功, 花费 &c%money%&7.");
+        plugins.set("NotEnoughMoney", "&7您的金钱不足以执行此操作(&c%money%&7).");
+        plugins.set("CostSuccess", "&7操作成功, 花费 &c%money%&7.");
         plugins.set("ReloadSuccess", "&7重载成功.");
 
         ConfigurationSection commandMsg = localeData.createSection("Commands");
@@ -70,6 +73,8 @@ public class LocaleManager {
         commandMsg.set("AmountError", "&7请勿对叠加物品打孔/吸收魂环.");
         commandMsg.set("TooManyRing", "&7请勿放入多个目标魂环.");
         commandMsg.set("Stats", statsMsg);
+        commandMsg.set("CantPunchMore", "&7此物品孔数已达到最大值(&c%amount%&7), 您无法再继续打孔了.");
+        commandMsg.set("CantAbsorbMore", "&7该物品吸收的此魂环已达到最大值(&c%amount%&7), 您无法再继续为该物品吸收此魂环了了.");
 
         ConfigurationSection attributeMsg = localeData.createSection("Attributes");
         attributeMsg.set("VAMPIRE", "%color%&l生命吸取! &7为您恢复了 &c%amount% &7点生命值.");

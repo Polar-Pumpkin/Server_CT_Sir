@@ -3,13 +3,15 @@ Hooks:
   PlaceholdersAPI: false
 Effect:
   Enable: true
-  Success: VILLAGER_HAPPY
-  Failure: VILLAGER_ANGRY
+  Success: HAPPY_VILLAGER
+  Failure: VILLAGER_THUNDERCLOUD
 Sound:
   Enable: true
-  Success: ENTITY_EXPERIENCE_ORB_PICKUP
-  Failure: BLOCK_ANVIL_DESTROY
-Validator: ":"
+  Success: LEVEL_UP
+  Failure: ANVIL_BREAK
+Economy:
+  Punch: 100
+  Absorb: 100
 Attributes:
   VAMPIRE_RATE:
     Enable: true

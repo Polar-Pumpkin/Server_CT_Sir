@@ -74,18 +74,19 @@ public class RingManager {
     private Set<String> configuredAttributesList;
     private List<String> attributesPreviewLore;
     private List<String> ringLore;
+    private List<String> inlayRings;
 
     public void loadRings() {
         if(!settingFile.exists()) {
             createDefaultSetting();
             settingData = YamlConfiguration.loadConfiguration(settingFile);
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7未找到魂环设置文件, 已自动生成."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 未找到魂环设置文件, 已自动生成."));
         } else {
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已加载魂环设置文件."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 已加载魂环设置文件."));
         }
         if(!ringsFile.exists()) {
             createDefaultRings();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7未找到魂环配置文件, 已自动生成."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 未找到魂环配置文件, 已自动生成."));
         }
 
         ringsData = YamlConfiguration.loadConfiguration(ringsFile);
@@ -93,16 +94,17 @@ public class RingManager {
         int ringsAmount = 0;
         for(String key : ringsData.getKeys(false)) {
             loadedRingsMap.put(key, buildRing(ringsData.getConfigurationSection(key)));
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已构建魂环 &c" + key + " &7."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 已构建魂环 " + key + " ."));
             ringsAmount++;
         }
-        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7魂环构建完成, 共加载 &c" + String.valueOf(ringsAmount) + " &7个魂环."));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 魂环构建完成, 共加载 " + String.valueOf(ringsAmount) + " 个魂环."));
     }
 
     private void createDefaultRings() {
         ConfigurationSection exampleRing =  ringsData.createSection("Example");
         exampleRing.set("Display", "&6&l示例魂环");
         exampleRing.set("Type", Material.EGG.toString());
+        exampleRing.set("Limit", 3);
         exampleRing.set("Enchants.DAMAGE_ALL", 10);
         exampleRing.set("ItemFlags", exampleItemFlag);
 
@@ -130,6 +132,7 @@ public class RingManager {
         settingData.set("RingFormat.Display", "%name%");
         settingData.set("RingFormat.Lore", soulRingLore);
         settingData.set("AttributePreview", "    &d&l> %attribute% &7-> %value%");
+        settingData.set("PunchLimit", 3);
         settingData.set("Design.Header", "&2ᚐᚑᚒᚓᚔᚍᚎᚏ &a&l魂环 &2ᚏᚎᚍᚔᚓᚒᚑᚐ");
         settingData.set("Design.Slot.Empty", "&a□ &7空魂环位");
         settingData.set("Design.Slot.Filled", "&a▣ &7已镶嵌: ");
@@ -157,6 +160,21 @@ public class RingManager {
 
     public String getHeader() {
         return ChatColor.translateAlternateColorCodes('&', settingData.getString("Design.Header"));
+    }
+
+    public int getLimit(String ringKey) {
+        return ringsData.getInt(ringKey + ".Limit");
+    }
+
+    public int countRing(ItemStack item, String ringKey) {
+        inlayRings = SlotManager.getSlotManager().getInlayRings(item);
+        int amount = 0;
+        for(String ring : inlayRings) {
+            if(ring.equals(ringKey)) {
+                amount++;
+            }
+        }
+        return amount;
     }
 
     public String getRingDisplay(String ringKey) {
@@ -281,7 +299,7 @@ public class RingManager {
     public String getRingKey(ItemStack targetItem) {
         if(isRing(targetItem)) {
             for(String key : loadedRingsMap.keySet()) {
-                if(targetItem.equals(loadedRingsMap.get(key))) {
+                if(loadedRingsMap.get(key).equals(targetItem)) {
                     return key;
                 }
             }

@@ -30,6 +30,7 @@ public class Stat implements SubCommand {
         if(sender instanceof Player) {
             Player playerSender = (Player) sender;
             attributesMap = AttributeManager.getInstance().getAttributesFromPlayer(playerSender);
+            System.out.println(attributesMap);
 
             for(String stat : buildStatMessage(attributesMap)) {
                 playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', stat));
@@ -51,14 +52,25 @@ public class Stat implements SubCommand {
             for(Attributes attribute : attributesMap.keySet()) {
                 if (AttributeManager.getInstance().getAllAttributes().contains(attribute)) {
                     if (AttributeManager.getInstance().hasEnabled(attribute)) {
-                        attributesPreview.add(
-                                ChatColor.translateAlternateColorCodes(
-                                        '&',
-                                        RingManager.getRingManager().getSettingData().getString("AttributePreview")
-                                                .replace("%attribute%", AttributeManager.getInstance().getDisplay(attribute))
-                                                .replace("%value%", AttributeManager.getInstance().getFormattedValue(attribute, Integer.parseInt(formatter.format(attributesMap.get(attribute)))))
-                                )
-                        );
+                        if(AttributeManager.getInstance().isPercentValue(attribute)) {
+                            attributesPreview.add(
+                                    ChatColor.translateAlternateColorCodes(
+                                            '&',
+                                            RingManager.getRingManager().getSettingData().getString("AttributePreview")
+                                                    .replace("%attribute%", AttributeManager.getInstance().getDisplay(attribute))
+                                                    .replace("%value%", AttributeManager.getInstance().getFormattedValue(attribute, Integer.parseInt(formatter.format(attributesMap.get(attribute) / 100))))
+                                    )
+                            );
+                        } else {
+                            attributesPreview.add(
+                                    ChatColor.translateAlternateColorCodes(
+                                            '&',
+                                            RingManager.getRingManager().getSettingData().getString("AttributePreview")
+                                                    .replace("%attribute%", AttributeManager.getInstance().getDisplay(attribute))
+                                                    .replace("%value%", AttributeManager.getInstance().getFormattedValue(attribute, Integer.parseInt(formatter.format(attributesMap.get(attribute)))))
+                                    )
+                            );
+                        }
                     }
                 }
             }

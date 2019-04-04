@@ -25,7 +25,10 @@ public class VaultHook {
         if (!setupEconomy()) {
             SoulRing.getInstance().getConfig().set("Hooks.Vault", false);
             SoulRing.getInstance().saveConfig();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7未找到 &d&lVault &7,扣费模块不可用."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 未找到 Vault ,扣费模块不可用."));
+        } else {
+            SoulRing.getInstance().getConfig().set("Hooks.Vault", true);
+            SoulRing.getInstance().saveConfig();
         }
     }
 
@@ -36,7 +39,7 @@ public class VaultHook {
                 return false;
             }
             economy = rsp.getProvider();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已连接 &d&lVault&7."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 已连接 Vault."));
             return economy != null;
         }
         return false;

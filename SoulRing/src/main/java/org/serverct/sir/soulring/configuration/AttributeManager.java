@@ -3,6 +3,7 @@ package org.serverct.sir.soulring.configuration;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -46,16 +47,16 @@ public class AttributeManager {
                 if(attributesSection.getConfigurationSection(section).getBoolean("Enable")) {
                     attributesDisplayMap.put(Attributes.valueOf(section), attributesSection.getConfigurationSection(section).getString("Display"));
                     attributesColorMap.put(Attributes.valueOf(section), ChatColor.valueOf(attributesSection.getConfigurationSection(section).getString("Color").toUpperCase()));
-                    Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7属性 &c" + section + " &7已加载."));
+                    Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 属性 " + section + " 已加载."));
                 } else {
-                    Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7属性 &c" + section + " &7已禁用."));
+                    Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 属性 " + section + " 已禁用."));
                 }
             } else {
-                Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &c> &7发现未知属性 &c" + section + "&7."));
+                Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 发现未知属性 " + section + "."));
             }
             attributeAmount++;
         }
-        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7属性加载完成, 共加载 &c" + String.valueOf(attributeAmount) + " &7个属性."));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 属性加载完成, 共加载 " + String.valueOf(attributeAmount) + " 个属性."));
     }
 
     public String getDisplay(Attributes attribute) {
@@ -121,24 +122,28 @@ public class AttributeManager {
         if(!attributesOnItem.isEmpty()) {
             attributesOnItem.clear();
         }
-        cacheAttributesMap.clear();
-        if(SlotManager.getSlotManager().containSlot(item)) {
-            inlayRings = SlotManager.getSlotManager().getInlayRings(item);
-            if (!inlayRings.isEmpty()) {
-                for (String key : inlayRings) {
-                    cacheAttributesMap = RingManager.getRingManager().getRingAttributes(key);
-                    for (Attributes attribute : cacheAttributesMap.keySet()) {
-                        if (attributesOnItem.containsKey(attribute)) {
-                            if (isPercentValue(attribute)) {
-                                attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute) * 100);
-                            } else {
-                                attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute));
-                            }
-                        } else {
-                            if (isPercentValue(attribute)) {
-                                attributesOnItem.put(attribute, cacheAttributesMap.get(attribute) * 100);
-                            } else {
-                                attributesOnItem.put(attribute, cacheAttributesMap.get(attribute));
+        if(item != null || item.getType() != Material.AIR) {
+            if(item.hasItemMeta()) {
+                if(SlotManager.getSlotManager().containSlot(item)) {
+                    inlayRings = SlotManager.getSlotManager().getInlayRings(item);
+                    if (!inlayRings.isEmpty()) {
+                        System.out.println("物品上的魂环" + inlayRings);
+                        for (String key : inlayRings) {
+                            cacheAttributesMap = RingManager.getRingManager().getRingAttributes(key);
+                            for (Attributes attribute : cacheAttributesMap.keySet()) {
+                                if (attributesOnItem.containsKey(attribute)) {
+                                    if (isPercentValue(attribute)) {
+                                        attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute) * 100);
+                                    } else {
+                                        attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute));
+                                    }
+                                } else {
+                                    if (isPercentValue(attribute)) {
+                                        attributesOnItem.put(attribute, cacheAttributesMap.get(attribute) * 100);
+                                    } else {
+                                        attributesOnItem.put(attribute, cacheAttributesMap.get(attribute));
+                                    }
+                                }
                             }
                         }
                     }
@@ -153,30 +158,35 @@ public class AttributeManager {
         if(!attributesOnPlayer.isEmpty()) {
             attributesOnPlayer.clear();
         }
-        cacheAttributesMap.clear();
+        System.out.println("初始值" + attributesOnPlayer);
 
         attributesOnPlayer = getAttributesFromItem(player.getItemInHand());
         armors = player.getInventory().getArmorContents();
 
+        System.out.println("手值" + attributesOnPlayer);
+
+        int amount = 1;
         for(ItemStack armor : armors) {
-            cacheAttributesMap = getAttributesFromItem(armor);
-            for (Attributes attribute : cacheAttributesMap.keySet()) {
-                if (attributesOnPlayer.containsKey(attribute)) {
-                    if (isPercentValue(attribute)) {
-                        attributesOnPlayer.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute) * 100);
-                    } else {
-                        attributesOnPlayer.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute));
-                    }
-                } else {
-                    if (isPercentValue(attribute)) {
-                        attributesOnPlayer.put(attribute, cacheAttributesMap.get(attribute) * 100);
-                    } else {
-                        attributesOnPlayer.put(attribute, cacheAttributesMap.get(attribute));
+            System.out.println("正在加载第" + amount + "个护甲");
+            if(armor != null || armor.getType() != Material.AIR) {
+                if(armor.hasItemMeta()) {
+                    cacheAttributesMap = getAttributesFromItem(armor);
+                    System.out.println("此护甲值" + attributesOnPlayer);
+                    for (Attributes attribute : cacheAttributesMap.keySet()) {
+                        if (attributesOnPlayer.containsKey(attribute)) {
+                            System.out.println("覆盖值" + attribute + (attributesOnPlayer.get(attribute) + cacheAttributesMap.get(attribute)));
+                            attributesOnPlayer.put(attribute, attributesOnPlayer.get(attribute) + cacheAttributesMap.get(attribute));
+                        } else {
+                            System.out.println("添加值" + attribute + cacheAttributesMap.get(attribute));
+                            attributesOnPlayer.put(attribute, cacheAttributesMap.get(attribute));
+                        }
                     }
                 }
             }
+            amount++;
         }
 
+        System.out.println("输出值" + attributesOnPlayer);
         return attributesOnPlayer;
     }
 
