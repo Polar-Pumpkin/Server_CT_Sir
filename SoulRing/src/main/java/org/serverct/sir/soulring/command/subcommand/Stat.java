@@ -1,5 +1,6 @@
 package org.serverct.sir.soulring.command.subcommand;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -23,17 +24,33 @@ public class Stat implements SubCommand {
     private List<String> attributesPreview;
     private List<String> resultStatMsg;
 
+    private Player playerSender;
+
     private DecimalFormat formatter = new java.text.DecimalFormat("0");
 
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         if(sender instanceof Player) {
-            Player playerSender = (Player) sender;
-            attributesMap = AttributeManager.getInstance().getAttributesFromPlayer(playerSender);
-            System.out.println(attributesMap);
+            playerSender = (Player) sender;
 
-            for(String stat : buildStatMessage(attributesMap)) {
-                playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', stat));
+            if(args.length == 2) {
+                attributesMap = AttributeManager.getInstance().getAttributesFromPlayer(playerSender);
+
+                for(String stat : buildStatMessage(attributesMap)) {
+                    playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', stat.replace("%player%", playerSender.getName())));
+                }
+            } else if(args.length == 3) {
+                if(Bukkit.getPlayer(args[2]).isOnline()) {
+                    attributesMap = AttributeManager.getInstance().getAttributesFromPlayer(Bukkit.getPlayer(args[2]));
+
+                    for(String stat : buildStatMessage(attributesMap)) {
+                        playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', stat.replace("%player%", args[2])));
+                    }
+                } else {
+                    playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "PlayerOffline"));
+                }
+            } else {
+                playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Commands", "UnknownParam"));
             }
         } else {
             sender.sendMessage(LocaleManager.getLocaleManager().getMessage("ERROR", "Plugins", "NotPlayer"));

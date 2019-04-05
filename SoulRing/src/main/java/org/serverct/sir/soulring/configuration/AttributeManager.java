@@ -32,6 +32,9 @@ public class AttributeManager {
 
     private Map<Attributes, Double> attributesOnItem = new HashMap<>();
     private Map<Attributes, Double> cacheAttributesMap = new HashMap<>();
+
+    private Map<Attributes, Double> attributesOnArmor = new HashMap<>();
+    private Map<Attributes, Double> attributesOnHand = new HashMap<>();
     private Map<Attributes, Double> attributesOnPlayer = new HashMap<>();
 
     private List<String> inlayRings;
@@ -127,7 +130,6 @@ public class AttributeManager {
                 if(SlotManager.getSlotManager().containSlot(item)) {
                     inlayRings = SlotManager.getSlotManager().getInlayRings(item);
                     if (!inlayRings.isEmpty()) {
-                        System.out.println("物品上的魂环" + inlayRings);
                         for (String key : inlayRings) {
                             cacheAttributesMap = RingManager.getRingManager().getRingAttributes(key);
                             for (Attributes attribute : cacheAttributesMap.keySet()) {
@@ -158,35 +160,33 @@ public class AttributeManager {
         if(!attributesOnPlayer.isEmpty()) {
             attributesOnPlayer.clear();
         }
-        System.out.println("初始值" + attributesOnPlayer);
+        if(!attributesOnHand.isEmpty()) {
+            attributesOnHand.clear();
+        }
+        if(!attributesOnArmor.isEmpty()) {
+            attributesOnArmor.clear();
+        }
 
-        attributesOnPlayer = getAttributesFromItem(player.getItemInHand());
+        attributesOnHand = getAttributesFromItem(player.getItemInHand());
         armors = player.getInventory().getArmorContents();
 
-        System.out.println("手值" + attributesOnPlayer);
+        attributesOnPlayer.putAll(attributesOnHand);
 
-        int amount = 1;
         for(ItemStack armor : armors) {
-            System.out.println("正在加载第" + amount + "个护甲");
             if(armor != null || armor.getType() != Material.AIR) {
                 if(armor.hasItemMeta()) {
-                    cacheAttributesMap = getAttributesFromItem(armor);
-                    System.out.println("此护甲值" + attributesOnPlayer);
-                    for (Attributes attribute : cacheAttributesMap.keySet()) {
+                    attributesOnArmor = getAttributesFromItem(armor);
+                    for (Attributes attribute : attributesOnArmor.keySet()) {
                         if (attributesOnPlayer.containsKey(attribute)) {
-                            System.out.println("覆盖值" + attribute + (attributesOnPlayer.get(attribute) + cacheAttributesMap.get(attribute)));
-                            attributesOnPlayer.put(attribute, attributesOnPlayer.get(attribute) + cacheAttributesMap.get(attribute));
+                            attributesOnPlayer.put(attribute, attributesOnPlayer.get(attribute) + attributesOnArmor.get(attribute));
                         } else {
-                            System.out.println("添加值" + attribute + cacheAttributesMap.get(attribute));
-                            attributesOnPlayer.put(attribute, cacheAttributesMap.get(attribute));
+                            attributesOnPlayer.put(attribute, attributesOnArmor.get(attribute));
                         }
                     }
                 }
             }
-            amount++;
         }
 
-        System.out.println("输出值" + attributesOnPlayer);
         return attributesOnPlayer;
     }
 

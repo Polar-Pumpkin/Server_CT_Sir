@@ -13,8 +13,10 @@ import org.serverct.sir.soulring.configuration.LocaleManager;
 import org.serverct.sir.soulring.configuration.RingManager;
 import org.serverct.sir.soulring.configuration.SlotManager;
 import org.serverct.sir.soulring.hook.VaultHook;
+import org.serverct.sir.soulring.util.BasicUtil;
 
 public class Absorb implements SubCommand {
+
     private Player playerSender;
     private ItemStack targetItem;
     private ItemStack targetRing;
@@ -69,7 +71,17 @@ public class Absorb implements SubCommand {
                                         if(SoulRing.getInstance().hasEffectEnabled()) {
                                             playerSender.playEffect(playerLocation, successEffect, 0);
                                         }
-                                        playerSender.sendMessage(LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "InlaySuccess").replace("%ringDisplay%", RingManager.getRingManager().getRingDisplay(targetRing)));
+                                        playerSender.sendMessage(
+                                                LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "InlaySuccess")
+                                                        .replace("%ringDisplay%", RingManager.getRingManager().getRingDisplay(targetRing))
+                                        );
+                                        for(Player onlinePlayer : BasicUtil.getOnlinePlayers()) {
+                                            onlinePlayer.sendMessage(
+                                                    LocaleManager.getLocaleManager().getMessage("INFO", "Commands", "AbsorbBroadcast")
+                                                            .replace("%player%", playerSender.getName())
+                                                            .replace("%ringDisplay%", RingManager.getRingManager().getRingDisplay(targetRing))
+                                            );
+                                        }
                                     } else {
                                         if(SoulRing.getInstance().hasSoundEnabled()) {
                                             playerSender.playSound(playerLocation, failSound, 1F, 0F);

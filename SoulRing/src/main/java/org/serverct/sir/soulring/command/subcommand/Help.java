@@ -8,7 +8,7 @@ import org.serverct.sir.soulring.configuration.LocaleManager;
 
 public class Help implements SubCommand {
     private String[] helpMsg = {
-            "&c&l> &d&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
+            "&d&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
             "",
             "  &6&lSoul Ring &7| &d&l魂环 &7>>>",
             "",
@@ -24,15 +24,16 @@ public class Help implements SubCommand {
             "  &d/sr version &9- &7查看版本信息.",
             "  &d/sr reload &9- &7重载插件.",
             "",
-            "  &d/sr stat &9- &7查看自身属性.",
+            "  &d/sr stat&7(&ds&7) &7&l[&c玩家ID&7&l] &9- &7查看自身属性.",
             "  &d/sr punch &7&l[&c行数&7&l] &9- &7给手中的武器打孔.",
             "  &d/sr ring &7&l<&c参数&7&l>",
             "    &9&l&o-> &dlist &9- &7列出所有魂环.",
             "    &9&l&o-> &dget &7&l<&c魂环ID&7&l> &7&l<&c数量&7&l> &9- &7获取指定魂环.",
             "    &9&l&o-> &dgive &7&l<&c玩家ID&7&l> &7&l<&c魂环ID&7&l> &7&l<&c数量&7&l> &9- &7给予某玩家指定魂环.",
             "  &d/sr absorb &9- &7给手中的武器吸收魂环.",
+            "  &d/sr unload &7&l<&c行数&7&l> &9- &7给手中的武器拆卸指定行数上的魂环.",
             "",
-            "&c&l> &d&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
+            "&d&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
     };
 
     @Override

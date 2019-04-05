@@ -22,15 +22,15 @@ public class LocaleManager {
     }
 
     private String[] statsMsg = {
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
+            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
             "",
             "  &6&lSoul Ring &7| &d&l魂环 &7>>>",
             "",
-            "  &9&l物品属性 &7>>>",
+            "  &9&l玩家 &a%player% &9&l属性 &7>>>",
             "",
             "%AttributesPreview%",
             "",
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
+            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
     };
 
     private File localeFile = new File(SoulRing.getInstance().getDataFolder() + File.separator + "Locale.yml");
@@ -64,17 +64,26 @@ public class LocaleManager {
         commandMsg.set("UnknownCmd", "&7未知命令. 请输入 &d&l/sr help &7查看帮助.");
         commandMsg.set("UnknownRing", "&7未知魂环, 操作失败.");
         commandMsg.set("PlayerOffline", "&7目标玩家不在线, 操作失败.");
+
         commandMsg.set("RingGaveSuccess", "&7已给予 &c%player% &c%amount% &7个魂环 &c%ringKey%&7.");
         commandMsg.set("RingReceivedSuccess", "&7已收到 &c%amount% &7个魂环 &c%ringKey%&7.");
         commandMsg.set("PunchSuccess", "&7打孔成功.");
         commandMsg.set("InlaySuccess", "&7吸收魂环 &c%ringDisplay% &7成功.");
+        commandMsg.set("UnloadSuccess", "&7拆卸 &c%ringDisplay% &7成功.");
+
         commandMsg.set("NoSlot", "&7此物品没有其他空魂环空位了.");
+        commandMsg.set("NoMeta", "&7手持物品无效, 请确认手持物品吸收有魂环.");
+        commandMsg.set("NoRing", "&7指定行数并未发现魂环.");
+
         commandMsg.set("RingSlotEmpty", "&7请在物品栏第 &c9 &7格放入目标魂环.");
         commandMsg.set("AmountError", "&7请勿对叠加物品打孔/吸收魂环.");
         commandMsg.set("TooManyRing", "&7请勿放入多个目标魂环.");
         commandMsg.set("Stats", statsMsg);
         commandMsg.set("CantPunchMore", "&7此物品孔数已达到最大值(&c%amount%&7), 您无法再继续打孔了.");
-        commandMsg.set("CantAbsorbMore", "&7该物品吸收的此魂环已达到最大值(&c%amount%&7), 您无法再继续为该物品吸收此魂环了了.");
+        commandMsg.set("CantAbsorbMore", "&7该物品吸收的此魂环已达到最大值(&c%amount%&7), 您无法再继续为该物品吸收此魂环了.");
+        commandMsg.set("AbsorbBroadcast", "&7玩家 &a%player% &7成功吸收魂环 &c%ringDisplay%&7.");
+
+
 
         ConfigurationSection attributeMsg = localeData.createSection("Attributes");
         attributeMsg.set("VAMPIRE", "%color%&l生命吸取! &7为您恢复了 &c%amount% &7点生命值.");
