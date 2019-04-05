@@ -18,7 +18,7 @@ import java.io.File;
 public final class SoulRing extends JavaPlugin {
 
     private static SoulRing INSTANCE;
-    public final static String PLUGIN_VERSION = "1.1-SNAPSHOT";
+    public final static String PLUGIN_VERSION = "1.1-RELEASE";
 
     public static SoulRing getInstance() {
         return INSTANCE;

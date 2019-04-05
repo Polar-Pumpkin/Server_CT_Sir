@@ -7,6 +7,7 @@ import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.serverct.sir.soulring.SoulRing;
 import org.serverct.sir.soulring.command.SubCommand;
 import org.serverct.sir.soulring.configuration.LocaleManager;
@@ -21,6 +22,7 @@ public class Unload implements SubCommand {
 
     private Player playerSender;
     private ItemStack targetItem;
+    private ItemMeta targetMeta;
 
     private List<String> targetLore;
     private int targetIndex;
@@ -53,7 +55,8 @@ public class Unload implements SubCommand {
 
             if(args.length == 2) {
                 if(targetItem.hasItemMeta()) {
-                    targetLore = targetItem.getItemMeta().getLore();
+                    targetMeta = targetItem.getItemMeta();
+                    targetLore = targetMeta.getLore();
                     Matcher matcher = pattern.matcher(args[1]);
 
                     if(matcher.find()) {
@@ -65,6 +68,11 @@ public class Unload implements SubCommand {
 
                             if(targetRingKey != null) {
                                 targetLore.set(targetIndex, RingManager.getRingManager().getEmptySlotDisplay());
+
+                                targetMeta.setLore(targetLore);
+                                targetItem.setItemMeta(targetMeta);
+                                playerSender.getInventory().setItemInHand(targetItem);
+
                                 playerSender.getInventory().addItem(RingManager.getRingManager().getRing(targetRingKey));
 
                                 if(SoulRing.getInstance().hasSoundEnabled()) {
