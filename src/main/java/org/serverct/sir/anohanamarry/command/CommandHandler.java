@@ -20,6 +20,8 @@ public class CommandHandler implements CommandExecutor{
         registerSubCommand("propose", new Propose());
         registerSubCommand("divorce", new Divorce());
         registerSubCommand("reload", new Reload());
+        registerSubCommand("home", new Home());
+        registerSubCommand("info", new Info());
     }
 
     public void registerSubCommand(String commandName, SubCommand subCommandClass) {
@@ -41,18 +43,10 @@ public class CommandHandler implements CommandExecutor{
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length == 0 || args[0].equalsIgnoreCase("version")) {
             return subCommandMap.get("version").execute(sender, args);
-        } else if(args[0].equalsIgnoreCase("help")){
-            return subCommandMap.get("help").execute(sender, args);
-        } else if(args[0].equalsIgnoreCase("gender")) {
-            return subCommandMap.get("gender").execute(sender, args);
-        } else if(args[0].equalsIgnoreCase("propose")) {
-            return subCommandMap.get("propose").execute(sender, args);
-        } else if(args[0].equalsIgnoreCase("divorce")) {
-            return subCommandMap.get("divorce").execute(sender, args);
-        } else if(args[0].equalsIgnoreCase("reload")) {
-            return subCommandMap.get("reload").execute(sender, args);
+        } else if(subCommandMap.containsKey(args[0])) {
+            return subCommandMap.get(args[0]).execute(sender, args);
         } else {
-            sender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.command"));
+            sender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.command"));
             return true;
         }
     }

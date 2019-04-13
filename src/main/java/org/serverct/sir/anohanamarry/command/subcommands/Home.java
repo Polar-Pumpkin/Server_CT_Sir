@@ -11,21 +11,21 @@ public class Home implements SubCommand {
     public boolean execute(CommandSender sender, String[] args) {
         if(sender instanceof Player) {
             Player playerSender = (Player) sender;
-            if(PlayerData.getPlayerDataManager().hasMarried(playerSender.getName())) {
+            if(PlayerData.getInstance().hasMarried(playerSender.getName())) {
                 if(args.length == 2) {
                     if(args[1].equalsIgnoreCase("set")) {
-                        PlayerData.getPlayerDataManager().setHomeOfLove(playerSender.getName(), playerSender.getLocation());
-                        playerSender.sendMessage(Language.getLanguageClass().getMessage("info", "Commands.Home.Set"));
+                        PlayerData.getInstance().setHomeOfLove(playerSender.getName(), playerSender.getLocation());
+                        playerSender.sendMessage(Language.getInstance().getMessage("info", "Commands.Home.Set"));
                     } else if(args[1].equalsIgnoreCase("delete")) {
-                        if (PlayerData.getPlayerDataManager().hasHome(playerSender.getName())) {
-                            PlayerData.getPlayerDataManager().removeHomeOfLove(playerSender.getName());
-                            playerSender.sendMessage(Language.getLanguageClass().getMessage("info", "Commands.Home.Delete"));
+                        if (PlayerData.getInstance().hasHome(playerSender.getName())) {
+                            PlayerData.getInstance().removeHomeOfLove(playerSender.getName());
+                            playerSender.sendMessage(Language.getInstance().getMessage("info", "Commands.Home.Delete"));
                         }
                     }
                 }
 
             } else {
-                playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Divorce.NotMarried"));
+                playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Divorce.NotMarried"));
             }
         }
         return true;

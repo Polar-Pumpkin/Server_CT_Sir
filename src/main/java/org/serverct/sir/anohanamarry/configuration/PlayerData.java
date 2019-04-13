@@ -40,7 +40,7 @@ public class PlayerData {
 
     private static PlayerData playerDataClass;
 
-    public static PlayerData getPlayerDataManager() {
+    public static PlayerData getInstance() {
         if(playerDataClass == null){
             playerDataClass = new PlayerData();
         }
@@ -59,30 +59,38 @@ public class PlayerData {
     public void loadPlayerData() {
         if(!playerDataFolder.exists()){
             playerDataFolder.mkdirs();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7未找到玩家数据文件夹, 已自动生成."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7未找到玩家数据文件夹, 已自动生成."));
         } else {
             File[] playerDataFiles = playerDataFolder.listFiles(pathname -> {
                 String fileName = pathname.getName();
                 return fileName.endsWith(".yml");
             });
             if(playerDataFiles != null) {
-                int dataFileNumber = 0;
+                int dataFileAmount = 0;
                 for(File playerDataFile : playerDataFiles) {
                     playerDataMap.put(BasicUtils.getFileNameNoEx(playerDataFile.getName()), YamlConfiguration.loadConfiguration(playerDataFile));
-                    dataFileNumber ++;
+                    dataFileAmount ++;
                 }
-                Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7已加载 " + String.valueOf(dataFileNumber) + " 个玩家数据文件."));
+                Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7共加载 &c" + String.valueOf(dataFileAmount) + " &7个玩家数据文件."));
             } else {
-                Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7无玩家数据文件可供加载."));
+                Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7无玩家数据文件可供加载."));
             }
         }
+
+        if(ANOHANAMarry.getINSTANCE().getLoveLevelMode()) {
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7当前恋爱等级提升模式: &c消耗值&7."));
+        } else {
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7当前恋爱等级提升模式: &c累计值&7."));
+        }
+
         ConfigurationSection loveLevelRequirement = ANOHANAMarry.getINSTANCE().getConfig().getConfigurationSection("LoveLevel.Setting");
         int loveLevelNumber = 0;
         for(String level : loveLevelRequirement.getKeys(false)) {
             loveLevelRequirementMap.put(level, loveLevelRequirement.getInt(level));
+            // Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已加载恋爱等级配置: &cLv." + String.valueOf(level) + " &7-> &c" + String.valueOf(loveLevelRequirement.getInt(level) + "&7.")));
             loveLevelNumber++;
         }
-        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7已加载 " + String.valueOf(loveLevelNumber) + " 个恋爱等级配置."));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7共加载 &c" + String.valueOf(loveLevelNumber) + " &7个恋爱等级配置."));
     }
 
     public String getLoveLevelIncreaseMode() {
@@ -193,17 +201,17 @@ public class PlayerData {
             List<Player> onlinePlayerList = BasicUtils.getOnlinePlayers();
             for(Player onlinePlayer : onlinePlayerList) {
                 onlinePlayer.sendMessage(
-                        Language.getLanguageClass().getMessage("info", "Common.Married.Broadcast")
+                        Language.getInstance().getMessage("info", "Common.Married.Broadcast")
                                 .replace("%sender%", playerName).replace("%receiver%", loverName)
                 );
             }
             onlinePlayerList.remove(Bukkit.getPlayer(playerName));
             onlinePlayerList.remove(Bukkit.getPlayer(loverName));
             for(Player onlinePlayer : onlinePlayerList) {
-                Language.getLanguageClass().sendTitle(
+                Language.getInstance().sendTitle(
                         onlinePlayer.getName(),
                         "Common.Married.Title",
-                        Language.getLanguageClass().getMessage("Common.Married.Subtitle")
+                        Language.getInstance().getMessage("Common.Married.Subtitle")
                                 .replace("%sender%", playerName).replace("%receiver%", loverName)
                 );
             }
@@ -267,11 +275,11 @@ public class PlayerData {
                     return;
                 }
 
-                Bukkit.getPlayer(playerName).sendMessage(Language.getLanguageClass().getMessage("info", "Commands.Divorce.Success").replace("%lover%", getLover(playerName)));
-                Bukkit.getPlayer(getLover(playerName)).sendMessage(Language.getLanguageClass().getMessage("info", "Common.Divorced.Target").replace("%lover%", playerName));
+                Bukkit.getPlayer(playerName).sendMessage(Language.getInstance().getMessage("info", "Commands.Divorce.Success").replace("%lover%", getLover(playerName)));
+                Bukkit.getPlayer(getLover(playerName)).sendMessage(Language.getInstance().getMessage("info", "Common.Divorced.Target").replace("%lover%", playerName));
 
                for(Player onlinePlayer : BasicUtils.getOnlinePlayers()) {
-                   onlinePlayer.sendMessage(Language.getLanguageClass().getMessage("warn", "Common.Divorced.Broadcast").replace("%sender%", playerName).replace("%receiver%", getLover(playerName)));
+                   onlinePlayer.sendMessage(Language.getInstance().getMessage("warn", "Common.Divorced.Broadcast").replace("%sender%", playerName).replace("%receiver%", getLover(playerName)));
                }
 
                 playerData.set("Status", "Single");
@@ -298,10 +306,10 @@ public class PlayerData {
                     e.printStackTrace();
                 }
             } else {
-                Bukkit.getPlayer(playerName).sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Divorce.NotMarried"));
+                Bukkit.getPlayer(playerName).sendMessage(Language.getInstance().getMessage("error", "Commands.Divorce.NotMarried"));
             }
         } else {
-            Bukkit.getPlayer(playerName).sendMessage(Language.getLanguageClass().getMessage("error", "Plugins.NotInLog"));
+            Bukkit.getPlayer(playerName).sendMessage(Language.getInstance().getMessage("error", "Plugins.NotInLog"));
         }
     }
 
@@ -541,16 +549,16 @@ public class PlayerData {
 
         addQueue(receiverName, senderName);
 
-        Language.getLanguageClass().sendMessage(senderName, "Commands.MarryPropose.Send", "info", "%receiver%", receiverName);
-        Language.getLanguageClass().sendSubtitle(receiverName, "Common.MarryPropose.Received.SubTitle", "%sender%", senderName);
-        Language.getLanguageClass().sendProposeMessage(senderName, receiverName);
+        Language.getInstance().sendMessage(senderName, "Commands.MarryPropose.Send", "info", "%receiver%", receiverName);
+        Language.getInstance().sendSubtitle(receiverName, "Common.MarryPropose.Received.SubTitle", "%sender%", senderName);
+        Language.getInstance().sendProposeMessage(senderName, receiverName);
     }
 
     public void sendLoverLoginStatusMsg(String playerName, boolean isOnline) {
         if(isOnline) {
-            Language.getLanguageClass().sendSubtitle(getLover(playerName), "Common.LoverOnline.SubTitle", "%lover%", playerName);
+            Language.getInstance().sendSubtitle(getLover(playerName), "Common.LoverOnline.SubTitle", "%lover%", playerName);
         } else {
-            Language.getLanguageClass().sendSubtitle(getLover(playerName), "Common.LoverOffline.SubTitle", "%lover%", playerName);
+            Language.getInstance().sendSubtitle(getLover(playerName), "Common.LoverOffline.SubTitle", "%lover%", playerName);
         }
     }
 
@@ -559,16 +567,16 @@ public class PlayerData {
             if(AMarryEconomy.getAMarryEconomyUtil().cost(senderName, receiverName, "marry")) {
                 marry(senderName, receiverName);
 
-                Language.getLanguageClass().sendSubtitle(senderName, "Common.MarryPropose.Result.Accept.SubTitle", "%receiver%", receiverName);
-                Language.getLanguageClass().sendMessage(senderName, "Common.MarryPropose.Result.Accept.Message", "info", "%receiver%", receiverName);
-                Language.getLanguageClass().sendMessage(receiverName, "Commands.MarryPropose.Accepted", "info", "%sender%", senderName);
+                Language.getInstance().sendSubtitle(senderName, "Common.MarryPropose.Result.Accept.SubTitle", "%receiver%", receiverName);
+                Language.getInstance().sendMessage(senderName, "Common.MarryPropose.Result.Accept.Message", "info", "%receiver%", receiverName);
+                Language.getInstance().sendMessage(receiverName, "Commands.MarryPropose.Accepted", "info", "%sender%", senderName);
             }
         } else {
             removeQueue(receiverName, senderName);
 
-            Language.getLanguageClass().sendSubtitle(senderName, "Common.MarryPropose.Result.Refuse.SubTitle", "%receiver%", receiverName);
-            Language.getLanguageClass().sendMessage(senderName, "Common.MarryPropose.Result.Refuse.Message", "info", "%receiver%", receiverName);
-            Language.getLanguageClass().sendMessage(receiverName, "Commands.MarryPropose.Refused", "info", "%sender%", senderName);
+            Language.getInstance().sendSubtitle(senderName, "Common.MarryPropose.Result.Refuse.SubTitle", "%receiver%", receiverName);
+            Language.getInstance().sendMessage(senderName, "Common.MarryPropose.Result.Refuse.Message", "info", "%receiver%", receiverName);
+            Language.getInstance().sendMessage(receiverName, "Commands.MarryPropose.Refused", "info", "%sender%", senderName);
         }
     }
 }

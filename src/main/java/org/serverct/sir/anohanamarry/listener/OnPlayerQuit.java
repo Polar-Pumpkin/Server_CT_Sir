@@ -9,11 +9,11 @@ public class OnPlayerQuit implements Listener {
 
     @EventHandler
     public void onQuit(PlayerQuitEvent evt) {
-        if(!PlayerData.getPlayerDataManager().hasDataFile(evt.getPlayer().getName())) {
-            PlayerData.getPlayerDataManager().addNewPlayer(evt.getPlayer().getName());
+        if(!PlayerData.getInstance().hasDataFile(evt.getPlayer().getName())) {
+            PlayerData.getInstance().addNewPlayer(evt.getPlayer().getName());
         } else {
-            if(PlayerData.getPlayerDataManager().isLoverOnline(evt.getPlayer().getName())) {
-                PlayerData.getPlayerDataManager().sendLoverLoginStatusMsg(evt.getPlayer().getName(), false);
+            if(PlayerData.getInstance().isLoverOnline(evt.getPlayer().getName())) {
+                PlayerData.getInstance().sendLoverLoginStatusMsg(evt.getPlayer().getName(), false);
             }
         }
     }

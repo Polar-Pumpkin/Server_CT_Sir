@@ -54,7 +54,7 @@ public class Help implements SubCommand {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
         } else {
-            sender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Param"));
+            sender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
         }
         return true;
     }

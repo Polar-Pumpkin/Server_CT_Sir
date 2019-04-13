@@ -27,12 +27,12 @@ public class AMarryExpansion extends PlaceholderExpansion {
 
         // %amarry_gender%
         if(identifier.equals("gender")){
-            if(PlayerData.getPlayerDataManager().hasDataFile(player.getName())) {
-                if(PlayerData.getPlayerDataManager().getSex(player.getName()).equalsIgnoreCase("Male")) {
+            if(PlayerData.getInstance().hasDataFile(player.getName())) {
+                if(PlayerData.getInstance().getSex(player.getName()).equalsIgnoreCase("Male")) {
                     return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Male"));
-                } else if(PlayerData.getPlayerDataManager().getSex(player.getName()).equalsIgnoreCase("Female")) {
+                } else if(PlayerData.getInstance().getSex(player.getName()).equalsIgnoreCase("Female")) {
                     return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Female"));
-                } else if(PlayerData.getPlayerDataManager().getSex(player.getName()).equalsIgnoreCase("Unknown")) {
+                } else if(PlayerData.getInstance().getSex(player.getName()).equalsIgnoreCase("Unknown")) {
                     return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Unknown"));
                 }
             }
@@ -41,8 +41,8 @@ public class AMarryExpansion extends PlaceholderExpansion {
 
         // %amarry_status%
         if(identifier.equals("status")){
-            if(PlayerData.getPlayerDataManager().hasDataFile(player.getName())) {
-                if(!PlayerData.getPlayerDataManager().getLover(player.getName()).equalsIgnoreCase("None")) {
+            if(PlayerData.getInstance().hasDataFile(player.getName())) {
+                if(!PlayerData.getInstance().getLover(player.getName()).equalsIgnoreCase("None")) {
                     return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Married"));
                 } else {
                     return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Single"));
@@ -53,9 +53,9 @@ public class AMarryExpansion extends PlaceholderExpansion {
 
         // %amarry_lover%
         if(identifier.equals("lover")){
-            if(PlayerData.getPlayerDataManager().hasDataFile(player.getName())) {
-                if(PlayerData.getPlayerDataManager().hasMarried(player.getName())) {
-                    return PlayerData.getPlayerDataManager().getLover(player.getName());
+            if(PlayerData.getInstance().hasDataFile(player.getName())) {
+                if(PlayerData.getInstance().hasMarried(player.getName())) {
+                    return PlayerData.getInstance().getLover(player.getName());
                 }
             }
             return "";

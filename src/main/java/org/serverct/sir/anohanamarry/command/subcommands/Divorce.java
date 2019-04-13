@@ -12,12 +12,12 @@ public class Divorce implements SubCommand {
         if(sender instanceof Player) {
             Player playerSender = (Player) sender;
             if(args.length == 1) {
-                PlayerData.getPlayerDataManager().divorce(playerSender.getName());
+                PlayerData.getInstance().divorce(playerSender.getName());
             } else {
-                playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Param"));
+                playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
             }
         } else {
-            sender.sendMessage(Language.getLanguageClass().getMessage("warn", "Plugins.NotPlayer"));
+            sender.sendMessage(Language.getInstance().getMessage("warn", "Plugins.NotPlayer"));
         }
         return true;
     }

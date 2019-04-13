@@ -14,47 +14,47 @@ public class Propose implements SubCommand {
     public boolean execute(CommandSender sender, String[] args) {
         if(sender instanceof Player) {
             Player playerSender = (Player) sender;
-            List<String> queueList = PlayerData.getPlayerDataManager().getQueue(playerSender.getName());
+            List<String> queueList = PlayerData.getInstance().getQueue(playerSender.getName());
             if(args.length == 2) {
                 if (!playerSender.getName().equalsIgnoreCase(args[1])) {
-                    if (PlayerData.getPlayerDataManager().hasDataFile(playerSender.getName())) {
-                        if (PlayerData.getPlayerDataManager().hasMarried(playerSender.getName())) {
-                            playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.MarryPropose.PlayerHasMarried"));
+                    if (PlayerData.getInstance().hasDataFile(playerSender.getName())) {
+                        if (PlayerData.getInstance().hasMarried(playerSender.getName())) {
+                            playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.MarryPropose.PlayerHasMarried"));
                         } else {
                             if(AMarryEconomy.getAMarryEconomyUtil().cost(playerSender.getName(), args[1], "sendPropose")) {
-                                PlayerData.getPlayerDataManager().sendMarryPropose(playerSender.getName(), args[1]);
+                                PlayerData.getInstance().sendMarryPropose(playerSender.getName(), args[1]);
                                 return true;
                             }
                         }
                     } else {
-                        playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Player"));
+                        playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Player"));
                     }
                 } else {
-                    playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.MarryPropose.CantMarryYourself"));
+                    playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.MarryPropose.CantMarryYourself"));
                 }
             } else if(args.length == 3) {
                 if(queueList.contains(args[2])) {
                     if (args[1].equalsIgnoreCase("accept")) {
                         if(AMarryEconomy.getAMarryEconomyUtil().cost(sender.getName(), args[2], "acceptPropose")) {
-                            PlayerData.getPlayerDataManager().sendProposeResult(args[2], playerSender.getName(), true);
+                            PlayerData.getInstance().sendProposeResult(args[2], playerSender.getName(), true);
                             return true;
                         }
                     } else if (args[1].equalsIgnoreCase("refuse")) {
                         if(AMarryEconomy.getAMarryEconomyUtil().cost(sender.getName(), args[2], "refusePropose")) {
-                            PlayerData.getPlayerDataManager().sendProposeResult(args[2], playerSender.getName(), false);
+                            PlayerData.getInstance().sendProposeResult(args[2], playerSender.getName(), false);
                             return true;
                         }
                     } else {
-                        playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Param"));
+                        playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
                     }
                 } else {
-                    playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.MarryPropose.NotInQueueList"));
+                    playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.MarryPropose.NotInQueueList"));
                 }
             } else {
-                playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Param"));
+                playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
             }
         } else {
-            sender.sendMessage(Language.getLanguageClass().getMessage("warn", "Plugins.NotPlayer"));
+            sender.sendMessage(Language.getInstance().getMessage("warn", "Plugins.NotPlayer"));
         }
         return true;
     }

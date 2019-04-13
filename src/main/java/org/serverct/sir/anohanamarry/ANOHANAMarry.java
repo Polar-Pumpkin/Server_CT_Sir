@@ -6,9 +6,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.serverct.sir.anohanamarry.command.CommandHandler;
+import org.serverct.sir.anohanamarry.configuration.ItemData;
 import org.serverct.sir.anohanamarry.configuration.PlayerData;
 import org.serverct.sir.anohanamarry.configuration.Language;
 import org.serverct.sir.anohanamarry.hook.AMarryExpansion;
+import org.serverct.sir.anohanamarry.inventory.InventoryManager;
+import org.serverct.sir.anohanamarry.listener.OnPlayerClickInventory;
+import org.serverct.sir.anohanamarry.listener.OnPlayerInteractEntity;
 import org.serverct.sir.anohanamarry.listener.OnPlayerJoin;
 import org.serverct.sir.anohanamarry.listener.OnPlayerQuit;
 
@@ -23,29 +27,29 @@ public final class ANOHANAMarry extends JavaPlugin {
     private File configFile = new File(getDataFolder() + File.separator + "config.yml");
 
     private String[] enableMsg = {
-            "&a&l> &d&m------------------------------",
+            "&d--------------------------------------------------",
             "",
-            "  &6&lANOHANA Marry &7>>>",
+            "  &6ANOHANA Marry &7>>>",
             "",
-            "  &7作者: &c&l&oEntityParrot_",
-            "  &7版本: &c&l&o" + ANOHANAMarry.PLUGIN_VERSION,
+            "  &7作者: &cEntityParrot_",
+            "  &7版本: &c" + ANOHANAMarry.PLUGIN_VERSION,
             "",
-            "  &a&l正在启动 &7>>>",
+            "  &a正在启动 &7>>>",
             "",
-            "&a&l> &d&m------------------------------"
+            "&d--------------------------------------------------"
     };
 
     private String[] reloadMsg = {
-            "&e&l> &d&m------------------------------",
+            "&d--------------------------------------------------",
             "",
-            "  &6&lANOHANA Marry &7>>>",
+            "  &6ANOHANA Marry &7>>>",
             "",
-            "  &7作者: &c&l&oEntityParrot_",
-            "  &7版本: &c&l&o" + ANOHANAMarry.PLUGIN_VERSION,
+            "  &7作者: &cEntityParrot_",
+            "  &7版本: &c" + ANOHANAMarry.PLUGIN_VERSION,
             "",
-            "  &e&l正在重载 &7>>>",
+            "  &e正在重载 &7>>>",
             "",
-            "&e&l> &d&m------------------------------"
+            "&d--------------------------------------------------"
     };
 
     public static ANOHANAMarry getINSTANCE() {
@@ -65,16 +69,20 @@ public final class ANOHANAMarry extends JavaPlugin {
         loadPlaceholderAPIExpansion();
         loadVault();
 
-        Language.getLanguageClass().loadLanguageData();
-        PlayerData.getPlayerDataManager().loadPlayerData();
+        Language.getInstance().loadLanguageData();
+        PlayerData.getInstance().loadPlayerData();
+        ItemData.getInstance().loadItemData();
+        InventoryManager.getInstance().loadGuiData();
 
         Bukkit.getPluginCommand("anohanamarry").setExecutor(new CommandHandler());
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7注册命令成功."));
         Bukkit.getPluginManager().registerEvents(new OnPlayerJoin(), this);
         Bukkit.getPluginManager().registerEvents(new OnPlayerQuit(), this);
+        Bukkit.getPluginManager().registerEvents(new OnPlayerClickInventory(), this);
+        Bukkit.getPluginManager().registerEvents(new OnPlayerInteractEntity(), this);
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7注册事件监听器成功."));
 
-        String enableEndSuffix = "&a&l> &d&m------------------------------";
+        String enableEndSuffix = "&d--------------------------------------------------";
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', enableEndSuffix));
     }
 
@@ -90,10 +98,10 @@ public final class ANOHANAMarry extends JavaPlugin {
 
         reloadConfig();
         loadPlaceholderAPIExpansion();
-        Language.getLanguageClass().loadLanguageData();
-        PlayerData.getPlayerDataManager().loadPlayerData();
+        Language.getInstance().loadLanguageData();
+        PlayerData.getInstance().loadPlayerData();
 
-        String enableEndSuffix = "&e&l> &d&m------------------------------";
+        String enableEndSuffix = "&d--------------------------------------------------";
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', enableEndSuffix));
     }
 
@@ -106,7 +114,7 @@ public final class ANOHANAMarry extends JavaPlugin {
             return false;
         }
         econ = rsp.getProvider();
-        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7已连接 &d&lVault&7."));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已连接 &d&lVault&7."));
         return econ != null;
     }
 
@@ -117,9 +125,9 @@ public final class ANOHANAMarry extends JavaPlugin {
     private void loadConfig() {
         if(!configFile.exists()){
             saveDefaultConfig();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7未找到配置文件, 已自动生成."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7未找到配置文件, 已自动生成."));
         } else {
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7已加载配置文件."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已加载配置文件."));
         }
     }
 
@@ -128,11 +136,11 @@ public final class ANOHANAMarry extends JavaPlugin {
             new AMarryExpansion().register();
             getConfig().set("Placeholders", true);
             saveConfig();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7已连接 &d&lPlaceholderAPI&7."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已连接 &d&lPlaceholderAPI&7."));
         } else {
             getConfig().set("Placeholders", false);
             saveConfig();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7未找到 &d&lPlaceholderAPI &7,[变量]模块不可用."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7未找到 &d&lPlaceholderAPI&7, 变量模块不可用."));
         }
     }
 
@@ -140,8 +148,15 @@ public final class ANOHANAMarry extends JavaPlugin {
         if (!setupEconomy()) {
             getConfig().set("Cost.Enable", false);
             saveConfig();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7未找到 &d&lVault &7,[操作花费]模块不可用."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7未找到 &d&lVault&7, 扣费模块不可用."));
         }
+    }
+
+    public boolean getLoveLevelMode() {
+        if(getConfig().getString("LoveLevel.Mode").equalsIgnoreCase("requirement")) {
+            return true;
+        }
+        return false;
     }
 
 }

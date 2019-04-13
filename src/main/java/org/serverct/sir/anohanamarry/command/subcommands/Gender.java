@@ -13,17 +13,19 @@ public class Gender implements SubCommand {
             Player playerSender = (Player) sender;
             if(args.length == 2) {
                 if(args[1].equalsIgnoreCase("male")) {
-                    PlayerData.getPlayerDataManager().setSex(playerSender.getName(), true);
+                    PlayerData.getInstance().setSex(playerSender.getName(), true);
+                    playerSender.sendMessage(Language.getInstance().getMessage("info", "Commands.Gender.Change").replace("%gender%", "男性"));
                 } else if(args[1].equalsIgnoreCase("female")) {
-                    PlayerData.getPlayerDataManager().setSex(playerSender.getName(), false);
+                    PlayerData.getInstance().setSex(playerSender.getName(), false);
+                    playerSender.sendMessage(Language.getInstance().getMessage("info", "Commands.Gender.Change").replace("%gender%", "女性"));
                 } else {
-                    playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Param"));
+                    playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
                 }
             } else {
-                playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Param"));
+                playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
             }
         } else {
-            sender.sendMessage(Language.getLanguageClass().getMessage("warn", "Plugins.NotPlayer"));
+            sender.sendMessage(Language.getInstance().getMessage("warn", "Plugins.NotPlayer"));
         }
         return true;
     }

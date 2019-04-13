@@ -18,7 +18,7 @@ public class Language {
 
     private static Language languageClass;
 
-    public static Language getLanguageClass() {
+    public static Language getInstance() {
         if(languageClass == null){
             languageClass = new Language();
         }
@@ -63,8 +63,8 @@ public class Language {
             "",
             "  &a> &7婚姻状态: &c%status%",
             "  &a> &7爱人: &c%lover%",
-            "  &a> &7亲密等级: &cLv.%lovelevel%&7(%lovepoint%&7)",
-            "  &a> &7结婚时间: &c%marriedtime%",
+            "  &a> &7亲密等级: &cLv.%loveLevel%&7(%lovePoint%&7)",
+            "  &a> &7结婚时间: &c%marriedTime%",
             "",
             "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
     };
@@ -72,9 +72,9 @@ public class Language {
     public void loadLanguageData() {
         if (!languageFile.exists()) {
             createDefaultLanguage();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7未找到语言文件, 已自动生成."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7未找到语言文件, 已自动生成."));
         } else {
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7已加载语言文件."));
+            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已加载语言文件."));
         }
     }
 
@@ -226,15 +226,16 @@ public class Language {
         List<String> playerInfo = languageData.getStringList("Commands.PlayerInfo");
         List<String> playerInfoMsg = new ArrayList<>();
         for(String msg : playerInfo) {
-            ChatColor.translateAlternateColorCodes(
+            playerInfoMsg.add(ChatColor.translateAlternateColorCodes(
                     '&',
                     msg
                             .replace("%player%", playerName)
-                            .replace("%status%", PlayerData.getPlayerDataManager().getFormatedStatus(playerName))
-                            .replace("%lover%", PlayerData.getPlayerDataManager().getLover(playerName))
-                            .replace("%lovelevel%", String.valueOf(PlayerData.getPlayerDataManager().getLoveLevel(playerName)))
-                            .replace("%lovepoint%", String.valueOf(PlayerData.getPlayerDataManager().getLovePoint(playerName)))
-                            .replace("%marriedtime%", PlayerData.getPlayerDataManager().getMarriedTime(playerName))
+                            .replace("%status%", PlayerData.getInstance().getFormatedStatus(playerName))
+                            .replace("%lover%", PlayerData.getInstance().getLover(playerName))
+                            .replace("%loveLevel%", String.valueOf(PlayerData.getInstance().getLoveLevel(playerName)))
+                            .replace("%lovePoint%", String.valueOf(PlayerData.getInstance().getLovePoint(playerName)))
+                            .replace("%marriedTime%", PlayerData.getInstance().getMarriedTime(playerName))
+                    )
             );
         }
         return playerInfoMsg;

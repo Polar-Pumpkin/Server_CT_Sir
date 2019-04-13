@@ -12,19 +12,19 @@ public class Info implements SubCommand {
         if(sender instanceof Player) {
             Player playerSender = (Player) sender;
             if(args.length == 1) {
-                for(String msg : Language.getLanguageClass().getPlayerInfo(playerSender.getName())) {
+                for(String msg : Language.getInstance().getPlayerInfo(playerSender.getName())) {
                     playerSender.sendMessage(msg);
                 }
             } else if(args.length == 2) {
-                if(PlayerData.getPlayerDataManager().hasDataFile(args[1])) {
-                    for(String msg : Language.getLanguageClass().getPlayerInfo(args[1])) {
+                if(PlayerData.getInstance().hasDataFile(args[1])) {
+                    for(String msg : Language.getInstance().getPlayerInfo(args[1])) {
                         playerSender.sendMessage(msg);
                     }
                 } else {
-                    playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Player"));
+                    playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Player"));
                 }
             } else {
-                playerSender.sendMessage(Language.getLanguageClass().getMessage("error", "Commands.Unknown.Param"));
+                playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
             }
         }
         return true;
