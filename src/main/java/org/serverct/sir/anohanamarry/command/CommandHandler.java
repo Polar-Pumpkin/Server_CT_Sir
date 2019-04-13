@@ -4,7 +4,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.serverct.sir.anohanamarry.command.subcommands.*;
-import org.serverct.sir.anohanamarry.configuration.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.MessageType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +47,7 @@ public class CommandHandler implements CommandExecutor{
         } else if(subCommandMap.containsKey(args[0])) {
             return subCommandMap.get(args[0]).execute(sender, args);
         } else {
-            sender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.command"));
+            sender.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.command"));
             return true;
         }
     }

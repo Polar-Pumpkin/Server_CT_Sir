@@ -4,9 +4,14 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.serverct.sir.anohanamarry.ANOHANAMarry;
-import org.serverct.sir.anohanamarry.configuration.PlayerData;
+import org.serverct.sir.anohanamarry.configuration.PlayerData.PlayerData;
+import org.serverct.sir.anohanamarry.configuration.PlayerData.PlayerDataManager;
+import org.serverct.sir.anohanamarry.configuration.PlayerData.StatusType;
 
 public class AMarryExpansion extends PlaceholderExpansion {
+
+    private PlayerData targetData;
+
     @Override
     public String getIdentifier() {
         return "amarry";
@@ -27,13 +32,16 @@ public class AMarryExpansion extends PlaceholderExpansion {
 
         // %amarry_gender%
         if(identifier.equals("gender")){
-            if(PlayerData.getInstance().hasDataFile(player.getName())) {
-                if(PlayerData.getInstance().getSex(player.getName()).equalsIgnoreCase("Male")) {
-                    return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Male"));
-                } else if(PlayerData.getInstance().getSex(player.getName()).equalsIgnoreCase("Female")) {
-                    return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Female"));
-                } else if(PlayerData.getInstance().getSex(player.getName()).equalsIgnoreCase("Unknown")) {
-                    return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Unknown"));
+            if(PlayerDataManager.getInstance().getLoadedPlayerDataMap().containsKey(player.getName())) {
+                targetData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(player.getName());
+
+                switch (targetData.getSex()) {
+                    case Male:
+                        return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Male"));
+                    case Female:
+                        return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Female"));
+                    case Unknown:
+                        return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Unknown"));
                 }
             }
             return "ERROR";
@@ -41,11 +49,16 @@ public class AMarryExpansion extends PlaceholderExpansion {
 
         // %amarry_status%
         if(identifier.equals("status")){
-            if(PlayerData.getInstance().hasDataFile(player.getName())) {
-                if(!PlayerData.getInstance().getLover(player.getName()).equalsIgnoreCase("None")) {
-                    return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Married"));
-                } else {
-                    return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Single"));
+            if(PlayerDataManager.getInstance().getLoadedPlayerDataMap().containsKey(player.getName())) {
+                targetData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(player.getName());
+
+                switch (targetData.getStatus()) {
+                    case Single:
+                        return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Single"));
+                    case Married:
+                        return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Married"));
+                    case FallInLove:
+                        return ChatColor.translateAlternateColorCodes('&', ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.FallInLove"));
                 }
             }
             return "ERROR";
@@ -53,9 +66,11 @@ public class AMarryExpansion extends PlaceholderExpansion {
 
         // %amarry_lover%
         if(identifier.equals("lover")){
-            if(PlayerData.getInstance().hasDataFile(player.getName())) {
-                if(PlayerData.getInstance().hasMarried(player.getName())) {
-                    return PlayerData.getInstance().getLover(player.getName());
+            if(PlayerDataManager.getInstance().getLoadedPlayerDataMap().containsKey(player.getName())) {
+                targetData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(player.getName());
+
+                if(targetData.getStatus().equals(StatusType.Married)) {
+                    return targetData.getLover();
                 }
             }
             return "";

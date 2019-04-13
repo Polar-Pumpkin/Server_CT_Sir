@@ -44,87 +44,12 @@ public class ItemData {
 
     private ConfigurationSection targetSection;
 
-    private String[] bouquetLore = {
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
-            "  &7&o可以用来向你心仪的玩家示爱, 对方同意后即可进入交往关系.",
-            "",
-            "  &e&l&o>>> &c手持 &7花束按住 &c潜行键 &7并 &c右键 &7目标玩家.",
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
-    };
-
-    private String[] ringLore = {
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
-            "  &7&o可以用来向你的交往对象求婚, 对方同意后即可结婚.",
-            "",
-            "  &e&l&o>>> &c手持 &7钻戒按住 &c潜行键 &7并 &c右键 &7目标玩家.",
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
-    };
-
-    private String[] certificateLore = {
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
-            "  &7&o结婚时获得, 右键撕毁结婚证以离婚.",
-            "",
-            "  &e&l&o>>> &c手持 &7结婚证按住 &c潜行键 &7并 &c右键&7.",
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
-    };
-
-    private String[] sk2Lore = {
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄",
-            "  &7&o送给你的交往对象, 可以提升 &c&o%amount% &7&o点亲密点数.",
-            "",
-            "  &e&l&o>>> &c手持 &7钻戒按住 &c潜行键 &7并 &c右键 &7目标玩家.",
-            "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
-    };
-
-    private String[] exampleItemFlag = {
-            "HIDE_ATTRIBUTES",
-            "HIDE_ENCHANTS",
-            "HIDE_UNBREAKABLE"
-    };
-
     public void loadItemData() {
         if(!itemFile.exists() || !itemData.getKeys(false).contains("Ring") || !itemData.getKeys(false).contains("Bouquet") || !itemData.getKeys(false).contains("Certificate")) {
-            createDefaultItem();
+            ANOHANAMarry.getINSTANCE().saveResource("Items.yml", true);
             Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7未找到道具数据文件(或关键道具配置缺失), 已自动生成."));
         }
         loadItems();
-    }
-
-    private void createDefaultItem() {
-        ConfigurationSection bouquet = itemData.createSection("Bouquet");
-        bouquet.set("Display", "&c&l示爱花束");
-        bouquet.set("Type", Material.RED_ROSE.toString());
-        bouquet.set("Lore", bouquetLore);
-        bouquet.set("Enchants.LUCK", 10);
-        bouquet.set("ItemFlags", exampleItemFlag);
-
-        ConfigurationSection ring = itemData.createSection("Ring");
-        ring.set("Display", "&b&l求婚钻戒");
-        ring.set("Type", Material.DIAMOND.toString());
-        ring.set("Lore", ringLore);
-        ring.set("Enchants.LUCK", 10);
-        ring.set("ItemFlags", exampleItemFlag);
-
-        ConfigurationSection certificate = itemData.createSection("Certificate");
-        ring.set("Display", "&6&l结婚证");
-        ring.set("Type", Material.BOOK.toString());
-        ring.set("Lore", certificateLore);
-        ring.set("Enchants.LUCK", 10);
-        ring.set("ItemFlags", exampleItemFlag);
-
-        ConfigurationSection sk2 = itemData.createSection("SK_II");
-        sk2.set("Display", "&d&lSK-II");
-        sk2.set("Type", Material.EXP_BOTTLE.toString());
-        sk2.set("Lore", sk2Lore);
-        sk2.set("LovePoint", 10);
-        sk2.set("Enchants.LUCK", 10);
-        sk2.set("ItemFlags", exampleItemFlag);
-
-        try {
-            itemData.save(itemFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void loadItems() {

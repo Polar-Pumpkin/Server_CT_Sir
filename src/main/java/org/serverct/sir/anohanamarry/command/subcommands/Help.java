@@ -4,7 +4,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.serverct.sir.anohanamarry.ANOHANAMarry;
 import org.serverct.sir.anohanamarry.command.SubCommand;
-import org.serverct.sir.anohanamarry.configuration.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.MessageType;
 
 public class Help implements SubCommand {
 
@@ -54,7 +55,7 @@ public class Help implements SubCommand {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
         } else {
-            sender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
+            sender.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Param"));
         }
         return true;
     }

@@ -7,8 +7,8 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.serverct.sir.anohanamarry.command.CommandHandler;
 import org.serverct.sir.anohanamarry.configuration.ItemData;
-import org.serverct.sir.anohanamarry.configuration.PlayerData;
-import org.serverct.sir.anohanamarry.configuration.Language;
+import org.serverct.sir.anohanamarry.configuration.PlayerData.PlayerDataManager;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
 import org.serverct.sir.anohanamarry.hook.AMarryExpansion;
 import org.serverct.sir.anohanamarry.inventory.InventoryManager;
 import org.serverct.sir.anohanamarry.listener.OnPlayerClickInventory;
@@ -70,7 +70,7 @@ public final class ANOHANAMarry extends JavaPlugin {
         loadVault();
 
         Language.getInstance().loadLanguageData();
-        PlayerData.getInstance().loadPlayerData();
+        PlayerDataManager.getInstance().loadPlayerDatas();
         ItemData.getInstance().loadItemData();
         InventoryManager.getInstance().loadGuiData();
 
@@ -99,7 +99,7 @@ public final class ANOHANAMarry extends JavaPlugin {
         reloadConfig();
         loadPlaceholderAPIExpansion();
         Language.getInstance().loadLanguageData();
-        PlayerData.getInstance().loadPlayerData();
+        PlayerDataManager.getInstance().loadPlayerDatas();
 
         String enableEndSuffix = "&d--------------------------------------------------";
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', enableEndSuffix));

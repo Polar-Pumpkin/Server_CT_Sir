@@ -3,8 +3,9 @@ package org.serverct.sir.anohanamarry.command.subcommands;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.serverct.sir.anohanamarry.command.SubCommand;
-import org.serverct.sir.anohanamarry.configuration.PlayerData;
-import org.serverct.sir.anohanamarry.configuration.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.MessageType;
+import org.serverct.sir.anohanamarry.configuration.PlayerData.PlayerDataManager;
 
 public class Divorce implements SubCommand {
     @Override
@@ -12,12 +13,12 @@ public class Divorce implements SubCommand {
         if(sender instanceof Player) {
             Player playerSender = (Player) sender;
             if(args.length == 1) {
-                PlayerData.getInstance().divorce(playerSender.getName());
+                PlayerDataManager.getInstance().divorce(playerSender);
             } else {
-                playerSender.sendMessage(Language.getInstance().getMessage("error", "Commands.Unknown.Param"));
+                playerSender.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Param"));
             }
         } else {
-            sender.sendMessage(Language.getInstance().getMessage("warn", "Plugins.NotPlayer"));
+            sender.sendMessage(Language.getInstance().getMessage(MessageType.ERROR, "Plugins.NotPlayer"));
         }
         return true;
     }

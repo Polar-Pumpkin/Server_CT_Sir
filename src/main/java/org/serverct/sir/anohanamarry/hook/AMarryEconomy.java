@@ -4,7 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.serverct.sir.anohanamarry.ANOHANAMarry;
-import org.serverct.sir.anohanamarry.configuration.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.MessageType;
 
 public class AMarryEconomy {
 
@@ -25,12 +26,12 @@ public class AMarryEconomy {
         if(ANOHANAMarry.getEconomy().getBalance(player) >= price) {
             ANOHANAMarry.getEconomy().withdrawPlayer(player, price);
             if(player.isOnline()) {
-                Language.getInstance().sendMessage(player.getName(), "Common.Cost.Success", "info", "%economy_price%", ANOHANAMarry.getEconomy().format(price));
+                player.getPlayer().sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Cost.Success").replace("%economy_price%", ANOHANAMarry.getEconomy().format(price)));
             }
             return true;
         } else {
             if(player.isOnline()) {
-                Language.getInstance().sendMessage(player.getName(), "Common.Cost.NotEnough", "error", "%economy_price%", ANOHANAMarry.getEconomy().format(price));
+                player.getPlayer().sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Cost.NotEnough").replace("%economy_price%", ANOHANAMarry.getEconomy().format(price)));
             }
             return false;
         }
@@ -101,19 +102,19 @@ public class AMarryEconomy {
             if(ANOHANAMarry.getEconomy().getBalance(payer) >= price) {
                 ANOHANAMarry.getEconomy().withdrawPlayer(payer, price);
                 if(payer.isOnline()) {
-                    Language.getInstance().sendMessage(payerName, "Common.Cost.Success", "info", "%economy_price%", ANOHANAMarry.getEconomy().format(price));
+                    payer.getPlayer().sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Cost.Success").replace("%economy_price%", ANOHANAMarry.getEconomy().format(price)));
                 }
                 if(!receiverName.equalsIgnoreCase("system")) {
                     OfflinePlayer receiver = Bukkit.getPlayer(receiverName);
                     ANOHANAMarry.getEconomy().depositPlayer(receiver, price);
                     if(receiver.isOnline()) {
-                        Language.getInstance().sendMessage(receiverName, "Common.Cost.Deposit", "info", "%economy_price%", ANOHANAMarry.getEconomy().format(price));
+                        receiver.getPlayer().sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Cost.Deposit").replace("%economy_price%", ANOHANAMarry.getEconomy().format(price)));
                     }
                 }
                 return true;
             } else {
                 if(payer.isOnline()) {
-                    Language.getInstance().sendMessage(payerName, "Common.Cost.NotEnough", "error", "%economy_price%", ANOHANAMarry.getEconomy().format(price));
+                    payer.getPlayer().sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Cost.NotEnough").replace("%economy_price%", ANOHANAMarry.getEconomy().format(price)));
                 }
                 return false;
             }
@@ -122,7 +123,7 @@ public class AMarryEconomy {
                 OfflinePlayer receiver = Bukkit.getPlayer(receiverName);
                 ANOHANAMarry.getEconomy().depositPlayer(receiver, price);
                 if(receiver.isOnline()) {
-                    Language.getInstance().sendMessage(receiverName, "Common.Cost.Deposit", "info", "%economy_price%", ANOHANAMarry.getEconomy().format(price));
+                    receiver.getPlayer().sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Cost.Deposit").replace("%economy_price%", ANOHANAMarry.getEconomy().format(price)));
                 }
             }
             return true;

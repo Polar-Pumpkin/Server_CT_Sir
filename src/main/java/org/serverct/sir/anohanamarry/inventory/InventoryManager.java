@@ -61,6 +61,7 @@ public class InventoryManager {
             ANOHANAMarry.getINSTANCE().saveResource("Guis" + File.separator + "SexSelector.yml", false);
             ANOHANAMarry.getINSTANCE().saveResource("Guis" + File.separator + "LoveShop.yml", false);
             ANOHANAMarry.getINSTANCE().saveResource("Guis" + File.separator + "MainMenu.yml", false);
+            ANOHANAMarry.getINSTANCE().saveResource("Guis" + File.separator + "ShareSetting.yml", false);
             Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &e> &7已自动生成Gui配置文件."));
 
             guiDataFiles = guiFolder.listFiles(pathname -> {

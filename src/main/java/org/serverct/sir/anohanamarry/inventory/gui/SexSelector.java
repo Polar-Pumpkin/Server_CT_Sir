@@ -1,15 +1,11 @@
 package org.serverct.sir.anohanamarry.inventory.gui;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.serverct.sir.anohanamarry.ANOHANAMarry;
 import org.serverct.sir.anohanamarry.hook.AMarryEconomy;
 import org.serverct.sir.anohanamarry.inventory.InventoryManager;
 import org.serverct.sir.anohanamarry.inventory.MenuItem;
