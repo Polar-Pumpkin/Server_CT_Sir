@@ -39,16 +39,17 @@ public class Language {
             ANOHANAMarry.getINSTANCE().saveResource("Language.yml", true);
             Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7未找到语言文件, 已自动生成."));
         } else {
+            languageData = YamlConfiguration.loadConfiguration(languageFile);
             Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a> &7已加载语言文件."));
         }
     }
 
-    private HoverEvent buildHoverEvent(String senderName, boolean isAccept) {
+    private HoverEvent buildHoverEvent(String senderName, boolean isAccept, boolean isSocialize) {
         if(isAccept) {
             return new HoverEvent(
                     HoverEvent.Action.SHOW_TEXT,
                     new ComponentBuilder(
-                            getMessage("Common.MarryPropose.Received.TypeToAccept").replace("%sender%", senderName))
+                            getMessage(isSocialize ? "Common.Propose.Socialize.Received.Action.TypeToAccept" : "Common.Propose.Marry.Received.Action.TypeToAccept").replace("%sender%", senderName))
                             .color(net.md_5.bungee.api.ChatColor.GRAY)
                             .create()
             );
@@ -56,7 +57,7 @@ public class Language {
             return new HoverEvent(
                     HoverEvent.Action.SHOW_TEXT,
                     new ComponentBuilder(
-                            getMessage("Common.MarryPropose.Received.TypeToRefuse").replace("%sender%", senderName))
+                            getMessage(isSocialize ? "Common.Propose.Socialize.Received.Action.TypeToRefuse" : "Common.Propose.Marry.Received.Action.TypeToRefuse").replace("%sender%", senderName))
                             .color(net.md_5.bungee.api.ChatColor.GRAY)
                             .create()
             );
@@ -77,47 +78,50 @@ public class Language {
         }
     }
 
-    private TextComponent buildActionTextComponent(String senderName, boolean isAccept) {
+    private TextComponent buildActionTextComponent(String senderName, boolean isAccept, boolean isSocialize) {
         TextComponent actionText = new TextComponent("  " + ANOHANAMarry.getINSTANCE().getConfig().getString("Symbol.Action"));
         actionText.setBold(true);
         if(isAccept) {
             actionText.setColor(net.md_5.bungee.api.ChatColor.GREEN);
 
-            TextComponent acceptText = new TextComponent(getMessage("Common.MarryPropose.Received.Accept"));
+            TextComponent acceptText = new TextComponent(getMessage(isSocialize ? "Common.Propose.Socialize.Received.Accept" : "Common.Propose.Marry.Received.Accept"));
             acceptText.setColor(net.md_5.bungee.api.ChatColor.GRAY);
             acceptText.setBold(false);
             actionText.addExtra(acceptText);
 
-            actionText.setHoverEvent(buildHoverEvent(senderName, true));
+            actionText.setHoverEvent(buildHoverEvent(senderName, true, isSocialize));
             actionText.setClickEvent(buildClickEvent(senderName, true));
         } else {
             actionText.setColor(net.md_5.bungee.api.ChatColor.RED);
 
-            TextComponent refuseText = new TextComponent(getMessage("Common.MarryPropose.Received.Refuse"));
+            TextComponent refuseText = new TextComponent(getMessage(isSocialize ? "Common.Propose.Socialize.Received.Refuse" : "Common.Propose.Marry.Received.Refuse"));
             refuseText.setColor(net.md_5.bungee.api.ChatColor.GRAY);
             refuseText.setBold(false);
             actionText.addExtra(refuseText);
 
-            actionText.setHoverEvent(buildHoverEvent(senderName, false));
+            actionText.setHoverEvent(buildHoverEvent(senderName, false, isSocialize));
             actionText.setClickEvent(buildClickEvent(senderName, false));
         }
         return actionText;
     }
 
-    public void sendProposeActionMessage(String senderName, String receiverName) {
+    public void sendProposeActionMessage(String senderName, String receiverName, boolean isSocialize) {
         Player receiver = Bukkit.getPlayer(receiverName);
 
-        for(String msg : languageData.getStringList("Common.MarryPropose.Received.Message.Upper")) {
+        for(String msg : languageData.getStringList(isSocialize ? "Common.Propose.Socialize.Received.Action.Upper" : "Common.Propose.Marry.Received.Action.Upper")) {
             receiver.sendMessage(
                     ChatColor.translateAlternateColorCodes(
                             '&',
-                            msg.replace("%msg%", getMessage("Common.MarryPropose.Received.Message.Msg").replace("%sender%", senderName))
+                            msg
+                                    .replace("%msg%", getMessage(isSocialize ? "Common.Propose.Socialize.Received.Action.Msg" : "Common.Propose.Marry.Received.Action.Msg")
+                                    .replace("%sender%", senderName))
+                                    .replace("%time%", String.valueOf(ANOHANAMarry.getINSTANCE().getExpireDelay(isSocialize)))
                     )
             );
         }
-        receiver.spigot().sendMessage(buildActionTextComponent(senderName, true));
-        receiver.spigot().sendMessage(buildActionTextComponent(senderName, false));
-        for(String msg : languageData.getStringList("Common.MarryPropose.Received.Message.Lower")) {
+        receiver.spigot().sendMessage(buildActionTextComponent(senderName, true, isSocialize));
+        receiver.spigot().sendMessage(buildActionTextComponent(senderName, false, isSocialize));
+        for(String msg : languageData.getStringList(isSocialize ? "Common.Propose.Socialize.Received.Action.Lower" : "Common.Propose.Marry.Received.Action.Lower")) {
             receiver.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
         }
     }
@@ -161,7 +165,7 @@ public class Language {
                     return debugPrefix + debugLog + msg;
             }
         }
-        return "";
+        return "ERROR(获取语言信息失败)!";
     }
 
     public String getMessage(String path) {

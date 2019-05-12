@@ -9,10 +9,13 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.serverct.sir.anohanamarry.ANOHANAMarry;
 import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
 import org.serverct.sir.anohanamarry.configuration.LanguageData.MessageType;
 import org.serverct.sir.anohanamarry.hook.AMarryEconomy;
+import org.serverct.sir.anohanamarry.runnable.ExpiredMarryPropose;
+import org.serverct.sir.anohanamarry.runnable.ExpiredSocializePropose;
 import org.serverct.sir.anohanamarry.util.BasicUtils;
 import org.serverct.sir.anohanamarry.util.TimeUtils;
 
@@ -65,6 +68,8 @@ public class PlayerDataManager {
 
     private PlayerData senderData;
     private PlayerData loverData;
+
+    private BukkitRunnable expireTask;
 
     public void loadPlayerDatas() {
         if(!playerDataFolder.exists()){
@@ -138,8 +143,8 @@ public class PlayerDataManager {
         newPlayerDataFile = new File(playerDataFolder.getAbsolutePath() + File.separator + playerData.getPlayerName() + ".yml");
         newPlayerData = YamlConfiguration.loadConfiguration(newPlayerDataFile);
 
-        newPlayerData.set("Sex", playerData.getSex());
-        newPlayerData.set("Status", playerData.getStatus());
+        newPlayerData.set("Sex", playerData.getSex().toString());
+        newPlayerData.set("Status", playerData.getStatus().toString());
         newPlayerData.set("Lover", playerData.getLover());
         newPlayerData.set("LoveLevel", playerData.getLoveLevel());
         newPlayerData.set("LovePoint", playerData.getLovePoint());
@@ -239,30 +244,54 @@ public class PlayerDataManager {
     }
 
     public void sendMarryPropose(Player player, Player targetPlayer) {
-        if (!player.getName().equalsIgnoreCase(targetPlayer.getName())) {
-            if (PlayerDataManager.getInstance().getLoadedPlayerDataMap().containsKey(targetPlayer.getName())) {
-                loverData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(targetPlayer.getName());
+        if(targetPlayer.isOnline()) {
+            if (!player.getName().equalsIgnoreCase(targetPlayer.getName())) {
+                if (PlayerDataManager.getInstance().getLoadedPlayerDataMap().containsKey(targetPlayer.getName())) {
+                    senderData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(player.getName());
+                    loverData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(targetPlayer.getName());
 
-                if (loverData.getStatus().equals(StatusType.Married) || senderData.getStatus().equals(StatusType.Married)) {
-                    player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.MarryPropose.PlayerHasMarried"));
-                } else {
-                    if(AMarryEconomy.getAMarryEconomyUtil().cost(player.getName(), targetPlayer.getName(), "sendPropose")) {
-                        loverData = loadedPlayerDataMap.get(targetPlayer.getName());
-                        targetQueue = loverData.getQueue();
-                        targetQueue.add(player.getName());
-                        loverData.setQueue(targetQueue);
-                        PlayerDataManager.getInstance().saveData(loverData);
+                    if (loverData.getStatus() == StatusType.Married || senderData.getStatus() == StatusType.Married) {
+                        player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Propose.Marry.PlayerHasMarried"));
+                    } else {
+                        if(senderData.getStatus() == StatusType.FallInLove) {
+                            if(senderData.getLover().equalsIgnoreCase(targetPlayer.getName())) {
+                                if(senderData.getLovePoint() >= ANOHANAMarry.getINSTANCE().getMarryRequirement()) {
+                                    if(AMarryEconomy.getAMarryEconomyUtil().cost(player.getName(), targetPlayer.getName(), "sendPropose")) {
+                                        loverData = loadedPlayerDataMap.get(targetPlayer.getName());
+                                        targetQueue = loverData.getQueue();
+                                        targetQueue.add(player.getName());
+                                        loverData.setQueue(targetQueue);
+                                        PlayerDataManager.getInstance().saveData(loverData);
 
-                        player.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Commands.MarryPropose.Send").replace("%receiver%", targetPlayer.getName()));
-                        Language.getInstance().sendSubtitle(targetPlayer.getName(), Language.getInstance().getMessage("Common.MarryPropose.Received.SubTitle").replace("%sender%", targetPlayer.getName()));
-                        Language.getInstance().sendProposeActionMessage(player.getName(), targetPlayer.getName());
+                                        expireTask = new ExpiredMarryPropose(player, targetPlayer);
+                                        expireTask.runTaskLater(ANOHANAMarry.getINSTANCE(), ANOHANAMarry.getINSTANCE().getExpireDelay(false) * 60 *20);
+
+                                        player.sendMessage(
+                                                Language.getInstance().getMessage(MessageType.INFO, "Commands.Propose.Marry.Send")
+                                                        .replace("%receiver%", targetPlayer.getName())
+                                                        .replace("%time%", String.valueOf(ANOHANAMarry.getINSTANCE().getExpireDelay(false)))
+                                        );
+                                        Language.getInstance().sendSubtitle(targetPlayer.getName(), Language.getInstance().getMessage("Common.Propose.Marry.Received.Subtitle").replace("%sender%", targetPlayer.getName()));
+                                        Language.getInstance().sendProposeActionMessage(player.getName(), targetPlayer.getName(), false);
+                                    }
+                                } else {
+                                    player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Common.Propose.Marry.Requirement.LovePoint"));
+                                }
+                            } else {
+                                player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Common.Propose.Marry.Requirement.NotLover"));
+                            }
+                        } else {
+                            player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Common.Propose.Marry.Requirement.NotSocialize"));
+                        }
                     }
+                } else {
+                    player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Player"));
                 }
             } else {
-                player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Player"));
+                player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Propose.Marry.CantMarryYourself"));
             }
         } else {
-            player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.MarryPropose.CantMarryYourself"));
+            player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Player"));
         }
     }
 
@@ -271,9 +300,9 @@ public class PlayerDataManager {
             if(AMarryEconomy.getAMarryEconomyUtil().cost(player.getName(), targetPlayer.getName(), "marry")) {
                 updateStatus(player, targetPlayer, false);
 
-                Language.getInstance().sendSubtitle(player.getName(), Language.getInstance().getMessage("Common.MarryPropose.Result.Accept.SubTitle").replace("%receiver%", targetPlayer.getName()));
-                player.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.MarryPropose.Result.Accept.Message").replace("%receiver%", targetPlayer.getName()));
-                targetPlayer.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Commands.MarryPropose.Accepted").replace("%sender%", player.getName()));
+                Language.getInstance().sendSubtitle(player.getName(), Language.getInstance().getMessage("Common.Propose.Marry.Result.Accept.Subtitle").replace("%receiver%", targetPlayer.getName()));
+                player.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Propose.Marry.Result.Accept.Message").replace("%receiver%", targetPlayer.getName()));
+                targetPlayer.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Commands.Propose.Marry.Accepted").replace("%sender%", player.getName()));
             }
         } else {
             loverData = loadedPlayerDataMap.get(targetPlayer.getName());
@@ -282,9 +311,45 @@ public class PlayerDataManager {
             loverData.setQueue(targetQueue);
             PlayerDataManager.getInstance().saveData(loverData);
 
-            Language.getInstance().sendSubtitle(player.getName(), Language.getInstance().getMessage("Common.MarryPropose.Result.Refuse.SubTitle").replace("%receiver%", targetPlayer.getName()));
-            player.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.MarryPropose.Result.Refuse.Message").replace("%receiver%", targetPlayer.getName()));
-            targetPlayer.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Commands.MarryPropose.Refused").replace("%sender%", player.getName()));
+            Language.getInstance().sendSubtitle(player.getName(), Language.getInstance().getMessage("Common.Propose.Marry.Result.Refuse.SubTitle").replace("%receiver%", targetPlayer.getName()));
+            player.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Common.Propose.Marry.Result.Refuse.Message").replace("%receiver%", targetPlayer.getName()));
+            targetPlayer.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Commands.Propose.Marry.Refused").replace("%sender%", player.getName()));
+        }
+    }
+
+    public void sendSocailizePropose(Player player, Player targetPlayer) {
+        if (!player.getName().equalsIgnoreCase(targetPlayer.getName())) {
+            if (PlayerDataManager.getInstance().getLoadedPlayerDataMap().containsKey(targetPlayer.getName())) {
+                senderData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(player.getName());
+                loverData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(targetPlayer.getName());
+
+                if (loverData.getStatus() == StatusType.Married || senderData.getStatus() == StatusType.Married) {
+                    player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Propose.Socialize.PlayerHasMarried"));
+                } else if(loverData.getStatus() == StatusType.FallInLove || senderData.getStatus() == StatusType.FallInLove) {
+
+                } else {
+                    loverData = loadedPlayerDataMap.get(targetPlayer.getName());
+                    targetQueue = loverData.getQueue();
+                    targetQueue.add(player.getName());
+                    loverData.setQueue(targetQueue);
+                    PlayerDataManager.getInstance().saveData(loverData);
+
+                    expireTask = new ExpiredSocializePropose(player, targetPlayer);
+                    expireTask.runTaskLater(ANOHANAMarry.getINSTANCE(), ANOHANAMarry.getINSTANCE().getExpireDelay(true) * 60 *20);
+
+                    player.sendMessage(
+                            Language.getInstance().getMessage(MessageType.INFO, "Commands.Propose.Socialize.Send")
+                                    .replace("%receiver%", targetPlayer.getName())
+                                    .replace("%time%", String.valueOf(ANOHANAMarry.getINSTANCE().getExpireDelay(true)))
+                    );
+                    Language.getInstance().sendSubtitle(targetPlayer.getName(), Language.getInstance().getMessage("Common.Propose.Socialize.Received.Subtitle").replace("%sender%", targetPlayer.getName()));
+                    Language.getInstance().sendProposeActionMessage(player.getName(), targetPlayer.getName(), true);
+                }
+            } else {
+                    player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Player"));
+            }
+        } else {
+            player.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Propose.Socialize.CantSocializeYourself"));
         }
     }
 }

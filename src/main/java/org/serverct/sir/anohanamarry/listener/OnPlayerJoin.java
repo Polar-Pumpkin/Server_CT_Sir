@@ -43,7 +43,7 @@ public class OnPlayerJoin implements Listener {
 
             if(targetData.getStatus().equals(StatusType.Married)) {
                 if(Bukkit.getPlayer(targetData.getLover()).isOnline()) {
-                    Language.getInstance().sendSubtitle(targetData.getLover(), Language.getInstance().getMessage("Common.LoverOnline.SubTitle").replace("%lover%", evt.getPlayer().getName()));
+                    Language.getInstance().sendSubtitle(targetData.getLover(), Language.getInstance().getMessage("Common.LoverOnline.Subtitle").replace("%lover%", evt.getPlayer().getName()));
                 }
             }
 
@@ -51,6 +51,9 @@ public class OnPlayerJoin implements Listener {
             PlayerDataManager.getInstance().saveData(targetData);
 
             if(targetData.getSex().equals(SexType.Unknown)) {
+                if(InventoryManager.getInstance().hasOpenSound("SexSelector")) {
+                    evt.getPlayer().playSound(evt.getPlayer().getLocation(), InventoryManager.getInstance().getOpenSound("SexSelector"), 1F, 0F);
+                }
                 InventoryManager.getInstance().openInventory(evt.getPlayer(), SexSelector.getInstance().buildSexSelector());
             }
         }

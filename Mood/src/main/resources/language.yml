@@ -1,0 +1,26 @@
+Plugin:
+  Prefix: "&c[&7Mood&c] "
+  INFO: "&a&l&o>> "
+  WARN: "&e&l&o>> "
+  ERROR: "&c&l&o>> "
+  NoPermission: "&7您没有权限这么做!"
+  ReloadSuccess: "&7重载成功!"
+Mood:
+  Increase: "&7您的心情上升了 &a%amount% &7点."
+  Decrease: "&7您的心情下降了 &c%amount% &7点."
+  Ways:
+    Consumables: "&7您使用了消耗品 &c%item%&7."
+    Command:
+      - "&7看了场电影."
+      - "&7散了个步, 呼吸下新鲜空气."
+      - "&7和小动物们玩了一会儿."
+Commands:
+  Unknown:
+    Param: "&7未知参数, 请检查您的命令拼写."
+    Player: "&7玩家不存在或不在线."
+    Item: "&7未知消耗品ID."
+  Cost: "&7操作成功! 共花费 &c%money%&7."
+  Item:
+    GivenSuccess: "&7成功给予 &a%player% &c%amount% &7个 &c%item%&7."
+    OutOfMaxStackSize: "&7您设定的数值超出了该类物品的最大可堆叠上限."
+    NothingInHand: "&7您当前未手持任何物品."

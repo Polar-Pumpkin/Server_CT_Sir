@@ -3,6 +3,10 @@ Title:
   FadeIn: 1
   Stay: 5
   FadeOut: 1
+Timer:
+  MarryPropose: 5
+  Socialized: 5
+MarryRequirement: 100
 Symbol:
   Male: "&b♂&r"
   Female: "&d♀&r"

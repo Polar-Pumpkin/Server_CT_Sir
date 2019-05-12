@@ -8,12 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SoulRing" />
-        <module name="GUGUGU" />
+        <module name="Mood" />
         <module name="Server CT" />
+        <module name="GUGUGU" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="GUGUGU" target="1.8" />
+      <module name="Mood" target="1.8" />
       <module name="Server CT" target="1.8" />
       <module name="SoulRing" target="1.8" />
     </bytecodeTargetLevel>

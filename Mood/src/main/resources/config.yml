@@ -1,0 +1,26 @@
+DataSaveDelay: 5
+Hooks:
+  Vault: true
+  PlaceholderAPI: true
+Punishment:
+  20: "POTION:SLOW.1"
+  10: "POTION:CONFUSION.1"
+  0: "COMMAND:suicide"
+Decrease:
+  Common:
+    Step: -1
+    Period: 300
+  Sunny:
+    Step: 1
+    Period: 60
+  Rainy:
+    Step: -2
+    Period: 60
+  Snowy:
+    Step: 2
+    Period: 60
+  Damaged: -3
+Increase:
+  Command:
+    Cost: 100
+    Amount: 5

@@ -45,11 +45,9 @@ public class SexSelector {
         itemSection = sexSelectorData.getConfigurationSection("Items");
         for(String key : itemSection.getKeys(false)) {
             buildedMenuItem = InventoryManager.getInstance().buildMenuItem(itemSection.getConfigurationSection(key));
-            buildedMenuItem.info();
             items.add(buildedMenuItem);
 
         }
-        System.out.println(items);
 
         for(MenuItem item : items) {
             for(int position : item.getPositionList()) {
@@ -78,6 +76,9 @@ public class SexSelector {
 
                 evt.setCancelled(true);
                 if(!targetMenuItem.isKeepOpen()) {
+                    if(InventoryManager.getInstance().hasOpenSound("SexSelector")) {
+                        targetPlayer.playSound(targetPlayer.getLocation(), InventoryManager.getInstance().getCloseSound("SexSelector"), 1F, 0F);
+                    }
                     InventoryManager.getInstance().closeInventory(evt.getWhoClicked());
                 }
             }

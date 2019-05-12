@@ -1,5 +1,6 @@
 package org.serverct.sir.anohanamarry.configuration;
 
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -7,17 +8,19 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.serverct.sir.anohanamarry.ANOHANAMarry;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
+import org.serverct.sir.anohanamarry.configuration.LanguageData.MessageType;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ItemData {
 
@@ -30,8 +33,8 @@ public class ItemData {
         return itemDataClass;
     }
 
-    private Map<String, ItemStack> loadedItemMap = new HashMap<>();
-    private Map<String, ItemStack> loadedGiftMap = new HashMap<>();
+    @Getter private Map<String, ItemStack> loadedItemMap = new HashMap<>();
+    @Getter private Map<String, ItemStack> loadedGiftMap = new HashMap<>();
 
     private File itemFile = new File(ANOHANAMarry.getINSTANCE().getDataFolder() + File.separator + "Items.yml");
     private FileConfiguration itemData = YamlConfiguration.loadConfiguration(itemFile);
@@ -43,6 +46,21 @@ public class ItemData {
     private ConfigurationSection enchants;
 
     private ConfigurationSection targetSection;
+
+    private ConfigurationSection newGiftSection;
+    private ItemMeta newGiftMeta;
+    private List<String> newGiftLore;
+    private ConfigurationSection newGiftEnchantSection;
+    private Map<Enchantment, Integer> newGiftEnchants;
+    private Set<ItemFlag> newGiftItemFlags;
+    private List<String> newGiftItemFlagList;
+
+    private ItemStack targetItem;
+    private int targetAmount;
+
+    private String regEx = "\\d{1,4}";
+    private Pattern pattern = Pattern.compile(regEx);
+    private Matcher matcher;
 
     public void loadItemData() {
         if(!itemFile.exists() || !itemData.getKeys(false).contains("Ring") || !itemData.getKeys(false).contains("Bouquet") || !itemData.getKeys(false).contains("Certificate")) {
@@ -117,7 +135,12 @@ public class ItemData {
     }
 
     public boolean isItem(ItemStack item) {
-        return loadedItemMap.containsValue(item);
+        for(ItemStack value : loadedItemMap.values()) {
+            if(value.isSimilar(item)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getGiftKey(ItemStack item) {
@@ -142,12 +165,110 @@ public class ItemData {
         return null;
     }
 
-    public int getGiftLoveLevel(String giftKey) {
+    public int getGiftLovePoint(String giftKey) {
         if(loadedGiftMap.containsKey(giftKey)) {
             targetSection = itemData.getConfigurationSection(giftKey);
-            return targetSection.getInt("LoveLevel");
+            return targetSection.getInt("LovePoint");
         } else {
             return 0;
+        }
+    }
+
+    public void saveGift(ItemStack item, String giftKey, int lovePoint) {
+        newGiftSection = itemData.createSection(giftKey);
+        newGiftMeta = item.getItemMeta();
+        newGiftLore = new ArrayList<>();
+
+        newGiftSection.set("Display", newGiftMeta.getDisplayName().replace("§", "&"));
+        newGiftSection.set("Type", item.getType().toString());
+        for(String lore : newGiftMeta.getLore()) {
+            newGiftLore.add(lore.replace("§", "&"));
+        }
+        newGiftSection.set("Lore", newGiftLore);
+        newGiftSection.set("LovePoint", lovePoint);
+        if(newGiftMeta.hasEnchants()) {
+            newGiftEnchantSection = newGiftSection.createSection("Enchants");
+            newGiftEnchants = newGiftMeta.getEnchants();
+
+            for(Enchantment enchantment : newGiftEnchants.keySet()) {
+                newGiftEnchantSection.set(enchantment.toString(), newGiftEnchants.get(enchantment));
+            }
+        }
+        newGiftItemFlags = newGiftMeta.getItemFlags();
+        if(!newGiftItemFlags.isEmpty()) {
+            newGiftItemFlagList = new ArrayList<>();
+
+            for(ItemFlag itemFlag : newGiftItemFlags) {
+                newGiftItemFlagList.add(itemFlag.name());
+            }
+            newGiftSection.set("ItemFlags", newGiftItemFlagList);
+        }
+
+        try {
+            itemData.save(itemFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        loadedGiftMap.put(giftKey, buildItem(newGiftSection));
+    }
+
+    public void removeGift(String giftKey) {
+        itemData.set(giftKey, null);
+        try {
+            itemData.save(itemFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        loadedGiftMap.remove(giftKey);
+    }
+
+    public void giveItem(String itemKey, Player target, String amount) {
+        if(ItemData.getInstance().getLoadedItemMap().containsKey(itemKey)) {
+            matcher = pattern.matcher(amount);
+
+            if(matcher.find()) {
+                targetItem = ItemData.getInstance().getLoadedItemMap().get(itemKey);
+                targetAmount =Integer.valueOf(amount);
+                if(targetAmount <= targetItem.getMaxStackSize()) {
+                    targetItem.setAmount(targetAmount);
+                    target.getInventory().addItem(targetItem);
+                    target.sendMessage(
+                            Language.getInstance().getMessage(MessageType.INFO, "Commands.Items.Success.Give")
+                                    .replace("%player%", target.getName())
+                                    .replace("%amount%", String.valueOf(targetAmount))
+                                    .replace("%giftKey%", itemKey)
+                                    .replace("%item%", targetItem.getItemMeta().getDisplayName())
+                    );
+                } else {
+                    target.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Items.OutOfMaxStackSize"));
+                }
+            } else {
+                target.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Items.NotANumber").replace("%param%", "数量"));
+            }
+        } else if(ItemData.getInstance().getLoadedGiftMap().containsKey(itemKey)) {
+            matcher = pattern.matcher(amount);
+
+            if(matcher.find()) {
+                targetItem = ItemData.getInstance().getLoadedGiftMap().get(itemKey);
+                targetAmount =Integer.valueOf(amount);
+                if(targetAmount <= targetItem.getMaxStackSize()) {
+                    targetItem.setAmount(targetAmount);
+                    target.getInventory().addItem(targetItem);
+                    target.sendMessage(
+                            Language.getInstance().getMessage(MessageType.INFO, "Commands.Items.Success.Give")
+                                    .replace("%player%", target.getName())
+                                    .replace("%amount%", String.valueOf(targetAmount))
+                                    .replace("%giftKey%", itemKey)
+                                    .replace("%item%", targetItem.getItemMeta().getDisplayName())
+                    );
+                } else {
+                    target.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Items.OutOfMaxStackSize"));
+                }
+            } else {
+                target.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Items.NotANumber").replace("%param%", "数量"));
+            }
+        } else {
+            target.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Item"));
         }
     }
 }

@@ -3,6 +3,7 @@ package org.serverct.sir.anohanamarry.inventory;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -147,6 +148,18 @@ public class InventoryManager {
         return null;
     }
 
+    public boolean hasOpenSound(String key) {
+        return guiInventoryMap.get(key).getConfigurationSection("Menu-Setting.Sound") != null;
+    }
+
+    public Sound getOpenSound(String key) {
+        return Sound.valueOf(guiInventoryMap.get(key).getString("Menu-Setting.Sound.Open").toUpperCase());
+    }
+
+    public Sound getCloseSound(String key) {
+        return Sound.valueOf(guiInventoryMap.get(key).getString("Menu-Setting.Sound.Close").toUpperCase());
+    }
+
     public void closeInventory(HumanEntity humanEntity) {
         invTask = new BukkitRunnable() {
             @Override
@@ -168,6 +181,9 @@ public class InventoryManager {
     }
 
     public String getInventoryTitle(String key) {
-        return ChatColor.translateAlternateColorCodes('&', guiInventoryMap.get(key).getString("Menu-Setting.Title"));
+        if(guiInventoryMap.get(key).getString("Menu-Setting.Title") != null) {
+            return ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', guiInventoryMap.get(key).getString("Menu-Setting.Title")));
+        }
+        return "";
     }
 }

@@ -23,6 +23,7 @@ public class CommandHandler implements CommandExecutor{
         registerSubCommand("reload", new Reload());
         registerSubCommand("home", new Home());
         registerSubCommand("info", new Info());
+        registerSubCommand("item", new Item());
     }
 
     public void registerSubCommand(String commandName, SubCommand subCommandClass) {

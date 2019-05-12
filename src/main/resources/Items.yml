@@ -3,16 +3,17 @@ Bouquet:
   Type: RED_ROSE
   Lore:
     - '&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄'
-    - - '  &7&o可以用来向你心仪的玩家示爱, 对方同意后即可进入交往关系.'
-    - - ''
-    - - '  &e&l&o>>> &c手持 &7花束按住 &c潜行键 &7并 &c右键 &7目标玩家.'
-    - - '&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄'
+    - '  &7&o可以用来向你心仪的玩家示爱, 对方同意后即可进入交往关系.'
+    - ''
+    - '  &e&l&o>>> &c手持 &7花束按住 &c潜行键 &7并 &c右键 &7目标玩家.'
+    - '&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄'
   Enchants:
     LUCK: 10
   ItemFlags:
     - HIDE_ATTRIBUTES
     - HIDE_ENCHANTS
     - HIDE_UNBREAKABLE
+  Price: 100
 Ring:
   Display: '&b&l求婚钻戒'
   Type: DIAMOND
@@ -28,9 +29,10 @@ Ring:
     - HIDE_ATTRIBUTES
     - HIDE_ENCHANTS
     - HIDE_UNBREAKABLE
+  Price: 1000
 Certificate:
   Display: '&d&l结婚证'
-  Type: EXP_BOTTLE
+  Type: BOOK
   Lore:
     - '&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄'
     - '  &7&o结婚时获得, 右键撕毁结婚证以离婚.'
@@ -60,3 +62,4 @@ SK_II:
     - HIDE_ATTRIBUTES
     - HIDE_ENCHANTS
     - HIDE_UNBREAKABLE
+  Price: 10000

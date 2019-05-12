@@ -11,10 +11,7 @@ import org.serverct.sir.anohanamarry.configuration.PlayerData.PlayerDataManager;
 import org.serverct.sir.anohanamarry.configuration.LanguageData.Language;
 import org.serverct.sir.anohanamarry.hook.AMarryExpansion;
 import org.serverct.sir.anohanamarry.inventory.InventoryManager;
-import org.serverct.sir.anohanamarry.listener.OnPlayerClickInventory;
-import org.serverct.sir.anohanamarry.listener.OnPlayerInteractEntity;
-import org.serverct.sir.anohanamarry.listener.OnPlayerJoin;
-import org.serverct.sir.anohanamarry.listener.OnPlayerQuit;
+import org.serverct.sir.anohanamarry.listener.*;
 
 import java.io.File;
 
@@ -80,6 +77,7 @@ public final class ANOHANAMarry extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new OnPlayerQuit(), this);
         Bukkit.getPluginManager().registerEvents(new OnPlayerClickInventory(), this);
         Bukkit.getPluginManager().registerEvents(new OnPlayerInteractEntity(), this);
+        Bukkit.getPluginManager().registerEvents(new OnPlayerInteract(), this);
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  &a&l> &7注册事件监听器成功."));
 
         String enableEndSuffix = "&d--------------------------------------------------";
@@ -100,6 +98,8 @@ public final class ANOHANAMarry extends JavaPlugin {
         loadPlaceholderAPIExpansion();
         Language.getInstance().loadLanguageData();
         PlayerDataManager.getInstance().loadPlayerDatas();
+        ItemData.getInstance().loadItemData();
+        InventoryManager.getInstance().loadGuiData();
 
         String enableEndSuffix = "&d--------------------------------------------------";
         Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', enableEndSuffix));
@@ -157,6 +157,17 @@ public final class ANOHANAMarry extends JavaPlugin {
             return true;
         }
         return false;
+    }
+
+    public int getExpireDelay(boolean isSocialize) {
+        if(isSocialize) {
+            return getConfig().getInt("Timer.Socialize");
+        }
+        return getConfig().getInt("Timer.MarryPropose");
+    }
+
+    public int getMarryRequirement() {
+        return getConfig().getInt("MarryRequirement");
     }
 
 }

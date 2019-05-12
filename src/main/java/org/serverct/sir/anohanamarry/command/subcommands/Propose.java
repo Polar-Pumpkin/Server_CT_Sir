@@ -29,10 +29,8 @@ public class Propose implements SubCommand {
             queueList = senderData.getQueue();
 
             if(args.length == 2) {
-                if (!playerSender.getName().equalsIgnoreCase(args[1])) {
-                    PlayerDataManager.getInstance().sendMarryPropose(playerSender, Bukkit.getPlayer(args[1]));
-                    return true;
-                }
+                PlayerDataManager.getInstance().sendMarryPropose(playerSender, Bukkit.getPlayer(args[1]));
+                return true;
             } else if(args.length == 3) {
                 if(queueList.contains(args[2])) {
                     if (args[1].equalsIgnoreCase("accept")) {
@@ -49,7 +47,7 @@ public class Propose implements SubCommand {
                         playerSender.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Param"));
                     }
                 } else {
-                    playerSender.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.MarryPropose.NotInQueueList"));
+                    playerSender.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Propose.Marry.NotInQueueList"));
                 }
             } else {
                 playerSender.sendMessage(Language.getInstance().getMessage(MessageType.WARN, "Commands.Unknown.Param"));

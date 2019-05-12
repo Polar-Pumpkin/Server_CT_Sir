@@ -23,6 +23,7 @@ public class OnPlayerInteractEntity implements Listener {
     private List<String> targetQueue;
 
     private PlayerData targetData;
+    private ItemStack targetItem;
 
     @EventHandler
     public void onInteract(PlayerInteractEntityEvent evt) {
@@ -30,25 +31,24 @@ public class OnPlayerInteractEntity implements Listener {
             targetPlayer = (Player) evt.getRightClicked();
             targetData = PlayerDataManager.getInstance().getLoadedPlayerDataMap().get(targetPlayer.getName());
             player = evt.getPlayer();
+            targetItem = player.getInventory().getItemInMainHand();
 
-            if(evt.getHand() == EquipmentSlot.HAND) {
-                if(player.isSneaking()) {
-                    if(ItemData.getInstance().isItem(player.getInventory().getItemInMainHand())) {
-                        switch(ItemData.getInstance().getItemKey(player.getInventory().getItemInMainHand())) {
-                            case "Bouquet":
-
-                                player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
-                                break;
-                            case "Ring":
-                                PlayerDataManager.getInstance().sendMarryPropose(player, targetPlayer);
-                                player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
-                                break;
-                            case "Certificate":
-                                break;
-                            default:
-                                break;
-                        }
+            if(player.isSneaking()) {
+                if(ItemData.getInstance().isItem(targetItem)) {
+                    switch(ItemData.getInstance().getItemKey(targetItem)) {
+                        case "Bouquet":
+                            PlayerDataManager.getInstance().sendSocailizePropose(player, targetPlayer);
+                            player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+                            break;
+                        case "Ring":
+                            PlayerDataManager.getInstance().sendMarryPropose(player, targetPlayer);
+                            player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+                            break;
+                        default:
+                            break;
                     }
+                } else if(targetItem.getType() == Material.AIR) {
+
                 }
             }
         }

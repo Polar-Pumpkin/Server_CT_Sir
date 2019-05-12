@@ -8,5 +8,4 @@ commands:
     description: Plugin's main command.
     usage: Type /<command> help to check help message.
     aliases: [am, amarry]
-depend: [SmartInvs]
 softdepend: [PlaceholderAPI, Vault]

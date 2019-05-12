@@ -41,7 +41,7 @@ public class OnPlayerQuit implements Listener {
 
             if(targetData.getStatus().equals(StatusType.Married)) {
                 if(Bukkit.getPlayer(targetData.getLover()).isOnline()) {
-                    Language.getInstance().sendSubtitle(targetData.getLover(), Language.getInstance().getMessage("Common.LoverOffline.SubTitle").replace("%lover%", evt.getPlayer().getName()));
+                    Language.getInstance().sendSubtitle(targetData.getLover(), Language.getInstance().getMessage("Common.LoverOffline.Subtitle").replace("%lover%", evt.getPlayer().getName()));
                 }
             }
         }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GUGUGU/GUGUGU.iml" filepath="$PROJECT_DIR$/GUGUGU/GUGUGU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mood/Mood.iml" filepath="$PROJECT_DIR$/Mood/Mood.iml" />
       <module fileurl="file://$PROJECT_DIR$/Server CT.iml" filepath="$PROJECT_DIR$/Server CT.iml" />
       <module fileurl="file://$PROJECT_DIR$/SoulRing/SoulRing.iml" filepath="$PROJECT_DIR$/SoulRing/SoulRing.iml" />
     </modules>
