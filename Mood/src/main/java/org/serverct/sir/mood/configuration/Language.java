@@ -30,6 +30,7 @@ public class Language {
     private String error;
     private String debug;
     private String targetMessageText;
+    private String debugPrefix;
 
     public void loadLanguage() {
         if(!dataFile.exists()) {
@@ -37,6 +38,7 @@ public class Language {
             data = YamlConfiguration.loadConfiguration(dataFile);
             Bukkit.getLogger().info("  > 未找到语言文件, 已自动生成.");
         }
+        data = YamlConfiguration.loadConfiguration(dataFile);
         Bukkit.getLogger().info("  > 已加载语言文件.");
     }
 
@@ -58,6 +60,34 @@ public class Language {
                 return prefix + debug + targetMessageText;
             default:
                 return prefix + ChatColor.translateAlternateColorCodes('&', "&7语言信息读取遇到问题.");
+        }
+    }
+
+    public void debug(String message) {
+        if(Mood.debugMode) {
+            Bukkit.getLogger().info(ChatColor.stripColor(buildMessage(MessageType.DEBUG, message)));
+        }
+    }
+
+    public String buildMessage(MessageType messageType, String message) {
+        prefix = ChatColor.translateAlternateColorCodes('&', data.getString("Plugin.Prefix"));
+        debugPrefix = ChatColor.translateAlternateColorCodes('&', data.getString("Plugin.Prefix").replace(" ", "") + "&9(&d&lDEBUG&9) ");
+        targetMessageText = ChatColor.translateAlternateColorCodes('&', message);
+        switch (messageType) {
+            case INFO:
+                info = ChatColor.translateAlternateColorCodes('&', data.getString("Plugin.INFO"));
+                return prefix + info + targetMessageText;
+            case WARN:
+                warn = ChatColor.translateAlternateColorCodes('&', data.getString("Plugin.WARN"));
+                return prefix + warn + targetMessageText;
+            case ERROR:
+                error = ChatColor.translateAlternateColorCodes('&', data.getString("Plugin.ERROR"));
+                return prefix + error + targetMessageText;
+            case DEBUG:
+                debug = ChatColor.translateAlternateColorCodes('&', "&d&l&o>> ");
+                return debugPrefix + debug + targetMessageText;
+            default:
+                return prefix + ChatColor.translateAlternateColorCodes('&', "&7语言信息构建遇到问题.");
         }
     }
 

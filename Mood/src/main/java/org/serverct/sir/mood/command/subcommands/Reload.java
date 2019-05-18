@@ -10,6 +10,7 @@ public class Reload implements Subcommand {
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         if(sender.hasPermission("Mood.reload")) {
+            Mood.getInstance().uninit();
             Mood.getInstance().init();
             sender.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Plugin", "ReloadSuccess"));
         } else {

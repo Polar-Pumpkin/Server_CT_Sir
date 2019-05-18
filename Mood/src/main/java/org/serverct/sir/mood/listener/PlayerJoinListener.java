@@ -7,8 +7,14 @@ import org.serverct.sir.mood.configuration.PlayerData;
 
 public class PlayerJoinListener implements Listener {
 
+    private String targetPlayer;
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        PlayerData.getInstance().addNewPlayer(event.getPlayer().getName());
+        targetPlayer = event.getPlayer().getName();
+
+        if(PlayerData.getInstance().getData().getKeys(false).contains(targetPlayer)) {
+            PlayerData.getInstance().addNewPlayer(targetPlayer);
+        }
     }
 }

@@ -18,6 +18,8 @@ public class CommandHandler implements CommandExecutor {
         registerSubcommand("reload", new Reload());
         registerSubcommand("do", new Do());
         registerSubcommand("item", new Item());
+        registerSubcommand("list", new List());
+        registerSubcommand("admin", new Admin());
     }
 
     public void registerSubcommand(String command, Subcommand executor) {
@@ -28,11 +30,14 @@ public class CommandHandler implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(subCommandMap.containsKey(args[0])) {
-            subCommandMap.get(args[0]).execute(sender, args);
+        if(args.length != 0) {
+            if(subCommandMap.containsKey(args[0])) {
+                return subCommandMap.get(args[0]).execute(sender, args);
+            } else {
+                return subCommandMap.get("version").execute(sender, args);
+            }
         } else {
-            subCommandMap.get("version").execute(sender, args);
+            return subCommandMap.get("version").execute(sender, args);
         }
-        return false;
     }
 }

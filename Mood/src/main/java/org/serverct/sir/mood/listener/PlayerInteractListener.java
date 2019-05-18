@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.serverct.sir.mood.Consumable;
 import org.serverct.sir.mood.MessageType;
+import org.serverct.sir.mood.MoodChangeType;
 import org.serverct.sir.mood.configuration.Item;
 import org.serverct.sir.mood.configuration.Language;
 import org.serverct.sir.mood.configuration.PlayerData;
@@ -37,7 +38,7 @@ public class PlayerInteractListener implements Listener {
 
                     switch (targetConsumable.getType()) {
                         case MOOD:
-                            PlayerData.getInstance().addMoodValue(user.getName(), value);
+                            PlayerData.getInstance().addMoodValue(user.getName(), value, MoodChangeType.CONSUMABLE, targetConsumable.getItem().getItemMeta().getDisplayName());
                             break;
                         case HEALTH:
                             targetValue = user.getHealth();
@@ -53,7 +54,7 @@ public class PlayerInteractListener implements Listener {
                     } else {
                         user.setItemInHand(new ItemStack(Material.AIR));
                     }
-                    user.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Mood", "Ways.Consumables").replace("%item%", targetConsumable.getItem().getItemMeta().getDisplayName()));
+                    user.sendMessage(Language.getInstance().getMessage(MessageType.INFO, "Mood", "Reason.Consumables").replace("%item%", targetConsumable.getItem().getItemMeta().getDisplayName()));
                 }
             }
         }

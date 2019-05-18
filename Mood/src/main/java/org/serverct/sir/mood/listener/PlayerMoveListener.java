@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.serverct.sir.mood.Area;
 import org.serverct.sir.mood.Mood;
-import org.serverct.sir.mood.MoodUpdateTaskType;
+import org.serverct.sir.mood.MoodChangeType;
 import org.serverct.sir.mood.runnable.tasks.MoodUpdateTask;
 
 import java.util.HashMap;
@@ -41,7 +41,7 @@ public class PlayerMoveListener implements Listener {
                         areaTask.get(player).cancel();
                         areaTask.remove(player);
 
-                        moodUpdateTask = new MoodUpdateTask(MoodUpdateTaskType.CUSTOM, player, area.getStep());
+                        moodUpdateTask = new MoodUpdateTask(MoodChangeType.CUSTOM, player, area.getStep());
                         areaTask.put(player, moodUpdateTask);
                         taskIDMap.put(moodUpdateTask.getTaskId(), area);
                         moodUpdateTask.runTaskTimer(Mood.getInstance(), 600, area.getPeriod());

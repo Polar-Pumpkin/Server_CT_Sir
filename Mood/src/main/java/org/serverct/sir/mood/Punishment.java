@@ -3,7 +3,7 @@ package org.serverct.sir.mood;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
 import org.bukkit.potion.PotionEffect;
 
 public class Punishment {
@@ -15,6 +15,9 @@ public class Punishment {
     @Getter @Setter double point;
     @Getter @Setter double health;
     @Getter @Setter float exhaustion;
+    @Getter @Setter String message;
+
+    private String info;
 
     public Punishment(PunishmentType type, Object value) {
         this.punishmentType = type;
@@ -61,8 +64,32 @@ public class Punishment {
                     Bukkit.getLogger().info("[Mood] >> 生成惩罚时遇到错误.");
                 }
                 break;
+            case MESSAGE:
+                if(value instanceof String) {
+                    this.message = ChatColor.translateAlternateColorCodes('&', (String) value);
+                } else {
+                    Bukkit.getLogger().info("[Mood] >> 生成惩罚时遇到错误.");
+                }
             default:
                 break;
         }
+    }
+
+    public String info() {
+        switch (this.punishmentType) {
+            case POTION:
+                info = "&9&l" + this.punishmentType.getType() + " &7-> " + this.potion.toString();
+                break;
+            case COMMAND:
+                info = "&9&l" + this.punishmentType.getType() + " &7-> " + this.command;
+                break;
+            case MESSAGE:
+                info = "&9&l" + this.punishmentType.getType() + " &7-> " + this.getMessage();
+                break;
+            default:
+                info = "(构建惩罚项概要信息遇到错误.)";
+                break;
+        }
+        return ChatColor.translateAlternateColorCodes('&', info);
     }
 }

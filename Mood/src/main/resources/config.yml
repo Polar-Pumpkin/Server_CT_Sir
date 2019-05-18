@@ -1,11 +1,15 @@
-DataSaveDelay: 5
+Debug: false
+Delay:
+  DataSave: 5
+  MoodCheck: 2
+  Punish: 2
 Hooks:
   Vault: true
   PlaceholderAPI: true
 Punishment:
-  20: "POTION:SLOW.1"
-  10: "POTION:CONFUSION.1"
-  0: "COMMAND:suicide"
+  20: "POTION:SLOW.1;MESSAGE:&7您心情很低落,<space>没有力气走路了."
+  10: "POTION:CONFUSION.1;MESSAGE:&7您心情非常低落,<space>感到头昏脑胀."
+  0: "COMMAND:suicide;MESSAGE:&7您心情极度低落,<space>一心只想寻死."
 Decrease:
   Common:
     Step: -1

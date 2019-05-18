@@ -39,7 +39,6 @@ public class VaultHook {
                 return false;
             }
             economy = rsp.getProvider();
-            Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 已连接 Vault."));
             return economy != null;
         }
         return false;
