@@ -1,0 +1,21 @@
+name: CityLifeMood
+version: ${project.version}
+main: org.serverct.sir.citylifemood.CityLifeMood
+depend: [CityLifeCore]
+softdepend: [Vault, PlaceholderAPI]
+authors: [EntityParrot_]
+commands:
+  citylifemood:
+    aliases:
+      - xinqing
+      - xq
+      - xinq
+      - xqing
+      - mood
+      - clmood
+      - clm
+      - citylifem
+      - citylmood
+      - citylm
+      - clifemood
+      - clifem

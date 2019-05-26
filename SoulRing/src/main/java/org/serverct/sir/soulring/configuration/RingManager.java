@@ -1,6 +1,5 @@
 package org.serverct.sir.soulring.configuration;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -8,7 +7,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.ItemFlag;
+//import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.serverct.sir.soulring.Attributes;
@@ -55,11 +54,11 @@ public class RingManager {
             "&a&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
     };
 
-    private String[] exampleItemFlag = {
+    /*private String[] exampleItemFlag = {
             "HIDE_ATTRIBUTES",
             "HIDE_ENCHANTS",
             "HIDE_UNBREAKABLE"
-    };
+    };*/
 
     private File ringsDataFolder = new File(SoulRing.getInstance().getDataFolder() + File.separator + "Rings");
     private File ringsFile = new File(ringsDataFolder.getAbsolutePath() + File.separator + "Rings.yml");
@@ -106,7 +105,7 @@ public class RingManager {
         exampleRing.set("Type", Material.EGG.toString());
         exampleRing.set("Limit", 3);
         exampleRing.set("Enchants.DAMAGE_ALL", 10);
-        exampleRing.set("ItemFlags", exampleItemFlag);
+//        exampleRing.set("ItemFlags", exampleItemFlag);
 
         ConfigurationSection exampleAttribute = exampleRing.createSection("Attributes");
         exampleAttribute.set("VAMPIRE_RATE", 1);
@@ -233,13 +232,13 @@ public class RingManager {
                 }
             } catch (Exception e) {}
         }
-        if(section.getKeys(false).contains("ItemFlags")) {
+        /*if(section.getKeys(false).contains("ItemFlags")) {
             try{
                 for(String itemFlag : section.getStringList("ItemFlags")) {
                     resultMeta.addItemFlags(ItemFlag.valueOf(itemFlag.toUpperCase()));
                 }
             } catch (Exception e) {}
-        }
+        }*/
 
         result.setItemMeta(resultMeta);
         return result;

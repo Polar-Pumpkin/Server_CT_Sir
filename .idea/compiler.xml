@@ -7,15 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SoulRing" />
-        <module name="Mood" />
         <module name="Server CT" />
+        <module name="SoulRing" />
+        <module name="CityLife Mood" />
+        <module name="CityLife Core" />
         <module name="GUGUGU" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CityLife Core" target="1.8" />
+      <module name="CityLife Mood" target="1.8" />
       <module name="GUGUGU" target="1.8" />
-      <module name="Mood" target="1.8" />
       <module name="Server CT" target="1.8" />
       <module name="SoulRing" target="1.8" />
     </bytecodeTargetLevel>
