@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CityLife Core/CityLife Core.iml" filepath="$PROJECT_DIR$/CityLife Core/CityLife Core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CityLife Core/CityLife Friends/CityLife Friends.iml" filepath="$PROJECT_DIR$/CityLife Core/CityLife Friends/CityLife Friends.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CityLife Core/CityLife Mood/CityLife Mood.iml" filepath="$PROJECT_DIR$/CityLife Core/CityLife Mood/CityLife Mood.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ANOHANA Marry.iml" filepath="$PROJECT_DIR$/ANOHANA Marry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" filepath="$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/CityLife Friends.iml" filepath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/CityLife Friends.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" filepath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" />
       <module fileurl="file://$PROJECT_DIR$/GUGUGU/GUGUGU.iml" filepath="$PROJECT_DIR$/GUGUGU/GUGUGU.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Server CT.iml" filepath="$PROJECT_DIR$/Server CT.iml" />
       <module fileurl="file://$PROJECT_DIR$/SoulRing/SoulRing.iml" filepath="$PROJECT_DIR$/SoulRing/SoulRing.iml" />
     </modules>
   </component>

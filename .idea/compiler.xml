@@ -8,19 +8,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CityLife Core" />
-        <module name="Server CT" />
         <module name="CityLife Friends" />
         <module name="SoulRing" />
         <module name="GUGUGU" />
         <module name="CityLife Mood" />
+        <module name="ANOHANA Marry" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ANOHANA Marry" target="1.8" />
       <module name="CityLife Core" target="1.8" />
       <module name="CityLife Friends" target="\1.8" />
       <module name="CityLife Mood" target="1.8" />
       <module name="GUGUGU" target="1.8" />
-      <module name="Server CT" target="1.8" />
       <module name="SoulRing" target="1.8" />
     </bytecodeTargetLevel>
   </component>
