@@ -9,13 +9,6 @@ commands:
     aliases:
       - xinqing
       - xq
-      - xinq
-      - xqing
       - mood
-      - clmood
       - clm
-      - citylifem
-      - citylmood
-      - citylm
-      - clifemood
-      - clifem
+      - clmood

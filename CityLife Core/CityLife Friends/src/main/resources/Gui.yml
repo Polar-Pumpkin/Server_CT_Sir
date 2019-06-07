@@ -1,0 +1,31 @@
+Setting:
+  Title: "&c&l好友列表"
+  Row: 6
+  Sound:
+    Open: BLOCK_NOTE_BASS
+    Close: BLOCK_NOTE_BASS
+Items:
+  beautiful_glass:
+    ItemStack:
+      Display: "&c装饰玻璃"
+      Type: STAINED_GLASS_PANE
+      Lore:
+        - "我只是一块装饰玻璃."
+      ItemFlags:
+        - "HIDE_ATTRIBUTES"
+    Options:
+      Keep-Open: true
+    Position:
+      X: 1-3,5,7-9
+      Y: 6
+  FriendsPlaceholder:
+    ItemStack:
+      Display: "&8好友占位符"
+      Type: AIR
+      Lore:
+        - "&7&o您的新好友将会在这里显示."
+    Options:
+      Keep-Open: true
+    Position:
+      X: 1-9
+      Y: 1-5

@@ -25,10 +25,10 @@ public class PlayerInteractListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         targetItem = event.getItem();
-        targetItemAmount = targetItem.getAmount();
         user = event.getPlayer();
 
-        if(targetItem != null) {
+        if(targetItem != null && targetItem.getType() != Material.AIR) {
+            targetItemAmount = targetItem.getAmount();
 
             for(String key : ItemManager.getInstance().getItemMap().keySet()) {
                 targetConsumable = ItemManager.getInstance().getItemMap().get(key);

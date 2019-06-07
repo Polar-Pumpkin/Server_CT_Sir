@@ -10,6 +10,6 @@ public class PlayerDeathListener implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        PlayerDataManager.getInstance().addMoodValue(event.getEntity().getName(), 100, MoodChangeType.RESPAWN, null);
+        PlayerDataManager.getInstance().setMoodValue(event.getEntity().getName(), 100);
     }
 }

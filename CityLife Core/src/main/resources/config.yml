@@ -1,0 +1,8 @@
+Selector:
+  Display: "&c&l区域选择器"
+  Material: 280
+  Lore:
+    - "  &e&l> &7左键选择&c第一个点&7."
+    - "  &e&l> &7右键选择&c第二个点&7."
+    - ""
+    - "&6&oUrbanLife Core &9| &7by EntityParrot_"

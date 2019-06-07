@@ -1,0 +1,26 @@
+FriendItem:
+  ItemStack:
+    Display: "&b&l%friend%"
+    Type: SKULL_ITEM
+    Lore:
+      - "  &e&l> &d左键 &7向该好友发起转账."
+      - "  &e&l> &d右键 &7向该好友发送私聊信息."
+      - "  &e&l> &dShift &7+ &d左键 &7传送到该好友的房地产."
+      - "  &e&l> &dShift &7+ &d右键 &7邀请该好友到你的房地产."
+      - "  &e&l> &d丢弃 &7删除该好友."
+  Actions:
+    a:
+      Trigger: LEFT_CLICK
+      Value: 'CHATREQUEST:INT;COMMAND:pay %friend% %chatrequest%'
+    b:
+      Trigger: RIGHT_CLICK
+      Value: 'CHATREQUEST:STRING;COMMAND:msg %friend% %chatrequest%'
+    c:
+      Trigger: SHIFT_LEFT_CLICK
+      Value: 'COMMAND:cle teleport %friend%'
+    d:
+      Trigger: SHIFT_RIGHT_CLICK
+      Value: 'COMMAND:cle invite %friend%'
+    e:
+      Trigger: Q_CLICK
+      Value: 'COMMAND:clf delete %friend%'

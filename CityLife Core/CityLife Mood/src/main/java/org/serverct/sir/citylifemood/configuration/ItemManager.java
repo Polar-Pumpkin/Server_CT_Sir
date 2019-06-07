@@ -62,17 +62,24 @@ public class ItemManager {
 
     public void saveItem(String id, ItemStack item, ConsumableType type, int value) {
         savedItem = item;
-        savedMeta = item.getItemMeta();
         savedLore = new ArrayList<>();
         targetConsumable = new Consumable(item, type, value);
         itemMap.put(id, targetConsumable);
 
-        for(String lore : savedMeta.getLore()) {
-            savedLore.add(lore.replace("§", "&"));
+        targetSection = data.createSection(id);
+        if(item.hasItemMeta()) {
+            savedMeta = item.getItemMeta();
+            targetSection.set("Display", savedMeta.getDisplayName().replace("§", "&"));
+
+            if(savedMeta.hasLore()) {
+                for(String lore : savedMeta.getLore()) {
+                    savedLore.add(lore.replace("§", "&"));
+                }
+            }
+        } else {
+            targetSection.set("Display", item.getType().toString());
         }
 
-        targetSection = data.createSection(id);
-        targetSection.set("Display", savedMeta.getDisplayName().replace("§", "&"));
         targetSection.set("Material", item.getType().getId());
         targetSection.set("Type", type.toString());
         targetSection.set("Lore", savedLore);

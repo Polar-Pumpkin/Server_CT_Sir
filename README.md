@@ -7,11 +7,14 @@
 - GUGUGU
 - CityLife Core
   - CityLife Mood 
+  - CityLife Friends
 
 * * *
 ## 项目描述
 
-### ANOHANA Marry
+### ANOHANA 插件系列
+
+#### ANOHANA Marry
 来自一个公益服的设想, 一款拥有多种特性的有趣插件.
 
 ### Soul Ring
@@ -20,10 +23,13 @@
 ### GUGUGU
 Server CT 组员 *eweweszdsd* 用来放玩家鸽子的插件设想.
 
-### CityLife Plugin series
+### CityLife 插件系列
 
 #### CityLife Core
 都市人生系列插件的前置, 拥有*玩家聊天栏数据请求*, *区域进出检测*, *选区工具*, *Gui工具*等特性, 起简化开发, 减少重复代码作用.
 
 #### CityLife Mood
 都市人生 · 心情, 为 Minecraft 生存提供一项新的基础属性, 可以对数值过低的人执行惩罚, 提供了多种方式提升数值.
+
+#### CityLife Friends
+都市人生 · 好友, 为服务器生存添加一项方便玩家之间互动的功能, 高度可自定义化.

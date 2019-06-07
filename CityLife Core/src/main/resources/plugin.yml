@@ -1,0 +1,9 @@
+name: CityLifeFriends
+version: ${project.version}
+main: org.serverct.sir.citylifefriends.CityLifeFriends
+depend: [CityLifeCore]
+commands:
+  citylifecore:
+    aliases:
+      - clc
+      - clcore

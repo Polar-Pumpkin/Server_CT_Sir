@@ -8,6 +8,7 @@ Plugin:
   NotPlayer: "仅玩家可执行此命令."
 Mood:
   Set: "&7成功设置 &a%player% &7的心情值为 &c%amount% &7点."
+  Restore: "&a%reason%&7, 您的心情被重置为 &a%amount% &7点"
   Increase: "&a%reason%&7, 您的心情上升了 &a%amount% &7点."
   Decrease: "&c%reason%&7, 您的心情下降了 &c%amount% &7点."
   Reason:

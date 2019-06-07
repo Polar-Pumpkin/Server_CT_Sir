@@ -66,7 +66,14 @@ public class PlayerDataManager {
     }
 
     public void setMoodValue(String playerName, int value) {
-        data.set(playerName, value);
+        if(data.getKeys(false).contains(playerName)) {
+            data.set(playerName, value);
+            Bukkit.getPlayer(playerName).sendMessage(
+                    LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Restore")
+                            .replace("%amount%", String.valueOf(Math.abs(value)))
+                            .replace("%reason%", ChatColor.translateAlternateColorCodes('&', detectMoodChangeReason(MoodChangeType.RESPAWN, null)))
+            );
+        }
     }
 
     public void addMoodValue(String playerName, int value, MoodChangeType reasonType, String consumableDisplay) {
@@ -86,13 +93,13 @@ public class PlayerDataManager {
     private void sendMoodChangeMessage(Player player, int value, String reason) {
         if(value > 0) {
             player.sendMessage(
-                    LocaleManager.getInstance().getMessage(MessageType.INFO, "CityLifeMood", "Increase")
+                    LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Increase")
                             .replace("%amount%", String.valueOf(value))
                             .replace("%reason%", ChatColor.translateAlternateColorCodes('&', reason))
             );
         } else {
             player.sendMessage(
-                    LocaleManager.getInstance().getMessage(MessageType.INFO, "CityLifeMood", "Decrease")
+                    LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Decrease")
                             .replace("%amount%", String.valueOf(Math.abs(value)))
                             .replace("%reason%", ChatColor.translateAlternateColorCodes('&', reason))
             );
@@ -102,20 +109,20 @@ public class PlayerDataManager {
     private String detectMoodChangeReason(MoodChangeType reasonType, String consumableDisplay) {
         switch(reasonType) {
             case COMMAND:
-                doSthList = new ArrayList<>(LocaleManager.getInstance().getData().getStringList("CityLifeMood.Reason.Command"));
+                doSthList = new ArrayList<>(LocaleManager.getInstance().getData().getStringList("Mood.Reason.Command"));
                 random = new Random();
                 return doSthList.get(random.nextInt(doSthList.size() + 1));
             case DAMAGED:
-                return LocaleManager.getInstance().getData().getString("CityLifeMood.Reason.Damaged");
+                return LocaleManager.getInstance().getData().getString("Mood.Reason.Damaged");
             case RESPAWN:
-                return LocaleManager.getInstance().getData().getString("CityLifeMood.Reason.Respawn");
+                return LocaleManager.getInstance().getData().getString("Mood.Reason.Respawn");
             case CONSUMABLE:
-                return LocaleManager.getInstance().getData().getString("CityLifeMood.Reason.Consumables").replace("%item%", consumableDisplay);
+                return LocaleManager.getInstance().getData().getString("Mood.Reason.Consumables").replace("%item%", consumableDisplay);
             case COMMON:
             case SUNNY:
             case RAINY:
             case SNOWY:
-                return LocaleManager.getInstance().getData().getString("CityLifeMood.Reason.TimerTask." + reasonType.toString());
+                return LocaleManager.getInstance().getData().getString("Mood.Reason.TimerTask." + reasonType.toString());
             default:
                 return "(获取心情变动原因遇到未知错误.)";
         }
