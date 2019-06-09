@@ -5,6 +5,7 @@ import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public @Data @AllArgsConstructor class InventoryItem {

@@ -20,7 +20,15 @@ import java.util.Set;
 
 public class ItemStackUtil {
     public static ItemStack buildBasicItem(ConfigurationSection section) {
-        ItemStack result = new ItemStack(section.getInt("Material"));
+        ItemStack result;
+        String material = section.getString("Material");
+        if(material.contains(":")) {
+            String[] materialConfig = material.split(":");
+            result = new ItemStack(Integer.valueOf(materialConfig[0]), Short.valueOf(materialConfig[1]));
+        } else {
+            result = new ItemStack(Integer.valueOf(material));
+        }
+
         ItemMeta resultMeta = result.getItemMeta();
         List<String> lores = new ArrayList<>();
 

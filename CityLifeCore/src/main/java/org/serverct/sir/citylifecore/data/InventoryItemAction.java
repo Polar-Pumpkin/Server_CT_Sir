@@ -12,6 +12,7 @@ import org.serverct.sir.citylifecore.enums.inventoryitem.ClickType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public @Data @AllArgsConstructor class InventoryItemAction {
 
@@ -26,7 +27,11 @@ public @Data @AllArgsConstructor class InventoryItemAction {
         return info;
     }
 
-    public void cast(Player player) {
+    public void cast(Player player, Map<String, String> placeholder) {
+        for(String key : placeholder.keySet()) {
+            value.replace("%" + key + "%", placeholder.get(key));
+        }
+
         switch (actionType) {
             case COMMAND:
                 player.performCommand(value);
@@ -45,10 +50,8 @@ public @Data @AllArgsConstructor class InventoryItemAction {
         }
     }
 
-    public void check(org.bukkit.event.inventory.ClickType clickType, Player player) {
-        if(clickType == triggerMode.getClickType()) {
-            cast(player);
-        }
+    public boolean check(org.bukkit.event.inventory.ClickType clickType, Player player) {
+        return clickType == triggerMode.getClickType();
     }
 
 }

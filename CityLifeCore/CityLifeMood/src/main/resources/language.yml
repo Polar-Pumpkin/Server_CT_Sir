@@ -1,5 +1,5 @@
 Plugin:
-  Prefix: "&9[&bUL &6&lMood&9] "
+  Prefix: "&9[&bCL &6&lMood&9] "
   INFO: "&a&l&o>> "
   WARN: "&e&l&o>> "
   ERROR: "&c&l&o>> "

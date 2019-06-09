@@ -57,7 +57,7 @@ public final class CityLifeMood extends JavaPlugin {
             "----------------------------------------"
     };
 
-    String loadEndSuffix = "----------------------------------------";
+    private String loadEndSuffix = "----------------------------------------";
 
     private BukkitRunnable dataSaveTask;
     private BukkitRunnable playerCheckTask;

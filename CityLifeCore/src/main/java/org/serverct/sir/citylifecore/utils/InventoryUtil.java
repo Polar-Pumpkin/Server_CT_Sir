@@ -12,11 +12,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.data.InventoryGui;
 import org.serverct.sir.citylifecore.data.InventoryItem;
-import org.serverct.sir.citylifecore.enums.inventoryitem.PositionType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class InventoryUtil {
 
@@ -28,6 +26,10 @@ public class InventoryUtil {
     private InventoryItem targetInventoryItem;
 
     private Player target;
+
+    private int targetItemSlotAmount;
+    private int replaceItemAmount;
+    private Inventory targetReplacedInventory;
 
     public Inventory buildInventory(FileConfiguration data) {
         targetInventory = Bukkit.createInventory(
@@ -55,6 +57,21 @@ public class InventoryUtil {
             items.add(targetInventoryItem);
         }
         return items;
+    }
+
+    public InventoryGui replaceMultiInventoryItem(InventoryGui inventory, InventoryItem targetItem, List<InventoryItem> replaceItems) {
+        if(inventory.getItems().contains(targetItem)) {
+            targetItemSlotAmount = targetItem.getPositionList().size();
+            replaceItemAmount = replaceItems.size();
+            targetReplacedInventory = inventory.getInventory();
+            for(int index = 0; index <= (targetItemSlotAmount >= replaceItemAmount ? replaceItemAmount : targetItemSlotAmount); index++) {
+                targetReplacedInventory.setItem(targetItem.getPositionList().get(index), replaceItems.get(index).getItem());
+            }
+
+            inventory.setInventory(targetReplacedInventory);
+            return inventory;
+        }
+        return null;
     }
 
     public InventoryItem getInventoryItem(ItemStack targetItem, List<InventoryItem> items) {

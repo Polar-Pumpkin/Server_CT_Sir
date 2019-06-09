@@ -1,7 +1,7 @@
 FriendItem:
   ItemStack:
     Display: "&b&l%friend%"
-    Type: SKULL_ITEM
+    Type: 397:3
     Lore:
       - "  &e&l> &d左键 &7向该好友发起转账."
       - "  &e&l> &d右键 &7向该好友发送私聊信息."
