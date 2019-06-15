@@ -1,0 +1,43 @@
+Menu-Setting:
+  Title: "请选择您的性别"
+  Row: 5
+  Sound:
+    Open: BLOCK_NOTE_BASS
+    Close: BLOCK_NOTE_BASS
+Items:
+  a:
+    Display: "&c装饰玻璃"
+    Type: STAINED_GLASS_PANE
+    Lore:
+      - "我只是一块装饰玻璃."
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+    Keep-Open: true
+    Position-X: 1-9
+    Position-Y: 1,5
+  male:
+    Display: "&b&l男性"
+    Type: DIAMOND_SWORD
+    Lore:
+      - "&7&o顶天立地真男人."
+    Enchants:
+      DAMAGE_ALL: 10
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+      - "HIDE_UNBREAKABLE"
+    Command: 'amarry gender male'
+    Position-X: 3
+    Position-Y: 3
+  female:
+    Display: "&c&l女性"
+    Type: DIAMOND_HOE
+    Lore:
+      - "&4&ojava.lang.NullPointerException"
+    Enchants:
+      PROTECTION_ENVIRONMENTAL: 10
+    ItemFlags:
+      - "HIDE_ATTRIBUTES"
+      - "HIDE_UNBREAKABLE"
+    Command: 'amarry gender female'
+    Position-X: 7
+    Position-Y: 3

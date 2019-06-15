@@ -2,30 +2,58 @@ Setting:
   Title: "&c&l好友列表"
   Row: 6
   Sound:
-    Open: BLOCK_NOTE_BASS
-    Close: BLOCK_NOTE_BASS
+    Open: NOTE_BASS
+    Close: NOTE_BASS
 Items:
   beautiful_glass:
     ItemStack:
       Display: "&c装饰玻璃"
-      Type: STAINED_GLASS_PANE
+      Material: STAINED_GLASS_PANE
       Lore:
-        - "我只是一块装饰玻璃."
-      ItemFlags:
-        - "HIDE_ATTRIBUTES"
+        - "&7&o我只是一块装饰玻璃."
     Options:
-      Keep-Open: true
+      KeepOpen: true
     Position:
       X: 1-3,5,7-9
       Y: 6
   FriendsPlaceholder:
     ItemStack:
       Display: "&8好友占位符"
-      Type: AIR
+      Material: AIR
       Lore:
         - "&7&o您的新好友将会在这里显示."
     Options:
-      Keep-Open: true
+      KeepOpen: true
     Position:
       X: 1-9
       Y: 1-5
+  Applications:
+    ItemStack:
+      Display: "&9&l> &7好友申请"
+      Material: RECORD_3
+      Lore:
+        - "&7&o查看您的好友申请."
+    Actions:
+      a:
+        Trigger: LEFT_CLICK
+        Value: 'COMMAND:clf applications'
+    Options:
+      KeepOpen: true
+    Position:
+      X: 6
+      Y: 6
+  AddNewFriend:
+    ItemStack:
+      Display: "&a&l> &7添加好友"
+      Material: RECORD_4
+      Lore:
+        - "&7&o查找玩家并发送好友申请."
+    Actions:
+      a:
+        Trigger: LEFT_CLICK
+        Value: 'COMMAND:clf add'
+    Options:
+      KeepOpen: true
+    Position:
+      X: 4
+      Y: 6

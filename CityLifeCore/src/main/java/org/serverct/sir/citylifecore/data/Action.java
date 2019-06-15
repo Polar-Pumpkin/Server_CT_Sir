@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public @Data @AllArgsConstructor class InventoryItemAction {
+public @Data @AllArgsConstructor class Action {
 
     private String id;
     private ClickType triggerMode;
@@ -28,9 +28,7 @@ public @Data @AllArgsConstructor class InventoryItemAction {
     }
 
     public void cast(Player player, Map<String, String> placeholder) {
-        for(String key : placeholder.keySet()) {
-            value.replace("%" + key + "%", placeholder.get(key));
-        }
+        replaceVariable(placeholder);
 
         switch (actionType) {
             case COMMAND:
@@ -43,14 +41,20 @@ public @Data @AllArgsConstructor class InventoryItemAction {
                 player.sendMessage(LanguageData.getInstance().buildMessage(MessageType.valueOf(value.split("//.")[0].toUpperCase()), value.split("//.")[1]));
                 break;
             case CHATREQUEST:
-                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(player, CityLifeCore.getInstance().getName());
+                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(CityLifeCore.getInstance().getName(), player);
                 break;
             default:
                 break;
         }
     }
 
-    public boolean check(org.bukkit.event.inventory.ClickType clickType, Player player) {
+    public void replaceVariable(Map<String, String> placeholder) {
+        for(String key : placeholder.keySet()) {
+            value.replace("%" + key + "%", placeholder.get(key));
+        }
+    }
+
+    public boolean check(org.bukkit.event.inventory.ClickType clickType) {
         return clickType == triggerMode.getClickType();
     }
 

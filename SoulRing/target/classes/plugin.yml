@@ -1,0 +1,11 @@
+name: SoulRing
+version: 1.1-RELEASE
+main: org.serverct.sir.soulring.SoulRing
+depend: [Vault]
+authors: [EntityParrot_]
+description: A custom RPG plugin, idea from Douro.
+commands:
+  soulring:
+    description: Plugin main command.
+    usage: /<command>
+    aliases: [sr, soulr, sring]

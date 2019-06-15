@@ -21,7 +21,7 @@ public class LocaleManager {
         return instance;
     }
 
-    private File dataFile = new File(CityLifeMood.getInstance().getDataFolder() + File.separator + "language.yml");
+    private File dataFile = new File(CityLifeMood.getInstance().getDataFolder() + File.separator + "Language.yml");
     @Getter private FileConfiguration data = YamlConfiguration.loadConfiguration(dataFile);
 
     private String prefix;
@@ -34,7 +34,7 @@ public class LocaleManager {
 
     public void loadLanguage() {
         if(!dataFile.exists()) {
-            CityLifeMood.getInstance().saveResource("language.yml", true);
+            CityLifeMood.getInstance().saveResource("Language.yml", true);
             data = YamlConfiguration.loadConfiguration(dataFile);
             Bukkit.getLogger().info("  > 未找到语言文件, 已自动生成.");
         }

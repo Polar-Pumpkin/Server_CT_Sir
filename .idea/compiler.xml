@@ -18,7 +18,7 @@
     <bytecodeTargetLevel>
       <module name="ANOHANA Marry" target="1.8" />
       <module name="CityLife Core" target="1.8" />
-      <module name="CityLife Friends" target="\1.8" />
+      <module name="CityLife Friends" target="1.8" />
       <module name="CityLife Mood" target="1.8" />
       <module name="GUGUGU" target="1.8" />
       <module name="SoulRing" target="1.8" />

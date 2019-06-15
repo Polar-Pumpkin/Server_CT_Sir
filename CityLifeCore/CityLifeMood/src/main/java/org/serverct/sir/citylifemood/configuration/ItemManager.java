@@ -7,9 +7,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.serverct.sir.citylifemood.CityLifeMood;
 import org.serverct.sir.citylifemood.data.Consumable;
 import org.serverct.sir.citylifemood.enums.ConsumableType;
-import org.serverct.sir.citylifemood.CityLifeMood;
 import org.serverct.sir.citylifemood.utils.ItemStackUtil;
 
 import java.io.File;
@@ -30,7 +30,7 @@ public class ItemManager {
         return instance;
     }
 
-    private File dataFile = new File(CityLifeMood.getInstance().getDataFolder() + File.separator + "consumables.yml");
+    private File dataFile = new File(CityLifeMood.getInstance().getDataFolder() + File.separator + "Consumables.yml");
     private FileConfiguration data = YamlConfiguration.loadConfiguration(dataFile);
 
     @Getter private Map<String, Consumable> itemMap = new HashMap<>();
@@ -44,7 +44,7 @@ public class ItemManager {
 
     public void loadItem() {
         if(!dataFile.exists()) {
-            CityLifeMood.getInstance().saveResource("consumables.yml", false);
+            CityLifeMood.getInstance().saveResource("Consumables.yml", false);
             data = YamlConfiguration.loadConfiguration(dataFile);
             Bukkit.getLogger().info("  > 未找到消耗品配置文件, 已自动生成.");
         }

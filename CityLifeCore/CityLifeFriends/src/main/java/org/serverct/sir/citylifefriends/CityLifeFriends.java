@@ -5,6 +5,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.api.CityLifeCoreApi;
+import org.serverct.sir.citylifefriends.command.CommandHandler;
+import org.serverct.sir.citylifefriends.configuration.InventoryConfigManager;
+import org.serverct.sir.citylifefriends.configuration.LocaleManager;
 import org.serverct.sir.citylifefriends.configuration.PlayerDataManager;
 
 public final class CityLifeFriends extends JavaPlugin {
@@ -48,6 +51,11 @@ public final class CityLifeFriends extends JavaPlugin {
         coreApi = CityLifeCore.getAPI();
 
         init();
+
+        Bukkit.getPluginCommand("citylifefriends").setExecutor(new CommandHandler());
+        Bukkit.getLogger().info("  > 已注册命令.");
+
+        Bukkit.getLogger().info(loadEndSuffix);
     }
 
     @Override
@@ -66,9 +74,9 @@ public final class CityLifeFriends extends JavaPlugin {
             Bukkit.getLogger().info("  > 已启动 Debug 模式.");
         }*/
 
+        LocaleManager.getInstance().loadLanguage();
+        InventoryConfigManager.getInstance().loadGuis();
         PlayerDataManager.getInstance().loadPlayerData();
-
-        Bukkit.getLogger().info(loadEndSuffix);
     }
 
     private void uninit() {

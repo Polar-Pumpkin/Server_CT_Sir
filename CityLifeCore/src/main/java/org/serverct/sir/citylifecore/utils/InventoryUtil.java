@@ -51,8 +51,7 @@ public class InventoryUtil {
     public List<InventoryItem> constructInventoryItemList(ConfigurationSection section) {
         items = new ArrayList<>();
 
-        for(String key : section.getKeys(false
-        )) {
+        for(String key : section.getKeys(false)) {
             targetInventoryItem = ItemStackUtil.buildInventoryItem(section.getConfigurationSection(key));
             items.add(targetInventoryItem);
         }

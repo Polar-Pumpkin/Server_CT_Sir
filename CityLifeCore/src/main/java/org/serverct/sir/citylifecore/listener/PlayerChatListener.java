@@ -36,13 +36,17 @@ public class PlayerChatListener implements Listener {
             if(message.equalsIgnoreCase("cancel")) {
                 chater.sendMessage(LanguageData.getInstance().getMessage(MessageType.WARN, "ChatRequest", "Cancelled"));
             } else {
-//                chatAPI.log(chater, message);
-                chatRequest.setMessage(message);
-                ChatRequestCompletedEvent chatRequestCompletedEvent = new ChatRequestCompletedEvent(chater, chatRequest);
-                if(chatRequestCompletedEvent.checkConsistency()) {
-                    Bukkit.getPluginManager().callEvent(chatRequestCompletedEvent);
+                chatRequest.setValue(message);
+
+                if(chatRequest.validate()) {
+                    ChatRequestCompletedEvent chatRequestCompletedEvent = new ChatRequestCompletedEvent(chater, chatRequest);
+
+                    if(chatRequestCompletedEvent.checkConsistency()) {
+                        Bukkit.getPluginManager().callEvent(chatRequestCompletedEvent);
+                    }
+
+                    chater.sendMessage(LanguageData.getInstance().getMessage(MessageType.INFO, "ChatRequest", "Success").replace("%value%", message));
                 }
-                chater.sendMessage(LanguageData.getInstance().getMessage(MessageType.INFO, "ChatRequest", "Success").replace("%value%", message));
             }
 
             chatAPI.unregisterChatRequest(chater);

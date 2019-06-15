@@ -1,6 +1,5 @@
 package org.serverct.sir.citylifefriends.configuration;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -11,10 +10,12 @@ import org.serverct.sir.citylifecore.manager.InventoryManager;
 import org.serverct.sir.citylifecore.utils.InventoryUtil;
 import org.serverct.sir.citylifecore.utils.ItemStackUtil;
 import org.serverct.sir.citylifefriends.CityLifeFriends;
+import org.serverct.sir.citylifefriends.util.TimeUtil;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class InventoryConfigManager {
 
@@ -44,22 +45,37 @@ public class InventoryConfigManager {
     private List<InventoryItem> friendItems;
 
     public void loadGuis() {
+        if(!dataFolder.exists()) {
+            dataFolder.mkdirs();
+        }
+        if(!friendsDataFile.exists()) {
+            CityLifeFriends.getINSTANCE().saveResource("Guis/Friends.yml", false);
+        }
         inventoryManager.loadInventory("FRIENDS_Friends", YamlConfiguration.loadConfiguration(friendsDataFile));
     }
 
-    public InventoryGui appleFriendsToGui(List<String> friends) {
+    public void isClickedFriend() {
+
+    }
+
+    public InventoryGui appleFriendsToGui(Map<String, Long> friends) {
         targetInventory = inventoryManager.getLoadedInventory().get("FRIENDS_Friends");
-        friendItems = new ArrayList<>();
 
-        for(String friendName : friends) {
-            friendItems.add(applyFriendsToItem(friendName));
+        if(!friends.isEmpty()) {
+            friendItems = new ArrayList<>();
+
+            for(String friendName : friends.keySet()) {
+                friendItems.add(applyFriendsToItem(friendName, TimeUtil.getDescriptionTimeFromTimestamp(friends.get(friendName))));
+            }
+
+            if(getFriendPlaceholderIndex(targetInventory) >= 0) {
+                resultInventory = inventoryUtil.replaceMultiInventoryItem(targetInventory, getFriendPlaceholder(targetInventory), friendItems);
+            }
+
+            return resultInventory;
         }
 
-        if(getFriendPlaceholderIndex(targetInventory) >= 0) {
-            resultInventory = inventoryUtil.replaceMultiInventoryItem(targetInventory, getFriendPlaceholder(targetInventory), friendItems);
-        }
-
-        return resultInventory;
+        return targetInventory;
     }
 
     public int getFriendPlaceholderIndex(InventoryGui inventory) {
@@ -80,7 +96,7 @@ public class InventoryConfigManager {
         return null;
     }
 
-    public InventoryItem applyFriendsToItem(String friendName) {
+    public InventoryItem applyFriendsToItem(String friendName, String addTime) {
         targetFriendItem = ItemStackUtil.buildInventoryItem(CityLifeFriends.getINSTANCE().getConfig().getConfigurationSection("FriendItem"));
         targetItem = targetFriendItem.getItem();
 
@@ -96,6 +112,8 @@ public class InventoryConfigManager {
 
             targetItemMeta.setDisplayName(targetItemMeta.getDisplayName().replace("%friend%", friendName));
             targetItemMeta.getLore().replaceAll(s -> s.replace("%friend%", friendName));
+            targetItemMeta.setDisplayName(targetItemMeta.getDisplayName().replace("%addTime%", addTime));
+            targetItemMeta.getLore().replaceAll(s -> s.replace("%addTime%", addTime));
 
             targetItem.setItemMeta(targetItemMeta);
         }

@@ -2,6 +2,7 @@ package org.serverct.sir.citylifefriends.configuration;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.serverct.sir.citylifecore.utils.CommonUtil;
@@ -28,6 +29,12 @@ public class PlayerDataManager {
 
     private File dataFolder = new File(CityLifeFriends.getINSTANCE().getDataFolder() + File.separator + "Players");
 
+    private File cacheDataFile;
+
+    private FileConfiguration targetPlayerData;
+    private ConfigurationSection targetSection;
+    private Map<String, Long> targetList;
+
     public void loadPlayerData() {
         if(!dataFolder.exists()) {
             dataFolder.mkdirs();
@@ -53,10 +60,76 @@ public class PlayerDataManager {
 
     public void save(String playerName, FileConfiguration data) {
         loadedPlayers.put(playerName, data);
+
+        cacheDataFile = new File(dataFolder.getAbsolutePath() + File.separator + playerName + ".yml");
         try {
-            data.save(new File(dataFolder.getAbsolutePath() + File.separator + playerName + ".yml"));
+            data.save(cacheDataFile);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public boolean hasDataFile(String playerName) {
+        File[] dataFiles = dataFolder.listFiles(pathname -> pathname.getName().endsWith(".yml"));
+
+        if(dataFiles != null && dataFiles.length != 0) {
+            for(File dataFile : dataFiles) {
+                if(CommonUtil.getFileNameNoEx(dataFile.getName()).equals(playerName)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void checkData(String playerName) {
+        if(!loadedPlayers.containsKey(playerName)) {
+            cacheDataFile = new File(dataFolder.getAbsolutePath() + File.separator + playerName + ".yml");
+            save(playerName, YamlConfiguration.loadConfiguration(cacheDataFile));
+        }
+    }
+
+    public void updateData(String playerName) {
+        if(hasDataFile(playerName)) {
+            cacheDataFile = new File(dataFolder.getAbsolutePath() + File.separator + playerName + ".yml");
+            loadedPlayers.put(playerName, YamlConfiguration.loadConfiguration(cacheDataFile));
+        }
+    }
+
+    public Map<String, Long> getList(String playerName, boolean isFriendList) {
+        checkData(playerName);
+
+        targetPlayerData = loadedPlayers.get(playerName);
+        targetSection = targetPlayerData.getConfigurationSection(isFriendList ? "Friends" : "Applications");
+        targetList = new HashMap<>();
+
+        for(String key : targetPlayerData.getStringList(isFriendList ? "Friends" : "Applications")) {
+            targetList.put(key, targetSection.getLong(key));
+        }
+        return targetList;
+    }
+
+    public void addPlayerToList(String targetName, String playerName, boolean isFriendList) {
+        checkData(targetName);
+
+        targetPlayerData = loadedPlayers.get(targetName);
+        targetSection = targetPlayerData.getConfigurationSection(isFriendList ? "Friends" : "Applications");
+
+        targetSection.set(playerName, System.currentTimeMillis());
+
+        save(targetName, targetPlayerData);
+    }
+
+    public void removePlayerFromList(String targetName, String playerName, boolean isFriendList) {
+        checkData(targetName);
+
+        targetPlayerData = loadedPlayers.get(targetName);
+        targetSection = targetPlayerData.getConfigurationSection(isFriendList ? "Friends" : "Applications");
+
+        if(targetSection.contains(playerName)) {
+            targetSection.set(playerName, null);
+
+            save(targetName, targetPlayerData);
         }
     }
 

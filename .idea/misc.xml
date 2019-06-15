@@ -16,6 +16,9 @@
         <option value="$PROJECT_DIR$/CityLife Core/pom.xml" />
         <option value="$PROJECT_DIR$/CityLife Core/CityLife Mood/pom.xml" />
         <option value="$PROJECT_DIR$/CityLife Core/CityLife Friends/pom.xml" />
+        <option value="$PROJECT_DIR$/CityLifeCore/pom.xml" />
+        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/pom.xml" />
+        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeMood/pom.xml" />
       </list>
     </option>
   </component>

@@ -36,7 +36,13 @@ public enum PositionType {
                 }
             }
         } else {
-            resolutionPositionList.add(positionString);
+            if(positionString.contains("-")) {
+                for(int i = Integer.valueOf(positionString.split("-")[0]); i <= Integer.valueOf(positionString.split("-")[1]); i++) {
+                    resolutionPositionList.add(String.valueOf(i));
+                }
+            } else {
+                resolutionPositionList.add(positionString);
+            }
         }
 
         return resolutionPositionList;

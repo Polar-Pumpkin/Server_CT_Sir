@@ -18,7 +18,7 @@ public class CommonUtil {
     }
 
     public static boolean isInteger(String str) {
-        Pattern pattern = Pattern.compile("\\d{1,4}");
+        Pattern pattern = Pattern.compile("[0-9]{1,4}");
         return pattern.matcher(str).matches();
     }
 
@@ -60,10 +60,7 @@ public class CommonUtil {
                 case COLD_TAIGA_MOUNTAINS:
                     return true;
                 default:
-                    if((int) loc.getY() >= 95) {
-                        return true;
-                    }
-                    return false;
+                    return (int) loc.getY() >= 95;
             }
         } else {
             return false;

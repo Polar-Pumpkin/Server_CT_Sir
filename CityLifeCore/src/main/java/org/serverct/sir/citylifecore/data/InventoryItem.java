@@ -2,10 +2,8 @@ package org.serverct.sir.citylifecore.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public @Data @AllArgsConstructor class InventoryItem {
@@ -15,7 +13,7 @@ public @Data @AllArgsConstructor class InventoryItem {
     private ItemStack item;
     private List<Integer> positionList;
 
-    private List<InventoryItemAction> actions;
+    private List<Action> actions;
 
     private boolean keepOpen;
     private int price;

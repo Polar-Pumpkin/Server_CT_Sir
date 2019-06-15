@@ -1,7 +1,7 @@
-name: CityLifeFriends
+name: CityLifeCore
 version: ${project.version}
-main: org.serverct.sir.citylifefriends.CityLifeFriends
-depend: [CityLifeCore]
+main: org.serverct.sir.citylifecore.CityLifeCore
+depend: [Vault]
 commands:
   citylifecore:
     aliases:

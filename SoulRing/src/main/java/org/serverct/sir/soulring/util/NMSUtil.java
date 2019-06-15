@@ -11,7 +11,7 @@ public class NMSUtil {
     private static Class<?> packetPlayOutTitle;
     private static Class<?> packetPlayOutChat;
     private static String version;
-    private NMSUtil(){};
+    private NMSUtil(){}
 
     static {
         //org.bukkit.craftbukkit.vX_XX_RX;
@@ -67,7 +67,6 @@ public class NMSUtil {
         try {
             return Class.forName("org.bukkit.craftbukkit." + NMSUtil.getVersion() + "." + className);
         } catch (ClassNotFoundException e) {
-            // TODO 自动生成的 catch 块
             e.printStackTrace();
         }
         return null;

@@ -1,0 +1,9 @@
+name: CityLifeCore
+version: 1.0-SNAPSHOT
+main: org.serverct.sir.citylifecore.CityLifeCore
+depend: [Vault]
+commands:
+  citylifecore:
+    aliases:
+      - clc
+      - clcore

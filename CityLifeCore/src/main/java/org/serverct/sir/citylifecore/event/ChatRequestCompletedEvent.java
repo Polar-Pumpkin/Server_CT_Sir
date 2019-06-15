@@ -30,7 +30,7 @@ public class ChatRequestCompletedEvent extends Event implements Cancellable {
         this.player = player;
         this.chatRequest = chatRequest;
         this.pluginName = chatRequest.getPluginName();
-        this.message = chatRequest.getMessage();
+        this.message = chatRequest.getValue();
     }
 
     public boolean checkConsistency() {

@@ -2,9 +2,11 @@ package org.serverct.sir.citylifecore.manager;
 
 import lombok.Getter;
 import org.bukkit.entity.Player;
+import org.serverct.sir.citylifecore.data.Action;
 import org.serverct.sir.citylifecore.data.ChatRequest;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ChatRequestManager {
@@ -14,9 +16,9 @@ public class ChatRequestManager {
 
     private ChatRequest chatRequest;
 
-    public boolean registerChatRequest(Player player, String pluginName) {
+    public boolean registerChatRequest(String pluginName, Player player, List<Action> todos) {
         if(!chatRequestMap.containsKey(player)) {
-            chatRequestMap.put(player, new ChatRequest(pluginName, player, null));
+            chatRequestMap.put(player, new ChatRequest(pluginName, player, null, todos));
             return true;
         }
         return false;
@@ -29,18 +31,4 @@ public class ChatRequestManager {
         }
         return false;
     }
-
-    /*public void log(Player player, String message) {
-        if(chatRequestMap.containsKey(player)) {
-            chatRequest = chatRequestMap.get(player);
-            chatRequest.setMessage(message);
-            loggedChatRequest.put(player, chatRequest);
-        }
-    }
-
-    public void removeLog(Player player) {
-        if(loggedChatRequest.containsKey(player)) {
-            loggedChatRequest.remove(player);
-        }
-    }*/
 }

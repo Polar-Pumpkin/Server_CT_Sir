@@ -1,0 +1,68 @@
+Placeholders: true
+Title:
+  FadeIn: 1
+  Stay: 5
+  FadeOut: 1
+Timer:
+  MarryPropose: 5
+  Socialized: 5
+MarryRequirement: 100
+Symbol:
+  Male: "&b♂&r"
+  Female: "&d♀&r"
+  Unknown: "&9⚥&r"
+  Single: "&7♥&r"
+  FallInLove: "&9♥&r"
+  Married: "&c♥&r"
+  Action: "▸ "
+Sex:
+  Male: "&b&l男性"
+  Female: "&c&l女性"
+  Unknown: "&9&l未知"
+Status:
+  Single: "&9&l单身"
+  FallInLove: "&c&l热恋中"
+  Married: "&d&l已婚"
+Share:
+  Exp:
+    Enable: true
+    Level: 3
+    Multiple: 0.3
+  Health:
+    Enable: true
+    Level: 4
+    Radius: 10
+LoveLevel:
+  # Mode: accumulation, requirement
+  Mode: requirement
+  Setting:
+    1: 100
+    2: 200
+    3: 300
+    4: 400
+Economy:
+  # Payer: sender, receiver, system(none)
+  # Receiver: sender, receiver, system(none)
+  Enable: true
+  Setting:
+    Propose:
+      Send:
+        Price: 500
+        Payer: "sender"
+        Receiver: "system"
+      Accept:
+        Price: 0
+        Payer: "receiver"
+        Receiver: "system"
+      Refuse:
+        Price: 0
+        Payer: "receiver"
+        Receiver: "system"
+    Marry:
+      Price: 0
+      Payer: "sender"
+      Receiver: "system"
+    Divorce:
+      Price: 0
+      Payer: "sender"
+      Receiver: "system"

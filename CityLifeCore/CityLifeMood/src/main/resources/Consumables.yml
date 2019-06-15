@@ -1,0 +1,14 @@
+Example_MOOD:
+  Display: "&c示例消耗品"
+  Material: 341
+  Type: MOOD
+  Lore:
+    - "&7示例, 可以恢复 3 点心情."
+  Value: 3
+Example_HEALTH:
+  Display: "&c示例消耗品"
+  Material: 341
+  Type: HEALTH
+  Lore:
+    - "&7示例, 可以恢复 3 颗心."
+  Value: 6

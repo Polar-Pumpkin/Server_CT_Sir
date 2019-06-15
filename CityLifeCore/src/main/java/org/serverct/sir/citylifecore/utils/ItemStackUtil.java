@@ -1,14 +1,13 @@
 package org.serverct.sir.citylifecore.utils;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.serverct.sir.citylifecore.CityLifeCore;
+import org.serverct.sir.citylifecore.data.Action;
 import org.serverct.sir.citylifecore.data.InventoryItem;
-import org.serverct.sir.citylifecore.data.InventoryItemAction;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ClickType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.OptionType;
@@ -24,28 +23,46 @@ public class ItemStackUtil {
         String material = section.getString("Material");
         if(material.contains(":")) {
             String[] materialConfig = material.split(":");
-            result = new ItemStack(Integer.valueOf(materialConfig[0]), Short.valueOf(materialConfig[1]));
+            if(CommonUtil.isInteger(materialConfig[1])) {
+                if(CommonUtil.isInteger(materialConfig[0])) {
+                    result = new ItemStack(Integer.valueOf(materialConfig[0]), Short.valueOf(materialConfig[1]));
+                } else {
+                    result = new ItemStack(Material.valueOf(materialConfig[0].toUpperCase()), Short.valueOf(materialConfig[1]));
+                }
+            } else {
+                return null;
+            }
         } else {
-            result = new ItemStack(Integer.valueOf(material));
-        }
-
-        ItemMeta resultMeta = result.getItemMeta();
-        List<String> lores = new ArrayList<>();
-
-        resultMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', section.getString("Display")));
-        for(String lore : section.getStringList("Lore")) {
-            lores.add(ChatColor.translateAlternateColorCodes('&', lore));
-        }
-
-        if(section.contains("Enchants")) {
-            ConfigurationSection enchants = section.getConfigurationSection("Enchants");
-            for(String enchant : enchants.getKeys(false)) {
-                resultMeta.addEnchant(Enchantment.getByName(enchant.toUpperCase()), enchants.getInt(enchant), true);
+            if(CommonUtil.isInteger(material)) {
+                result = new ItemStack(Integer.valueOf(material));
+            } else {
+                result = new ItemStack(Material.valueOf(material.toUpperCase()));
             }
         }
 
-        resultMeta.setLore(lores);
-        result.setItemMeta(resultMeta);
+        if(result.getType() != Material.AIR) {
+            ItemMeta resultMeta = result.getItemMeta();
+
+            resultMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', section.getString("Display")));
+
+            if(section.contains("Enchants")) {
+                ConfigurationSection enchants = section.getConfigurationSection("Enchants");
+                for(String enchant : enchants.getKeys(false)) {
+                    resultMeta.addEnchant(Enchantment.getByName(enchant.toUpperCase()), enchants.getInt(enchant), true);
+                }
+            }
+            if(section.contains("Lore")) {
+                List<String> lores = new ArrayList<>();
+
+                for(String lore : section.getStringList("Lore")) {
+                    lores.add(ChatColor.translateAlternateColorCodes('&', lore));
+                }
+
+                resultMeta.setLore(lores);
+            }
+
+            result.setItemMeta(resultMeta);
+        }
         return result;
     }
 
@@ -61,6 +78,8 @@ public class ItemStackUtil {
             boolean keepOpen = false;
             int price = 0;
             int point = 0;
+
+
 
             if(keyList.contains("Options")) {
                 ConfigurationSection options = section.getConfigurationSection("Options");
@@ -81,7 +100,7 @@ public class ItemStackUtil {
                 }
             }
 
-            List<InventoryItemAction> itemActions = new ArrayList<>();
+            List<Action> itemActions = new ArrayList<>();
 
             if(keyList.contains("Actions")) {
                 ConfigurationSection actions = section.getConfigurationSection("Actions");
@@ -97,8 +116,8 @@ public class ItemStackUtil {
         }
     }
 
-    public static List<InventoryItemAction> buildItemActions(ConfigurationSection section) {
-        List<InventoryItemAction> result = new ArrayList<>();
+    public static List<Action> buildItemActions(ConfigurationSection section) {
+        List<Action> result = new ArrayList<>();
 
         String id = section.getName();
         ClickType clickType = ClickType.valueOf(section.getString("Trigger"));
@@ -108,11 +127,11 @@ public class ItemStackUtil {
             String[] actions = actionConfig.split(";");
             for(String action : actions) {
                 String[] values = action.split(":");
-                result.add(new InventoryItemAction(id, clickType, ActionType.valueOf(values[0]), values[1]));
+                result.add(new Action(id, clickType, ActionType.valueOf(values[0]), values[1]));
             }
         } else {
             String[] values = actionConfig.split(":");
-            result.add(new InventoryItemAction(id, clickType, ActionType.valueOf(values[0]), values[1]));
+            result.add(new Action(id, clickType, ActionType.valueOf(values[0]), values[1]));
         }
 
         return result;

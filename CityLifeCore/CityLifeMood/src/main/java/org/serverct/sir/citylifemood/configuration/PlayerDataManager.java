@@ -6,8 +6,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.serverct.sir.citylifemood.enums.MessageType;
 import org.serverct.sir.citylifemood.CityLifeMood;
+import org.serverct.sir.citylifemood.enums.MessageType;
 import org.serverct.sir.citylifemood.enums.MoodChangeType;
 
 import java.io.File;
@@ -27,7 +27,7 @@ public class PlayerDataManager {
         return instance;
     }
 
-    private File dataFile = new File(CityLifeMood.getInstance().getDataFolder() + File.separator + "players.yml");
+    private File dataFile = new File(CityLifeMood.getInstance().getDataFolder() + File.separator + "Players.yml");
     @Getter private FileConfiguration data = YamlConfiguration.loadConfiguration(dataFile);
 
     private Random random;
