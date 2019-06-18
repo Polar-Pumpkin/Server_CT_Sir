@@ -1,4 +1,4 @@
-package org.serverct.sir.citylifecore.configuration;
+package org.serverct.sir.citylifecore.utils;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -6,32 +6,34 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.enums.MessageType;
+import org.serverct.sir.citylifecore.manager.LocaleManager;
 
 import java.io.File;
 
-public class LanguageData {
+public class LocaleUtil {
 
-    private static LanguageData instance;
-
-    public static LanguageData getInstance() {
-        if(instance == null) {
-            instance = new LanguageData();
-        }
-        return instance;
-    }
-
-    private File dataFile = new File(CityLifeCore.getInstance().getDataFolder() + File.separator + "Language.yml");
+    private Plugin plugin;
+    private File dataFile;
     @Getter private FileConfiguration data;
+
+    private LocaleManager localeManager = CityLifeCore.getAPI().getLocaleManager();
 
     private String pluginPrefix;
     private String typePrefix;
     private ConfigurationSection targetSection;
 
-    public void loadLanguage() {
+    public LocaleUtil(Plugin plugin) {
+        this.plugin = plugin;
+        dataFile = new File(plugin.getDataFolder() + File.separator + "Locale.yml");
+        unit();
+    }
+
+    public void unit() {
         if(!dataFile.exists()) {
-            CityLifeCore.getInstance().saveResource("Language.yml", false);
+            plugin.saveResource("Locale.yml", false);
             Bukkit.getLogger().info("> 未找到语言文件, 已自动生成.");
         } else {
             Bukkit.getLogger().info("> 已加载语言文件.");
@@ -39,9 +41,21 @@ public class LanguageData {
         data = YamlConfiguration.loadConfiguration(dataFile);
     }
 
+    public void debug(String message) {
+        if(localeManager.checkDebugMode(plugin)) {
+
+        }
+    }
+
     public String getMessage(MessageType type, String section, String path) {
-        pluginPrefix = data.getString("Plugin.Prefix");
-        typePrefix = data.getString("Plugin." + type.toString());
+        if(type != MessageType.DEBUG) {
+            pluginPrefix = data.getString("Plugin.Prefix");
+            typePrefix = data.getString("Plugin." + type.toString());
+        } else {
+            pluginPrefix = "";
+            typePrefix = data.getString("&d&l>> ");
+        }
+
 
         if(data.getKeys(false).contains(section)) {
             targetSection = data.getConfigurationSection(section);
@@ -58,5 +72,4 @@ public class LanguageData {
         typePrefix = data.getString("Plugin." + type.toString());
         return ChatColor.translateAlternateColorCodes('&', pluginPrefix + typePrefix + message);
     }
-
 }

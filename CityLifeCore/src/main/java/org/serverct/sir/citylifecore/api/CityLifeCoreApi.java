@@ -2,10 +2,7 @@ package org.serverct.sir.citylifecore.api;
 
 import org.serverct.sir.citylifecore.hooks.CareerHook;
 import org.serverct.sir.citylifecore.hooks.VaultHook;
-import org.serverct.sir.citylifecore.manager.AreaManager;
-import org.serverct.sir.citylifecore.manager.ChatRequestManager;
-import org.serverct.sir.citylifecore.manager.InventoryManager;
-import org.serverct.sir.citylifecore.manager.SelectionManager;
+import org.serverct.sir.citylifecore.manager.*;
 import org.serverct.sir.citylifecore.utils.InventoryUtil;
 
 public class CityLifeCoreApi {
@@ -17,6 +14,7 @@ public class CityLifeCoreApi {
     private InventoryUtil inventoryUtil;
     private VaultHook vaultUtil;
     private CareerHook careerUtil;
+    private LocaleManager localeManager;
 
     public AreaManager getAreaAPI() {
         if(areaManager == null) {
@@ -65,6 +63,13 @@ public class CityLifeCoreApi {
             inventoryUtil = new InventoryUtil();
         }
         return inventoryUtil;
+    }
+
+    public LocaleManager getLocaleManager() {
+        if(localeManager == null) {
+            localeManager = new LocaleManager();
+        }
+        return localeManager;
     }
 
 }

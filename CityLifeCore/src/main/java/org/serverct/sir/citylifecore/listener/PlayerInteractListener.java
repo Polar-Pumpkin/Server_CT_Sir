@@ -10,8 +10,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.configuration.ConfigData;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
-import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifecore.manager.SelectionManager;
 
 public class PlayerInteractListener implements Listener {

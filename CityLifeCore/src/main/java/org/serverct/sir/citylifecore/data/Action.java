@@ -5,7 +5,6 @@ import lombok.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.serverct.sir.citylifecore.CityLifeCore;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
 import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ClickType;

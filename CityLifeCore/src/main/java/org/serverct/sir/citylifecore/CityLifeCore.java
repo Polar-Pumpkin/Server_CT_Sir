@@ -7,10 +7,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.serverct.sir.citylifecore.api.CityLifeCoreApi;
 import org.serverct.sir.citylifecore.command.CommandHandler;
 import org.serverct.sir.citylifecore.configuration.ConfigData;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
 import org.serverct.sir.citylifecore.listener.PlayerChatListener;
 import org.serverct.sir.citylifecore.listener.PlayerInteractListener;
 import org.serverct.sir.citylifecore.listener.PlayerMoveListener;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 
 public final class CityLifeCore extends JavaPlugin {
 
@@ -23,6 +23,7 @@ public final class CityLifeCore extends JavaPlugin {
     @Getter private static CityLifeCoreApi API;
     @Getter @Setter private boolean vaultHook = false;
     @Getter private static String PLUGIN_VERSION = "1.0-Release";
+    @Getter private LocaleUtil locale;
 
     private String[] enableMsg = {
             "----------------------------------------",
@@ -67,7 +68,7 @@ public final class CityLifeCore extends JavaPlugin {
             Bukkit.getLogger().info(msg);
         }
 
-        LanguageData.getInstance().loadLanguage();
+        locale = new LocaleUtil(this);
         ConfigData.getInstance().loadConfig();
         API.getVaultUtil().loadVault();
     }
