@@ -111,7 +111,7 @@ public class PlayerDataManager {
             case COMMAND:
                 doSthList = new ArrayList<>(LocaleManager.getInstance().getData().getStringList("Mood.Reason.Command"));
                 random = new Random();
-                return doSthList.get(random.nextInt(doSthList.size() + 1));
+                return doSthList.get(random.nextInt(doSthList.size()));
             case DAMAGED:
                 return LocaleManager.getInstance().getData().getString("Mood.Reason.Damaged");
             case RESPAWN:

@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.api.CityLifeCoreApi;
 import org.serverct.sir.citylifefriends.command.CommandHandler;
+import org.serverct.sir.citylifefriends.configuration.ConfigDataManager;
 import org.serverct.sir.citylifefriends.configuration.InventoryConfigManager;
 import org.serverct.sir.citylifefriends.configuration.LocaleManager;
 import org.serverct.sir.citylifefriends.configuration.PlayerDataManager;
@@ -75,6 +76,7 @@ public final class CityLifeFriends extends JavaPlugin {
         }*/
 
         LocaleManager.getInstance().loadLanguage();
+        ConfigDataManager.getInstance().loadConfig();
         InventoryConfigManager.getInstance().loadGuis();
         PlayerDataManager.getInstance().loadPlayerData();
     }

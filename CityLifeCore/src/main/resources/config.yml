@@ -5,4 +5,6 @@ Selector:
     - "  &e&l> &7左键选择&c第一个点&7."
     - "  &e&l> &7右键选择&c第二个点&7."
     - ""
-    - "&6&oUrbanLife Core &9| &7by EntityParrot_"
+    - "&6&oCityLife Core &9| &7by EntityParrot_"
+BlockBlacklist:
+  - 58

@@ -1,6 +1,5 @@
 package org.serverct.sir.soulring.configuration;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -11,10 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.serverct.sir.soulring.Attributes;
 import org.serverct.sir.soulring.SoulRing;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AttributeManager {
 
@@ -30,12 +26,12 @@ public class AttributeManager {
     private Map<Attributes, String> attributesDisplayMap = new HashMap<>();
     private Map<Attributes, ChatColor> attributesColorMap = new HashMap<>();
 
-    private Map<Attributes, Double> attributesOnItem = new HashMap<>();
-    private Map<Attributes, Double> cacheAttributesMap = new HashMap<>();
+    private Map<Attributes, Integer> attributesOnItem = new HashMap<>();
+    private Map<Attributes, Integer> cacheAttributesMap = new HashMap<>();
 
-    private Map<Attributes, Double> attributesOnArmor = new HashMap<>();
-    private Map<Attributes, Double> attributesOnHand = new HashMap<>();
-    private Map<Attributes, Double> attributesOnPlayer = new HashMap<>();
+    private Map<Attributes, Integer> attributesOnArmor = new HashMap<>();
+    private Map<Attributes, Integer> attributesOnHand = new HashMap<>();
+    private Map<Attributes, Integer> attributesOnPlayer = new HashMap<>();
 
     private List<String> inlayRings;
     private ItemStack[] armors;
@@ -59,7 +55,7 @@ public class AttributeManager {
             }
             attributeAmount++;
         }
-        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 属性加载完成, 共加载 " + String.valueOf(attributeAmount) + " 个属性."));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 属性加载完成, 共加载 " + attributeAmount + " 个属性."));
     }
 
     public String getDisplay(Attributes attribute) {
@@ -90,27 +86,23 @@ public class AttributeManager {
     }
 
     public List<Attributes> getAllAttributes() {
-        List<Attributes> result = new ArrayList<>();
-        for (Attributes attribute : Attributes.values()) {
-            result.add(attribute);
-        }
-        return result;
+        return new ArrayList<>(Arrays.asList(Attributes.values()));
     }
 
     public String getFormattedValue(Attributes attribute, int value) {
         if(value >= 0) {
             if(isPercentValue(attribute)) {
-                return ChatColor.GREEN + "+" + String.valueOf(value * 100) + "%";
+                return ChatColor.GREEN + "+" + value + "%";
             } else if(attribute == Attributes.CRITICAL_DAMAGE) {
-                return ChatColor.GREEN + "+" + String.valueOf(value) + "x";
+                return ChatColor.GREEN + "+" + value + "x";
             } else if(attribute == Attributes.REGENERATION) {
-                return ChatColor.GREEN + "+" + String.valueOf(value) + "/s";
+                return ChatColor.GREEN + "+" + value + "/s";
             } else {
-                return ChatColor.GREEN + "+" + String.valueOf(value);
+                return ChatColor.GREEN + "+" + value;
             }
         } else {
             if(isPercentValue(attribute)) {
-                return ChatColor.RED + String.valueOf(value * 100) + "%";
+                return ChatColor.RED + String.valueOf(value) + "%";
             } else if(attribute == Attributes.CRITICAL_DAMAGE) {
                 return ChatColor.RED + String.valueOf(value) + "x";
             } else if(attribute == Attributes.REGENERATION) {
@@ -121,7 +113,7 @@ public class AttributeManager {
         }
     }
 
-    public Map<Attributes, Double> getAttributesFromItem(ItemStack item) {
+    public Map<Attributes, Integer> getAttributesFromItem(ItemStack item) {
         if(!attributesOnItem.isEmpty()) {
             attributesOnItem.clear();
         }
@@ -134,17 +126,9 @@ public class AttributeManager {
                             cacheAttributesMap = RingManager.getRingManager().getRingAttributes(key);
                             for (Attributes attribute : cacheAttributesMap.keySet()) {
                                 if (attributesOnItem.containsKey(attribute)) {
-                                    if (isPercentValue(attribute)) {
-                                        attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute) * 100);
-                                    } else {
-                                        attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute));
-                                    }
+                                    attributesOnItem.put(attribute, attributesOnItem.get(attribute) + cacheAttributesMap.get(attribute));
                                 } else {
-                                    if (isPercentValue(attribute)) {
-                                        attributesOnItem.put(attribute, cacheAttributesMap.get(attribute) * 100);
-                                    } else {
-                                        attributesOnItem.put(attribute, cacheAttributesMap.get(attribute));
-                                    }
+                                    attributesOnItem.put(attribute, cacheAttributesMap.get(attribute));
                                 }
                             }
                         }
@@ -156,7 +140,7 @@ public class AttributeManager {
         return attributesOnItem;
     }
 
-    public Map<Attributes, Double> getAttributesFromPlayer(Player player) {
+    public Map<Attributes, Integer> getAttributesFromPlayer(Player player) {
         if(!attributesOnPlayer.isEmpty()) {
             attributesOnPlayer.clear();
         }

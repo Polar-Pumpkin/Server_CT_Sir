@@ -5,12 +5,12 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.serverct.sir.citylifemood.command.Subcommand;
 import org.serverct.sir.citylifemood.configuration.ItemManager;
+import org.serverct.sir.citylifemood.configuration.LocaleManager;
 import org.serverct.sir.citylifemood.data.Consumable;
 import org.serverct.sir.citylifemood.enums.ConsumableType;
 import org.serverct.sir.citylifemood.enums.MessageType;
-import org.serverct.sir.citylifemood.command.Subcommand;
-import org.serverct.sir.citylifemood.configuration.LocaleManager;
 
 public class Item implements Subcommand {
 
@@ -37,16 +37,16 @@ public class Item implements Subcommand {
                                         targetItem.setAmount(Integer.valueOf(args[4]));
                                         targetPlayer.getInventory().addItem(targetItem);
                                         playerSender.sendMessage(
-                                                LocaleManager.getInstance().getMessage(MessageType.INFO, "Commands", "ItemManager.GivenSuccess")
+                                                LocaleManager.getInstance().getMessage(MessageType.INFO, "Commands", "Item.GivenSuccess")
                                                         .replace("%player%", targetPlayer.getName())
                                                         .replace("%amount%", args[4])
                                                         .replace("%item%", targetItem.getItemMeta().getDisplayName())
                                         );
                                     } else {
-                                        playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "ItemManager.OutOfMaxStackSize"));
+                                        playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Item.OutOfMaxStackSize"));
                                     }
                                 } else {
-                                    playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.ItemManager"));
+                                    playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.Item"));
                                 }
                             } else {
                                 playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.Player"));
@@ -63,16 +63,16 @@ public class Item implements Subcommand {
                                     targetItem.setAmount(Integer.valueOf(args[3]));
                                     playerSender.getInventory().addItem(targetItem);
                                     playerSender.sendMessage(
-                                            LocaleManager.getInstance().getMessage(MessageType.INFO, "Commands", "ItemManager.GivenSuccess")
+                                            LocaleManager.getInstance().getMessage(MessageType.INFO, "Commands", "Item.GivenSuccess")
                                                     .replace("%player%", playerSender.getName())
                                                     .replace("%amount%", args[3])
                                                     .replace("%item%", targetItem.getItemMeta().getDisplayName())
                                     );
                                 } else {
-                                    playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "ItemManager.OutOfMaxStackSize"));
+                                    playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Item.OutOfMaxStackSize"));
                                 }
                             } else {
-                                playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.ItemManager"));
+                                playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.Item"));
                             }
                         } else {
                             playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.Param"));
@@ -84,7 +84,7 @@ public class Item implements Subcommand {
                             if(targetItem != null && targetItem.getType() != Material.AIR) {
                                 ItemManager.getInstance().saveItem(args[2], targetItem, ConsumableType.valueOf(args[3].toUpperCase()), Integer.valueOf(args[4]));
                             } else {
-                                playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "ItemManager.NothingInHand"));
+                                playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Item.NothingInHand"));
                             }
                         } else {
                             playerSender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.Param"));

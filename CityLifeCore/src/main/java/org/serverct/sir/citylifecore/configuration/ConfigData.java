@@ -8,8 +8,10 @@ import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.utils.ItemStackUtil;
 
 import java.io.File;
+import java.util.List;
 
-public class ConfigData {
+public class
+ConfigData {
 
     private static ConfigData instance;
 
@@ -31,6 +33,10 @@ public class ConfigData {
             Bukkit.getLogger().info("> 已加载配置文件.");
         }
         data = CityLifeCore.getInstance().getConfig();
+    }
+
+    public List<String> getBlackList() {
+        return data.getStringList("BlockBlacklist");
     }
 
     public ItemStack getSelector() {

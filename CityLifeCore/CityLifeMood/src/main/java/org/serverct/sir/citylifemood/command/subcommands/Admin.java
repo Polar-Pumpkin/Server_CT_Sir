@@ -1,10 +1,10 @@
 package org.serverct.sir.citylifemood.command.subcommands;
 
 import org.bukkit.command.CommandSender;
-import org.serverct.sir.citylifemood.enums.MessageType;
 import org.serverct.sir.citylifemood.command.Subcommand;
 import org.serverct.sir.citylifemood.configuration.LocaleManager;
 import org.serverct.sir.citylifemood.configuration.PlayerDataManager;
+import org.serverct.sir.citylifemood.enums.MessageType;
 
 public class Admin implements Subcommand {
 
@@ -18,7 +18,7 @@ public class Admin implements Subcommand {
                             if(PlayerDataManager.getInstance().getData().getKeys(false).contains(args[2])) {
                                 PlayerDataManager.getInstance().setMoodValue(args[2], Integer.valueOf(args[3]));
                                 sender.sendMessage(
-                                        LocaleManager.getInstance().getMessage(MessageType.INFO, "CityLifeMood", "Set")
+                                        LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Set")
                                                 .replace("%player%", args[2])
                                                 .replace("%amount%", args[3])
                                 );

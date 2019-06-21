@@ -17,8 +17,7 @@ import java.util.Map;
 
 public class Stat implements SubCommand {
 
-    private Map<Attributes, Double> attributesMap;
-    private Map<Attributes, Double> cacheAttributesMap;
+    private Map<Attributes, Integer> attributesMap;
 
     private List<String> statMsgFormat;
     private List<String> attributesPreview;
@@ -59,7 +58,7 @@ public class Stat implements SubCommand {
         return true;
     }
 
-    private List<String> buildStatMessage(Map<Attributes, Double> attributesMap) {
+    private List<String> buildStatMessage(Map<Attributes, Integer> attributesMap) {
         statMsgFormat = LocaleManager.getLocaleManager().getLocaleData().getStringList("Commands.Stats");
         resultStatMsg = new ArrayList<>(statMsgFormat);
 
@@ -69,25 +68,14 @@ public class Stat implements SubCommand {
             for(Attributes attribute : attributesMap.keySet()) {
                 if (AttributeManager.getInstance().getAllAttributes().contains(attribute)) {
                     if (AttributeManager.getInstance().hasEnabled(attribute)) {
-                        if(AttributeManager.getInstance().isPercentValue(attribute)) {
-                            attributesPreview.add(
-                                    ChatColor.translateAlternateColorCodes(
-                                            '&',
-                                            RingManager.getRingManager().getSettingData().getString("AttributePreview")
-                                                    .replace("%attribute%", AttributeManager.getInstance().getDisplay(attribute))
-                                                    .replace("%value%", AttributeManager.getInstance().getFormattedValue(attribute, Integer.parseInt(formatter.format(attributesMap.get(attribute) / 100))))
-                                    )
-                            );
-                        } else {
-                            attributesPreview.add(
-                                    ChatColor.translateAlternateColorCodes(
-                                            '&',
-                                            RingManager.getRingManager().getSettingData().getString("AttributePreview")
-                                                    .replace("%attribute%", AttributeManager.getInstance().getDisplay(attribute))
-                                                    .replace("%value%", AttributeManager.getInstance().getFormattedValue(attribute, Integer.parseInt(formatter.format(attributesMap.get(attribute)))))
-                                    )
-                            );
-                        }
+                        attributesPreview.add(
+                                ChatColor.translateAlternateColorCodes(
+                                        '&',
+                                        RingManager.getRingManager().getSettingData().getString("AttributePreview")
+                                                .replace("%attribute%", AttributeManager.getInstance().getDisplay(attribute))
+                                                .replace("%value%", AttributeManager.getInstance().getFormattedValue(attribute, Integer.parseInt(formatter.format(attributesMap.get(attribute)))))
+                                )
+                        );
                     }
                 }
             }

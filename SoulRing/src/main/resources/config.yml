@@ -51,3 +51,7 @@ Attributes:
     Display: "禁锢几率"
     Color: DARK_GRAY
     Duration: 5
+  HEALTH:
+    Enable: true
+    Display: "生命力"
+    Color: RED

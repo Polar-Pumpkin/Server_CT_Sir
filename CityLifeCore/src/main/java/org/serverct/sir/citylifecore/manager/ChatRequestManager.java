@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.serverct.sir.citylifecore.data.Action;
 import org.serverct.sir.citylifecore.data.ChatRequest;
+import org.serverct.sir.citylifecore.enums.ChatRequestDataType;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,9 +17,9 @@ public class ChatRequestManager {
 
     private ChatRequest chatRequest;
 
-    public boolean registerChatRequest(String pluginName, Player player, List<Action> todos) {
+    public boolean registerChatRequest(String pluginName, ChatRequestDataType dataType, Player player, List<Action> todos) {
         if(!chatRequestMap.containsKey(player)) {
-            chatRequestMap.put(player, new ChatRequest(pluginName, player, null, todos));
+            chatRequestMap.put(player, new ChatRequest(pluginName, dataType, player, null, todos));
             return true;
         }
         return false;

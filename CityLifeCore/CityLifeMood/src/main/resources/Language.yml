@@ -30,7 +30,9 @@ Commands:
     Player: "&7玩家不存在或不在线."
     Item: "&7未知消耗品ID."
     Number: "&7在要求数字的参数中检测到非数字值, 请检查您的命令拼写."
-  Cost: "&7操作成功! 共花费 &c%money%&7."
+  Cost:
+    Success: "&7操作成功! 共花费 &c%money%&7."
+    Failure: "&7操作失败! 您没有足够的金钱(&c%money%&7)."
   Area:
     Created: "&7心情变化区域 &c%id%&7(步进: &c%step%&7, 间隔: &c%period%&7s&7) 创建成功."
     Deleted: "&7心情变化区域 &c%id% &7删除成功."

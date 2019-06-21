@@ -1,5 +1,6 @@
 package org.serverct.sir.citylifefriends.configuration;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -14,6 +15,7 @@ import org.serverct.sir.citylifefriends.util.TimeUtil;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,14 +37,21 @@ public class InventoryConfigManager {
     private File friendsDataFile = new File(dataFolder.getAbsolutePath() + File.separator + "Friends.yml");
     private File applicationsDataFile = new File(dataFolder.getAbsolutePath() + File.separator + "Applications.yml");
 
-    private InventoryItem targetFriendItem;
-    private ItemStack targetItem;
-    private ItemMeta targetItemMeta;
-    private SkullMeta targetSkullMeta;
+    private InventoryItem friendItem;
+    private Map<String, ItemStack> resultFriendItemStacks;
+    private Map<String, InventoryItem> resultFriendInventoryItem;
+    private ItemStack friendItemStack;
+    private ItemMeta friendItemMeta;
+    private SkullMeta friendSkullMeta;
+    private List<Integer> friendItemPositionList;
+    private List<Integer> cacheFriendItemPositionList;
+    private String targetFriendName;
+    private List<Integer> targetFriendPosition;
 
     private InventoryGui targetInventory;
-    private InventoryGui resultInventory;
     private List<InventoryItem> friendItems;
+
+    private List<InventoryItem> inventoryItems;
 
     public void loadGuis() {
         if(!dataFolder.exists()) {
@@ -54,33 +63,20 @@ public class InventoryConfigManager {
         inventoryManager.loadInventory("FRIENDS_Friends", YamlConfiguration.loadConfiguration(friendsDataFile));
     }
 
-    public void isClickedFriend() {
-
-    }
-
     public InventoryGui appleFriendsToGui(Map<String, Long> friends) {
         targetInventory = inventoryManager.getLoadedInventory().get("FRIENDS_Friends");
 
         if(!friends.isEmpty()) {
-            friendItems = new ArrayList<>();
-
-            for(String friendName : friends.keySet()) {
-                friendItems.add(applyFriendsToItem(friendName, TimeUtil.getDescriptionTimeFromTimestamp(friends.get(friendName))));
-            }
-
-            if(getFriendPlaceholderIndex(targetInventory) >= 0) {
-                resultInventory = inventoryUtil.replaceMultiInventoryItem(targetInventory, getFriendPlaceholder(targetInventory), friendItems);
-            }
-
-            return resultInventory;
+            return inventoryUtil.rebuildInventory(applyFriendsToInventory(targetInventory, friends));
         }
 
         return targetInventory;
     }
 
     public int getFriendPlaceholderIndex(InventoryGui inventory) {
-        for(int index = 0; index <= inventory.getItems().size(); index++) {
-            if(inventory.getItems().get(index).getId().equalsIgnoreCase("FriendsPlaceholder")) {
+        inventoryItems = inventory.getItems();
+        for(int index = 0; index <= inventoryItems.size() - 1; index++) {
+            if(inventoryItems.get(index).getId().equalsIgnoreCase("FriendsPlaceholder")) {
                 return index;
             }
         }
@@ -96,30 +92,72 @@ public class InventoryConfigManager {
         return null;
     }
 
-    public InventoryItem applyFriendsToItem(String friendName, String addTime) {
-        targetFriendItem = ItemStackUtil.buildInventoryItem(CityLifeFriends.getINSTANCE().getConfig().getConfigurationSection("FriendItem"));
-        targetItem = targetFriendItem.getItem();
+    public InventoryGui applyFriendsToInventory(InventoryGui inventory, Map<String, Long> friends) {
+        friendItem = ItemStackUtil.buildInventoryItem(CityLifeFriends.getINSTANCE().getConfig().getConfigurationSection("FriendItem"));
+        resultFriendItemStacks = new HashMap<>();
 
-        if(targetItem.hasItemMeta()) {
-            targetItemMeta = targetItem.getItemMeta();
+        if(friendItem != null) {
+            friendItemStack = friendItem.getItem();
 
-            if(targetItem.getTypeId() == 397 && targetItem.getDurability() == (short) 3) {
-                targetSkullMeta = (SkullMeta) targetItemMeta;
+            if(friendItemStack != null && friendItemStack.getType() != Material.AIR) {
+                if(friendItemStack.hasItemMeta()) {
+                    friendItemMeta = friendItemStack.getItemMeta();
 
-                targetSkullMeta.setOwner(friendName);
-                targetItem.setItemMeta(targetSkullMeta);
+                    for(String friendName : friends.keySet()) {
+                        if(friendItemStack.getTypeId() == 397 && friendItemStack.getDurability() == (short) 3) {
+                            friendSkullMeta = (SkullMeta) friendItemMeta;
+
+                            friendSkullMeta.setOwner(friendName);
+                            friendItemStack.setItemMeta(friendSkullMeta);
+                        }
+
+                        friendItemMeta.setDisplayName(friendItemMeta.getDisplayName().replace("%friend%", friendName));
+                        friendItemMeta.getLore().replaceAll(s -> s.replace("%friend%", friendName));
+                        friendItemMeta.setDisplayName(friendItemMeta.getDisplayName().replace("%addTime%", TimeUtil.getDescriptionTimeFromTimestamp(friends.get(friendName))));
+                        friendItemMeta.getLore().replaceAll(s -> s.replace("%addTime%", TimeUtil.getDescriptionTimeFromTimestamp(friends.get(friendName))));
+
+                        friendItemStack.setItemMeta(friendItemMeta);
+                        resultFriendItemStacks.put(friendName, friendItemStack);
+                    }
+                }
             }
-
-            targetItemMeta.setDisplayName(targetItemMeta.getDisplayName().replace("%friend%", friendName));
-            targetItemMeta.getLore().replaceAll(s -> s.replace("%friend%", friendName));
-            targetItemMeta.setDisplayName(targetItemMeta.getDisplayName().replace("%addTime%", addTime));
-            targetItemMeta.getLore().replaceAll(s -> s.replace("%addTime%", addTime));
-
-            targetItem.setItemMeta(targetItemMeta);
         }
 
-        targetFriendItem.setItem(targetItem);
-        return targetFriendItem;
+        if(getFriendPlaceholderIndex(inventory) >= 0) {
+            friendItemPositionList = getFriendPlaceholder(inventory).getPositionList();
+            cacheFriendItemPositionList = new ArrayList<>(friendItemPositionList);
+            resultFriendInventoryItem = new HashMap<>();
+
+            if(cacheFriendItemPositionList.size() >= resultFriendItemStacks.size()) {
+                for(int index = 0; index <= resultFriendItemStacks.size(); index++) {
+                    targetFriendName = String.valueOf(resultFriendItemStacks.keySet().toArray()[index]);
+                    targetFriendPosition = new ArrayList<>();
+                    targetFriendPosition.add(friendItemPositionList.get(index));
+
+                    resultFriendInventoryItem.put(
+                            targetFriendName,
+                            new InventoryItem(
+                                    targetFriendName,
+                                    resultFriendItemStacks.get(targetFriendName),
+                                    targetFriendPosition,
+                                    friendItem.getActions(),
+                                    friendItem.isKeepOpen(),
+                                    friendItem.getPrice(),
+                                    friendItem.getPoint()
+                            )
+                    );
+
+                    friendItemPositionList.remove(index);
+                }
+
+                friendItem.setPositionList(friendItemPositionList);
+                friendItems.set(getFriendPlaceholderIndex(inventory), friendItem);
+                friendItems = inventory.getItems();
+                friendItems.addAll(resultFriendInventoryItem.values());
+                inventory.setItems(friendItems);
+            }
+        }
+        return inventory;
     }
 
 }

@@ -114,6 +114,7 @@ public class AreaManager {
         newAreaDataFile = new File(dataFolder.getAbsolutePath() + File.separator + moodArea.getId() + ".yml");
         newAreaData = YamlConfiguration.loadConfiguration(newAreaDataFile);
 
+        newAreaData.set("Type", moodArea.getType().toString());
         newAreaData.set("Step", moodArea.getStep());
         newAreaData.set("Period", moodArea.getPeriod());
         newAreaData.set("Reason", moodArea.getReason());

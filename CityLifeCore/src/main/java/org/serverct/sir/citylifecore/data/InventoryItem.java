@@ -3,6 +3,7 @@ package org.serverct.sir.citylifecore.data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.bukkit.inventory.ItemStack;
+import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
 
 import java.util.List;
 
@@ -31,6 +32,24 @@ public @Data @AllArgsConstructor class InventoryItem {
                 "    > 点卷要求: " + point,
         };
         return infoMsg;
+    }
+
+    public boolean hasChatRequestAction() {
+        for(Action action : actions) {
+            if(action.getActionType() == ActionType.CHATREQUEST) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getChatRequestActionIndex() {
+        for(int index = 0; index <= actions.size(); index++) {
+            if(actions.get(index).getActionType() == ActionType.CHATREQUEST) {
+                return index;
+            }
+        }
+        return -1;
     }
 
 }

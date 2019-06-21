@@ -48,6 +48,20 @@ public class InventoryUtil {
         return targetInventory;
     }
 
+    public InventoryGui rebuildInventory(InventoryGui gui) {
+        targetInventory = gui.getInventory();
+        items = gui.getItems();
+
+        for(InventoryItem item : items) {
+            for(int position : item.getPositionList()) {
+                targetInventory.setItem(position, item.getItem());
+            }
+        }
+
+        gui.setInventory(targetInventory);
+        return gui;
+    }
+
     public List<InventoryItem> constructInventoryItemList(ConfigurationSection section) {
         items = new ArrayList<>();
 

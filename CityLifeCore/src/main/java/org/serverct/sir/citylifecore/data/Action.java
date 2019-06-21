@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.configuration.LanguageData;
+import org.serverct.sir.citylifecore.enums.ChatRequestDataType;
 import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ClickType;
@@ -41,7 +42,7 @@ public @Data @AllArgsConstructor class Action {
                 player.sendMessage(LanguageData.getInstance().buildMessage(MessageType.valueOf(value.split("//.")[0].toUpperCase()), value.split("//.")[1]));
                 break;
             case CHATREQUEST:
-                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(CityLifeCore.getInstance().getName(), player);
+                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(CityLifeCore.getInstance().getName(), ChatRequestDataType.valueOf(value.toUpperCase()), player, null);
                 break;
             default:
                 break;

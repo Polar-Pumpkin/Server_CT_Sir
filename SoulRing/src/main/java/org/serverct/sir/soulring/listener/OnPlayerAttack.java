@@ -4,7 +4,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.serverct.sir.soulring.Attributes;
@@ -17,8 +16,8 @@ import java.util.Random;
 
 public class OnPlayerAttack implements Listener {
 
-    private Map<Attributes, Double> damagerAttributesMap = new HashMap<>();
-    private Map<Attributes, Double> targetAttributesMap = new HashMap<>();
+    private Map<Attributes, Integer> damagerAttributesMap = new HashMap<>();
+    private Map<Attributes, Integer> targetAttributesMap = new HashMap<>();
 
     Random r = new Random();
 
@@ -40,7 +39,7 @@ public class OnPlayerAttack implements Listener {
             if(damagerAttributesMap.keySet().contains(Attributes.VAMPIRE_RATE) && damagerAttributesMap.keySet().contains(Attributes.VAMPIRE_PERCENT)) {
                 if(r.nextInt(100) <= damagerAttributesMap.get(Attributes.VAMPIRE_RATE)) {
                     // Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', " &d> &7生命吸取触发."));
-                    value = Math.ceil(evt.getDamage() * ((damagerAttributesMap.get(Attributes.VAMPIRE_PERCENT) / 100) + 1));
+                    value = Math.ceil(evt.getDamage() * ((double) (damagerAttributesMap.get(Attributes.VAMPIRE_PERCENT) / 100) + 1));
                     color = AttributeManager.getInstance().getColor(Attributes.VAMPIRE_RATE).toString();
                     // Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', " &d> &7回复血量 " + String.valueOf(heal) + " ."));
                     if(damager.getHealth() + value <= damager.getMaxHealth()) {

@@ -5,17 +5,20 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.serverct.sir.citylifecore.data.Action;
 import org.serverct.sir.citylifecore.data.InventoryGui;
 import org.serverct.sir.citylifecore.data.InventoryItem;
 import org.serverct.sir.citylifecore.manager.InventoryManager;
 import org.serverct.sir.citylifecore.utils.InventoryUtil;
 import org.serverct.sir.citylifefriends.CityLifeFriends;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class InventoryInteractListener implements Listener {
 
     private Inventory clickedInventory;
     private InventoryItem clickedItem;
+    private Map<String, String> placeholder;
 
     private Player user;
 
@@ -31,20 +34,16 @@ public class InventoryInteractListener implements Listener {
 
         if(clickedInventory.getName().equals(inventoryManager.getNoColorName("FRIENDS_Friends"))) {
             clickedItem = inventoryUtil.getInventoryItem(event.getCurrentItem(), friends.getItems());
+            placeholder = new HashMap<>();
+
+            placeholder.put("friend", clickedItem.getId());
 
             if(clickedItem != null) {
                 // TODO Action的具体实现
-                for(Action action : clickedItem.getActions()) {
-                    if(action.check(event.getClick())) {
-                        switch (action.getActionType()) {
-                            case MESSAGE:
-                            case FORMATEDMSG:
+                if(clickedItem.hasChatRequestAction()) {
 
-                                break;
-                            default:
-                                break;
-                        }
-                    }
+                } else {
+
                 }
 
                 if(clickedItem.isKeepOpen()) {

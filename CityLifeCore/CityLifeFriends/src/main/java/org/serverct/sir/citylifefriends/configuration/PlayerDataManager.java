@@ -103,7 +103,7 @@ public class PlayerDataManager {
         targetSection = targetPlayerData.getConfigurationSection(isFriendList ? "Friends" : "Applications");
         targetList = new HashMap<>();
 
-        for(String key : targetPlayerData.getStringList(isFriendList ? "Friends" : "Applications")) {
+        for(String key : targetSection.getKeys(false)) {
             targetList.put(key, targetSection.getLong(key));
         }
         return targetList;

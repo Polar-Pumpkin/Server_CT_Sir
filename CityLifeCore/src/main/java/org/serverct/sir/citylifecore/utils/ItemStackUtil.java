@@ -15,7 +15,6 @@ import org.serverct.sir.citylifecore.enums.inventoryitem.PositionType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class ItemStackUtil {
     public static ItemStack buildBasicItem(ConfigurationSection section) {
@@ -67,21 +66,21 @@ public class ItemStackUtil {
     }
 
     public static InventoryItem buildInventoryItem(ConfigurationSection section) {
-        Set<String> keyList = section.getKeys(false);
-
-        if(keyList.contains("ItemStack") && keyList.contains("Position")) {
+        if(section.isConfigurationSection("ItemStack")) {
             ItemStack item = ItemStackUtil.buildBasicItem(section.getConfigurationSection("ItemStack"));
-            ConfigurationSection position = section.getConfigurationSection("Position");
+            List<Integer> positionList = new ArrayList<>();
 
-            List<Integer> positionList = PositionType.resolutionLocation(position.getString("X"), position.getString("Y"));
+            if(section.isConfigurationSection("Position")) {
+                ConfigurationSection position = section.getConfigurationSection("Position");
+
+                positionList = PositionType.resolutionLocation(position.getString("X"), position.getString("Y"));
+            }
 
             boolean keepOpen = false;
             int price = 0;
             int point = 0;
 
-
-
-            if(keyList.contains("Options")) {
+            if(section.isConfigurationSection("Options")) {
                 ConfigurationSection options = section.getConfigurationSection("Options");
                 for(String key : options.getKeys(false)) {
                     switch(OptionType.valueOf(key.toUpperCase())) {
@@ -101,13 +100,8 @@ public class ItemStackUtil {
             }
 
             List<Action> itemActions = new ArrayList<>();
-
-            if(keyList.contains("Actions")) {
-                ConfigurationSection actions = section.getConfigurationSection("Actions");
-                for(String key : actions.getKeys(false)) {
-                    ConfigurationSection targetAction = actions.getConfigurationSection(key);
-                    itemActions.addAll(buildItemActions(targetAction));
-                }
+            if(section.isConfigurationSection("Actions")) {
+                itemActions.addAll(buildItemActions(section));
             }
 
             return new InventoryItem(section.toString(), item, positionList, itemActions, keepOpen, price, point);
@@ -118,20 +112,25 @@ public class ItemStackUtil {
 
     public static List<Action> buildItemActions(ConfigurationSection section) {
         List<Action> result = new ArrayList<>();
+        ConfigurationSection actionSection = section.getConfigurationSection("Actions");
 
-        String id = section.getName();
-        ClickType clickType = ClickType.valueOf(section.getString("Trigger"));
-        String actionConfig = section.getString("Value");
+        for(String key : actionSection.getKeys(false)) {
+            ConfigurationSection targetSection = actionSection.getConfigurationSection(key);
 
-        if(actionConfig.contains(";")) {
-            String[] actions = actionConfig.split(";");
-            for(String action : actions) {
-                String[] values = action.split(":");
+            String id = section.getName() + "_" + targetSection.getName();
+            ClickType clickType = ClickType.valueOf(targetSection.getString("Trigger"));
+            String actionConfig = targetSection.getString("Value");
+
+            if(actionConfig.contains(";")) {
+                String[] actions = actionConfig.split(";");
+                for(String action : actions) {
+                    String[] values = action.split(":");
+                    result.add(new Action(id, clickType, ActionType.valueOf(values[0]), values[1]));
+                }
+            } else {
+                String[] values = actionConfig.split(":");
                 result.add(new Action(id, clickType, ActionType.valueOf(values[0]), values[1]));
             }
-        } else {
-            String[] values = actionConfig.split(":");
-            result.add(new Action(id, clickType, ActionType.valueOf(values[0]), values[1]));
         }
 
         return result;

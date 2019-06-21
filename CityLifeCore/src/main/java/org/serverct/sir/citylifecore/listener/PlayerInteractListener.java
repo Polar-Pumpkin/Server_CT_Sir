@@ -10,8 +10,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.configuration.ConfigData;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
-import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifecore.manager.SelectionManager;
 
 public class PlayerInteractListener implements Listener {
@@ -33,9 +31,16 @@ public class PlayerInteractListener implements Listener {
             if(player.getItemInHand().equals(ConfigData.getInstance().getSelector())) {
                 if(event.getAction() == Action.LEFT_CLICK_BLOCK) {
                     selectAPI.setPoint1(player, targetLocation);
-
+                    event.setCancelled(true);
                 } else if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     selectAPI.setPoint2(player, targetLocation);
+                    event.setCancelled(true);
+                }
+            }
+
+            if(!player.hasPermission("CityLifeCore.blockblacklist.bypass")) {
+                if(ConfigData.getInstance().getBlackList().contains(String.valueOf(targetBlock.getType().getId()))) {
+                    event.setCancelled(true);
                 }
             }
         }

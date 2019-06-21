@@ -7,7 +7,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
-//import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.serverct.sir.soulring.Attributes;
@@ -16,6 +15,8 @@ import org.serverct.sir.soulring.SoulRing;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+
+//import org.bukkit.inventory.ItemFlag;
 
 /*
 Display: xxx
@@ -66,7 +67,7 @@ public class RingManager {
     private FileConfiguration ringsData = YamlConfiguration.loadConfiguration(ringsFile);
     private FileConfiguration settingData = YamlConfiguration.loadConfiguration(settingFile);
     private Map<String, ItemStack> loadedRingsMap = new HashMap<>();
-    private Map<Attributes, Double> ringsAttributes = new HashMap<>();
+    private Map<Attributes, Integer> ringsAttributes = new HashMap<>();
 
     private ItemStack result;
     private ItemMeta resultMeta;
@@ -96,7 +97,7 @@ public class RingManager {
             Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 已构建魂环 " + key + " ."));
             ringsAmount++;
         }
-        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 魂环构建完成, 共加载 " + String.valueOf(ringsAmount) + " 个魂环."));
+        Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', "  > 魂环构建完成, 共加载 " + ringsAmount + " 个魂环."));
     }
 
     private void createDefaultRings() {
@@ -306,7 +307,7 @@ public class RingManager {
         return null;
     }
 
-    public Map<Attributes, Double> getRingAttributes(String ringKey) {
+    public Map<Attributes, Integer> getRingAttributes(String ringKey) {
         if(!ringsAttributes.isEmpty()) {
             ringsAttributes.clear();
         }
@@ -320,7 +321,7 @@ public class RingManager {
         for(String attribute : configuredAttributesList) {
             if(AttributeManager.getInstance().getAllAttributes().contains(Attributes.valueOf(attribute))) {
                 if(AttributeManager.getInstance().hasEnabled(Attributes.valueOf(attribute))) {
-                    ringsAttributes.put(Attributes.valueOf(attribute), section.getConfigurationSection("Attributes").getDouble(attribute));
+                    ringsAttributes.put(Attributes.valueOf(attribute), section.getConfigurationSection("Attributes").getInt(attribute));
                 } else {
                     Bukkit.getLogger().info(ChatColor.translateAlternateColorCodes('&', " &e> &7获取魂环属性 &c" + section.toString() + " &7时遇到错误: &c(属性未启用)" + attribute + "&7."));
                 }
