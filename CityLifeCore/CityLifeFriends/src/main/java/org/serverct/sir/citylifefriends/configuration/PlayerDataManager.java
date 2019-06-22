@@ -5,13 +5,17 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.serverct.sir.citylifecore.utils.CommonUtil;
 import org.serverct.sir.citylifefriends.CityLifeFriends;
+import org.serverct.sir.citylifefriends.util.TimeUtil;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PlayerDataManager {
@@ -27,13 +31,14 @@ public class PlayerDataManager {
 
     @Getter private Map<String, FileConfiguration> loadedPlayers = new HashMap<>();
 
-    private File dataFolder = new File(CityLifeFriends.getINSTANCE().getDataFolder() + File.separator + "Players");
+    private File dataFolder = new File(CityLifeFriends.getInstance().getDataFolder() + File.separator + "Players");
 
     private File cacheDataFile;
 
     private FileConfiguration targetPlayerData;
     private ConfigurationSection targetSection;
     private Map<String, Long> targetList;
+    private Map<String, String> targetPlaceholders;
 
     public void loadPlayerData() {
         if(!dataFolder.exists()) {
@@ -109,6 +114,19 @@ public class PlayerDataManager {
         return targetList;
     }
 
+    public Map<String, String> getFormattedFriendList(String playerName) {
+        checkData(playerName);
+
+        targetList = getList(playerName, true);
+        targetPlaceholders = new HashMap<>();
+
+        for(String friendName : targetList.keySet()) {
+            targetPlaceholders.put(friendName, TimeUtil.getDescriptionTimeFromTimestamp(targetList.get(friendName)));
+        }
+
+        return targetPlaceholders;
+    }
+
     public void addPlayerToList(String targetName, String playerName, boolean isFriendList) {
         checkData(targetName);
 
@@ -133,4 +151,26 @@ public class PlayerDataManager {
         }
     }
 
+    public Map<String, String> convertDataToPlaceholder(Map<String, Long> friends) {
+        targetPlaceholders = new HashMap<>();
+
+        for(String friendName : friends.keySet()) {
+            targetPlaceholders.put(friendName, TimeUtil.getDescriptionTimeFromTimestamp(targetList.get(friendName)));
+        }
+
+        return targetPlaceholders;
+    }
+
+    public ItemStack replaceFriendItemVariable(ItemStack item, String friendName, String description) {
+        ItemMeta meta = item.getItemMeta();
+        String displayName = meta.getDisplayName();
+        List<String> lore = meta.getLore();
+        meta.setDisplayName(displayName.replace("%friend%", friendName));
+        meta.setDisplayName(displayName.replace("%addtime%", description));
+        lore.replaceAll(s -> s.replace("%friend%", friendName));
+        lore.replaceAll(s -> s.replace("%addtime%", description));
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        return item;
+    }
 }

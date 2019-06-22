@@ -5,7 +5,7 @@ Setting:
     Open: NOTE_BASS
     Close: NOTE_BASS
 Items:
-  beautiful_glass:
+  beautifulglass:
     ItemStack:
       Display: "&c装饰玻璃"
       Material: STAINED_GLASS_PANE

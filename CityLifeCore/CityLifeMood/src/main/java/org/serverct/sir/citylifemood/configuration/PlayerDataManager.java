@@ -6,8 +6,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.serverct.sir.citylifecore.enums.MessageType;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 import org.serverct.sir.citylifemood.CityLifeMood;
-import org.serverct.sir.citylifemood.enums.MessageType;
 import org.serverct.sir.citylifemood.enums.MoodChangeType;
 
 import java.io.File;
@@ -29,6 +30,8 @@ public class PlayerDataManager {
 
     private File dataFile = new File(CityLifeMood.getInstance().getDataFolder() + File.separator + "Players.yml");
     @Getter private FileConfiguration data = YamlConfiguration.loadConfiguration(dataFile);
+
+    private LocaleUtil locale = CityLifeMood.getInstance().getLocale();
 
     private Random random;
     private List<String> doSthList;
@@ -69,7 +72,7 @@ public class PlayerDataManager {
         if(data.getKeys(false).contains(playerName)) {
             data.set(playerName, value);
             Bukkit.getPlayer(playerName).sendMessage(
-                    LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Restore")
+                    locale.getMessage(MessageType.INFO, "Mood", "Restore")
                             .replace("%amount%", String.valueOf(Math.abs(value)))
                             .replace("%reason%", ChatColor.translateAlternateColorCodes('&', detectMoodChangeReason(MoodChangeType.RESPAWN, null)))
             );
@@ -93,13 +96,13 @@ public class PlayerDataManager {
     private void sendMoodChangeMessage(Player player, int value, String reason) {
         if(value > 0) {
             player.sendMessage(
-                    LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Increase")
+                    locale.getMessage(MessageType.INFO, "Mood", "Increase")
                             .replace("%amount%", String.valueOf(value))
                             .replace("%reason%", ChatColor.translateAlternateColorCodes('&', reason))
             );
         } else {
             player.sendMessage(
-                    LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Decrease")
+                    locale.getMessage(MessageType.INFO, "Mood", "Decrease")
                             .replace("%amount%", String.valueOf(Math.abs(value)))
                             .replace("%reason%", ChatColor.translateAlternateColorCodes('&', reason))
             );
@@ -109,20 +112,20 @@ public class PlayerDataManager {
     private String detectMoodChangeReason(MoodChangeType reasonType, String consumableDisplay) {
         switch(reasonType) {
             case COMMAND:
-                doSthList = new ArrayList<>(LocaleManager.getInstance().getData().getStringList("Mood.Reason.Command"));
+                doSthList = new ArrayList<>(locale.getData().getStringList("Mood.Reason.Command"));
                 random = new Random();
                 return doSthList.get(random.nextInt(doSthList.size()));
             case DAMAGED:
-                return LocaleManager.getInstance().getData().getString("Mood.Reason.Damaged");
+                return locale.getData().getString("Mood.Reason.Damaged");
             case RESPAWN:
-                return LocaleManager.getInstance().getData().getString("Mood.Reason.Respawn");
+                return locale.getData().getString("Mood.Reason.Respawn");
             case CONSUMABLE:
-                return LocaleManager.getInstance().getData().getString("Mood.Reason.Consumables").replace("%item%", consumableDisplay);
+                return locale.getData().getString("Mood.Reason.Consumables").replace("%item%", consumableDisplay);
             case COMMON:
             case SUNNY:
             case RAINY:
             case SNOWY:
-                return LocaleManager.getInstance().getData().getString("Mood.Reason.TimerTask." + reasonType.toString());
+                return locale.getData().getString("Mood.Reason.TimerTask." + reasonType.toString());
             default:
                 return "(获取心情变动原因遇到未知错误.)";
         }

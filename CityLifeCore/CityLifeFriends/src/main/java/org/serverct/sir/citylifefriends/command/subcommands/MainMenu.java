@@ -5,17 +5,19 @@ import org.bukkit.entity.Player;
 import org.serverct.sir.citylifecore.data.InventoryGui;
 import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifecore.utils.InventoryUtil;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 import org.serverct.sir.citylifefriends.CityLifeFriends;
 import org.serverct.sir.citylifefriends.command.Subcommand;
 import org.serverct.sir.citylifefriends.configuration.InventoryConfigManager;
-import org.serverct.sir.citylifefriends.configuration.LocaleManager;
 import org.serverct.sir.citylifefriends.configuration.PlayerDataManager;
 
 public class MainMenu implements Subcommand {
 
+    private LocaleUtil locale = CityLifeFriends.getInstance().getLocale();
+
     private Player user;
     private InventoryGui friendsGui;
-    private InventoryUtil inventoryUtil = CityLifeFriends.getINSTANCE().getCoreApi().getInventoryUtil();
+    private InventoryUtil inventoryUtil = CityLifeFriends.getInstance().getCoreApi().getInventoryUtil();
 
     @Override
     public boolean execute(CommandSender sender, String[] args) {
@@ -23,14 +25,15 @@ public class MainMenu implements Subcommand {
             user = (Player) sender;
 
             if(args.length == 1) {
-                friendsGui = InventoryConfigManager.getInstance().appleFriendsToGui(PlayerDataManager.getInstance().getList(user.getName(), true));
+                locale.debug("> 触发命令, 开始构建主菜单.");
+                friendsGui = InventoryConfigManager.getInstance().applyFriendsToGui(PlayerDataManager.getInstance().getList(user.getName(), true));
 
                 inventoryUtil.openInventory(user, friendsGui);
             } else {
-                user.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.Param"));
+                user.sendMessage(locale.getMessage(MessageType.WARN, "Commands", "Unknown.Param"));
             }
         } else {
-            sender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.ERROR, "Plugin", "NotPlayer"));
+            sender.sendMessage(locale.getMessage(MessageType.ERROR, "Plugin", "NotPlayer"));
         }
         return true;
     }

@@ -6,9 +6,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.serverct.sir.citylifecore.CityLifeCore;
+import org.serverct.sir.citylifecore.api.CityLifeCoreApi;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 import org.serverct.sir.citylifemood.command.CommandHandler;
-import org.serverct.sir.citylifemood.configuration.*;
+import org.serverct.sir.citylifemood.configuration.AreaManager;
+import org.serverct.sir.citylifemood.configuration.ConfigManager;
 import org.serverct.sir.citylifemood.configuration.ItemManager;
+import org.serverct.sir.citylifemood.configuration.PlayerDataManager;
 import org.serverct.sir.citylifemood.enums.MoodChangeType;
 import org.serverct.sir.citylifemood.hooks.PlaceholderAPIHook;
 import org.serverct.sir.citylifemood.hooks.VaultHook;
@@ -16,7 +20,6 @@ import org.serverct.sir.citylifemood.listener.*;
 import org.serverct.sir.citylifemood.runnable.tasks.CheckTask;
 import org.serverct.sir.citylifemood.runnable.tasks.DataSaveTask;
 import org.serverct.sir.citylifemood.runnable.tasks.MoodUpdateTask;
-import org.serverct.sir.citylifecore.api.CityLifeCoreApi;
 
 public final class CityLifeMood extends JavaPlugin {
 
@@ -24,6 +27,7 @@ public final class CityLifeMood extends JavaPlugin {
     public static final String PLUGIN_VERSION = "1.0-RELEASE";
     @Getter @Setter private boolean vaultHook = false;
     @Getter private boolean debugMode = false;
+    @Getter private LocaleUtil locale;
 
     @Getter private CityLifeCoreApi coreApi;
 
@@ -100,12 +104,11 @@ public final class CityLifeMood extends JavaPlugin {
             Bukkit.getLogger().info(msg);
         }
 
-        if(ConfigManager.getInstance().getData().getBoolean("Debug")) {
-            debugMode = true;
+        if(coreApi.getLocaleManager().registerDebugMode(this)) {
             Bukkit.getLogger().info("  > 已启动 Debug 模式.");
         }
 
-        LocaleManager.getInstance().loadLanguage();
+        locale = coreApi.getLocaleManager().registerLocaleUtil(this);
         ConfigManager.getInstance().loadConfig();
         PlayerDataManager.getInstance().loadPlayerData();
         ItemManager.getInstance().loadItem();

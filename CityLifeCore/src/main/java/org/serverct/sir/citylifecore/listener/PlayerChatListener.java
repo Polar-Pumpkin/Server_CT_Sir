@@ -6,11 +6,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.serverct.sir.citylifecore.CityLifeCore;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
 import org.serverct.sir.citylifecore.data.ChatRequest;
 import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifecore.event.ChatRequestCompletedEvent;
 import org.serverct.sir.citylifecore.manager.ChatRequestManager;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 
 import java.util.Map;
 
@@ -22,6 +22,7 @@ public class PlayerChatListener implements Listener {
     private ChatRequest chatRequest;
 
     private ChatRequestManager chatAPI = CityLifeCore.getAPI().getChatRequestAPI();
+    private LocaleUtil locale = CityLifeCore.getInstance().getLocale();
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
@@ -34,7 +35,7 @@ public class PlayerChatListener implements Listener {
             chatRequest = chatRequestMap.get(chater);
 
             if(message.equalsIgnoreCase("cancel")) {
-                chater.sendMessage(LanguageData.getInstance().getMessage(MessageType.WARN, "ChatRequest", "Cancelled"));
+                chater.sendMessage(locale.getMessage(MessageType.WARN, "ChatRequest", "Cancelled"));
             } else {
                 chatRequest.setValue(message);
 
@@ -45,7 +46,7 @@ public class PlayerChatListener implements Listener {
                         Bukkit.getPluginManager().callEvent(chatRequestCompletedEvent);
                     }
 
-                    chater.sendMessage(LanguageData.getInstance().getMessage(MessageType.INFO, "ChatRequest", "Success").replace("%value%", message));
+                    chater.sendMessage(locale.getMessage(MessageType.INFO, "ChatRequest", "Success").replace("%value%", message));
                 }
             }
 

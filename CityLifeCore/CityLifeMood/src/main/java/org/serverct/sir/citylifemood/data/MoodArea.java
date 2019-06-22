@@ -14,7 +14,7 @@ public @Data @AllArgsConstructor class MoodArea {
     private int period;
     private String reason;
 
-    public String[] info() {
+    public String[] getInfo() {
         String[] infoMsg = {
                 "&7==========&c[ &6MoodArea &9区域详细信息 &c]&7==========",
                 "  &e&l> &7MoodArea ID: &c" + id,
@@ -27,6 +27,10 @@ public @Data @AllArgsConstructor class MoodArea {
                 "  &e&l> &7坐标点2: &c" + area.getPoint2().getX() + "&7, &c" + area.getPoint2().getY() + "&7, &c" + area.getPoint2().getZ()
         };
         return infoMsg;
+    }
+
+    public String getDescription() {
+        return id + "(步进: " + step + ", 间隔: " + period + "s)";
     }
 
 }

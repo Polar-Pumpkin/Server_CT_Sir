@@ -1,8 +1,11 @@
+Debug: false
 FriendItem:
   ItemStack:
     Display: "&b&l%friend%"
-    Material: SKULL_ITEM:3
+    Material: SKULL_ITEM
     Lore:
+      - "  &d&l>>> &7&o于 %addtime% 前添加."
+      - "&b&m┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
       - "  &e&l> &d左键 &7向该好友发起转账."
       - "  &e&l> &d右键 &7向该好友发送私聊信息."
       - "  &e&l> &dShift &7+ &d左键 &7传送到该好友的房地产."

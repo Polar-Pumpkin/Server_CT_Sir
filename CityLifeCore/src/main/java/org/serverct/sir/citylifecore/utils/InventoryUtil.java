@@ -8,6 +8,7 @@ import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.data.InventoryGui;
@@ -31,13 +32,13 @@ public class InventoryUtil {
     private int replaceItemAmount;
     private Inventory targetReplacedInventory;
 
-    public Inventory buildInventory(FileConfiguration data) {
+    public Inventory buildInventory(FileConfiguration data, Plugin plugin) {
         targetInventory = Bukkit.createInventory(
                 null,
                 data.getInt("Setting.Row") * 9,
                 ChatColor.translateAlternateColorCodes('&', data.getString("Setting.Title"))
         );
-        items = constructInventoryItemList(data.getConfigurationSection("Items"));
+        items = constructInventoryItemList(data.getConfigurationSection("Items"), plugin);
 
         for(InventoryItem item : items) {
             for(int position : item.getPositionList()) {
@@ -62,11 +63,11 @@ public class InventoryUtil {
         return gui;
     }
 
-    public List<InventoryItem> constructInventoryItemList(ConfigurationSection section) {
+    public List<InventoryItem> constructInventoryItemList(ConfigurationSection section, Plugin plugin) {
         items = new ArrayList<>();
 
         for(String key : section.getKeys(false)) {
-            targetInventoryItem = ItemStackUtil.buildInventoryItem(section.getConfigurationSection(key));
+            targetInventoryItem = ItemStackUtil.buildInventoryItem(section.getConfigurationSection(key), plugin);
             items.add(targetInventoryItem);
         }
         return items;

@@ -3,8 +3,9 @@ package org.serverct.sir.citylifecore.data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.bukkit.inventory.ItemStack;
-import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public @Data @AllArgsConstructor class InventoryItem {
@@ -14,42 +15,50 @@ public @Data @AllArgsConstructor class InventoryItem {
     private ItemStack item;
     private List<Integer> positionList;
 
-    private List<Action> actions;
+    private List<InventoryClick> clicks;
 
     private boolean keepOpen;
     private int price;
     private int point;
 
-    public String[] info() {
-        String[] infoMsg = {
+    public List<String> getInfo(boolean withActionInfo) {
+        String[] info = {
                 "==========[ InventoryItem 菜单物品详细信息 ]==========",
                 "  > ID: " + id,
                 "  > ItemStack: " + item.toString(),
                 "  > 槽位: " + positionList.toString(),
+                "  > 动作数量: " + clicks.size(),
                 "  > 附加参数",
                 "    > 保持开启: " + (keepOpen ? "是" : "否"),
                 "    > 金钱要求: " + price,
                 "    > 点卷要求: " + point,
         };
+        List<String> infoMsg = new ArrayList<>(Arrays.asList(info));
+        if(withActionInfo) {
+            for(InventoryClick action : clicks) {
+                infoMsg.addAll(Arrays.asList(action.getInfo()));
+            }
+        }
         return infoMsg;
     }
 
-    public boolean hasChatRequestAction() {
-        for(Action action : actions) {
-            if(action.getActionType() == ActionType.CHATREQUEST) {
+    public boolean containclick(String id) {
+        for(InventoryClick click : clicks) {
+            if(click.getId().equals(id)) {
                 return true;
             }
         }
         return false;
     }
 
-    public int getChatRequestActionIndex() {
-        for(int index = 0; index <= actions.size(); index++) {
-            if(actions.get(index).getActionType() == ActionType.CHATREQUEST) {
-                return index;
+    public InventoryClick getClick(String id) {
+        if(containclick(id)) {
+            for(InventoryClick click : clicks) {
+                if(click.getId().equals(id)) {
+                    return click;
+                }
             }
         }
-        return -1;
+        return null;
     }
-
 }

@@ -6,11 +6,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.serverct.sir.citylifecore.enums.MessageType;
+import org.serverct.sir.citylifemood.CityLifeMood;
 import org.serverct.sir.citylifemood.configuration.ItemManager;
-import org.serverct.sir.citylifemood.configuration.LocaleManager;
 import org.serverct.sir.citylifemood.configuration.PlayerDataManager;
 import org.serverct.sir.citylifemood.data.Consumable;
-import org.serverct.sir.citylifemood.enums.MessageType;
 import org.serverct.sir.citylifemood.enums.MoodChangeType;
 
 public class PlayerInteractListener implements Listener {
@@ -54,7 +54,7 @@ public class PlayerInteractListener implements Listener {
                     } else {
                         user.setItemInHand(new ItemStack(Material.AIR));
                     }
-                    user.sendMessage(LocaleManager.getInstance().getMessage(MessageType.INFO, "Mood", "Reason.Consumables").replace("%item%", targetConsumable.getItem().getItemMeta().getDisplayName()));
+                    user.sendMessage(CityLifeMood.getInstance().getLocale().getMessage(MessageType.INFO, "Mood", "Reason.Consumables").replace("%item%", targetConsumable.getItem().getItemMeta().getDisplayName()));
                 }
             }
         }

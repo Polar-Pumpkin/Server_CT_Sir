@@ -4,28 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.serverct.sir.citylifecore.CityLifeCore;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
 import org.serverct.sir.citylifecore.enums.ChatRequestDataType;
 import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
-import org.serverct.sir.citylifecore.enums.inventoryitem.ClickType;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public @Data @AllArgsConstructor class Action {
 
     private String id;
-    private ClickType triggerMode;
+    private Plugin plugin;
     private ActionType actionType;
     private String value;
 
-    public List<String> getInfo() {
-        List<String> info = new ArrayList<>();
-        info.add(actionType.getType() + ": " + ChatColor.translateAlternateColorCodes('&', value));
-        return info;
+    public String[] getInfo() {
+        return new String[]{
+                "==========[ Action 动作详细信息 ]==========",
+                "  > 主管插件: " + plugin.getName(),
+                "  > ID: " + id,
+                "  > 操作详细信息: ",
+                "    > 类型: " + actionType.getType(),
+                "    > 值: " + value
+        };
     }
 
     public void cast(Player player, Map<String, String> placeholder) {
@@ -39,10 +41,10 @@ public @Data @AllArgsConstructor class Action {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', value));
                 break;
             case FORMATEDMSG:
-                player.sendMessage(LanguageData.getInstance().buildMessage(MessageType.valueOf(value.split("//.")[0].toUpperCase()), value.split("//.")[1]));
+                player.sendMessage(CityLifeCore.getAPI().getLocaleManager().getTargetLocaleUtil(plugin).buildMessage(MessageType.valueOf(value.split("//.")[0].toUpperCase()), value.split("//.")[1]));
                 break;
             case CHATREQUEST:
-                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(CityLifeCore.getInstance().getName(), ChatRequestDataType.valueOf(value.toUpperCase()), player, null);
+                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(id, CityLifeCore.getInstance(), ChatRequestDataType.valueOf(value.toUpperCase()), player);
                 break;
             default:
                 break;
@@ -54,9 +56,4 @@ public @Data @AllArgsConstructor class Action {
             value.replace("%" + key + "%", placeholder.get(key));
         }
     }
-
-    public boolean check(org.bukkit.event.inventory.ClickType clickType) {
-        return clickType == triggerMode.getClickType();
-    }
-
 }

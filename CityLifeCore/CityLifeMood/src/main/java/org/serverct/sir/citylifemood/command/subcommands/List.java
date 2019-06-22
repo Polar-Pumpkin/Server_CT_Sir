@@ -2,13 +2,13 @@ package org.serverct.sir.citylifemood.command.subcommands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.serverct.sir.citylifemood.configuration.ItemManager;
-import org.serverct.sir.citylifemood.data.Consumable;
-import org.serverct.sir.citylifemood.enums.MessageType;
-import org.serverct.sir.citylifemood.data.Punishment;
+import org.serverct.sir.citylifecore.enums.MessageType;
+import org.serverct.sir.citylifemood.CityLifeMood;
 import org.serverct.sir.citylifemood.command.Subcommand;
 import org.serverct.sir.citylifemood.configuration.ConfigManager;
-import org.serverct.sir.citylifemood.configuration.LocaleManager;
+import org.serverct.sir.citylifemood.configuration.ItemManager;
+import org.serverct.sir.citylifemood.data.Consumable;
+import org.serverct.sir.citylifemood.data.Punishment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,7 +58,7 @@ public class List implements Subcommand {
                     break;
             }
         } else {
-            sender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Commands", "Unknown.Param"));
+            sender.sendMessage(CityLifeMood.getInstance().getLocale().getMessage(MessageType.WARN, "Commands", "Unknown.Param"));
         }
         return true;
     }

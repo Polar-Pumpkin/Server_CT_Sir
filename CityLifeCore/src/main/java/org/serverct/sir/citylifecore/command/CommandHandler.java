@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.serverct.sir.citylifecore.command.subcommand.GetCommand;
+import org.serverct.sir.citylifecore.command.subcommand.InfoCommand;
 import org.serverct.sir.citylifecore.command.subcommand.VersionCommand;
 
 import java.util.HashMap;
@@ -16,6 +17,7 @@ public class CommandHandler implements CommandExecutor {
     public CommandHandler() {
         registerSubcommand("version", new VersionCommand());
         registerSubcommand("get", new GetCommand());
+        registerSubcommand("info", new InfoCommand());
     }
 
     public void registerSubcommand(String command, Subcommand executor) {

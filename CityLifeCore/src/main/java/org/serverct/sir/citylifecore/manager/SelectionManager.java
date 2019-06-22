@@ -6,9 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.configuration.ConfigData;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
 import org.serverct.sir.citylifecore.data.Area;
 import org.serverct.sir.citylifecore.enums.MessageType;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +21,8 @@ public class SelectionManager {
     private Map<Player, Location> point2Map = new HashMap<>();
 
     private Area selection;
+
+    private LocaleUtil locale = CityLifeCore.getInstance().getLocale();
 
     public boolean addSelection(Player player, Area area) {
         if(!selectionMap.containsKey(player)) {
@@ -38,12 +40,12 @@ public class SelectionManager {
 
     public void setPoint1(Player player, Location location) {
         point1Map.put(player, location);
-        player.sendMessage(LanguageData.getInstance().buildMessage(MessageType.INFO, "&7已设置点1: " + location.getX() + ", " + location.getY() + ", " + location.getZ()));
+        player.sendMessage(locale.buildMessage(MessageType.INFO, "&7已设置点1: " + location.getX() + ", " + location.getY() + ", " + location.getZ()));
     }
 
     public void setPoint2(Player player, Location location) {
         point2Map.put(player, location);
-        player.sendMessage(LanguageData.getInstance().buildMessage(MessageType.INFO, "&7已设置点2: " + location.getX() + ", " + location.getY() + ", " + location.getZ()));
+        player.sendMessage(locale.buildMessage(MessageType.INFO, "&7已设置点2: " + location.getX() + ", " + location.getY() + ", " + location.getZ()));
     }
 
     public boolean hasPoint1(Player player) {
@@ -62,11 +64,11 @@ public class SelectionManager {
                 if(point1Map.get(player).getWorld().equals(point2Map.get(player).getWorld())) {
                     selection = new Area("SELECTION_" + player.getName(), point1Map.get(player), point2Map.get(player));
                     addSelection(player, selection);
-                    player.sendMessage(LanguageData.getInstance().buildMessage(MessageType.INFO, "&7成功创建 SELECTION(Area) 选区对象."));
+                    player.sendMessage(locale.buildMessage(MessageType.INFO, "&7成功创建 SELECTION(Area) 选区对象."));
                     return selection;
                 }
             } else {
-                player.sendMessage(LanguageData.getInstance().buildMessage(MessageType.ERROR, "&7您还没有用选择工具选定过区域."));
+                player.sendMessage(locale.buildMessage(MessageType.ERROR, "&7您还没有用选择工具选定过区域."));
             }
             return null;
         }

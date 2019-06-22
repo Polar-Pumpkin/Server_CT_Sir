@@ -4,7 +4,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.command.Subcommand;
-import org.serverct.sir.citylifecore.configuration.LanguageData;
 import org.serverct.sir.citylifecore.enums.MessageType;
 
 public class VersionCommand implements Subcommand {
@@ -29,7 +28,7 @@ public class VersionCommand implements Subcommand {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
         } else {
-            sender.sendMessage(LanguageData.getInstance().getMessage(MessageType.ERROR, "Commands", "Unknown.Param"));
+            sender.sendMessage(CityLifeCore.getInstance().getLocale().getMessage(MessageType.ERROR, "Commands", "Unknown.Param"));
         }
         return true;
     }

@@ -1,20 +1,23 @@
 package org.serverct.sir.citylifemood.command.subcommands;
 
 import org.bukkit.command.CommandSender;
-import org.serverct.sir.citylifemood.enums.MessageType;
+import org.serverct.sir.citylifecore.enums.MessageType;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 import org.serverct.sir.citylifemood.CityLifeMood;
 import org.serverct.sir.citylifemood.command.Subcommand;
-import org.serverct.sir.citylifemood.configuration.LocaleManager;
 
 public class Reload implements Subcommand {
+
+    private LocaleUtil locale = CityLifeMood.getInstance().getLocale();
+
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         if(sender.hasPermission("CityLifeMood.reload")) {
             CityLifeMood.getInstance().uninit();
             CityLifeMood.getInstance().init();
-            sender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.INFO, "Plugin", "ReloadSuccess"));
+            sender.sendMessage(locale.getMessage(MessageType.INFO, "Plugin", "ReloadSuccess"));
         } else {
-            sender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.WARN, "Plugin", "NoPermission"));
+            sender.sendMessage(locale.getMessage(MessageType.WARN, "Plugin", "NoPermission"));
         }
         return true;
     }

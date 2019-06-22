@@ -5,17 +5,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.serverct.sir.citylifecore.CityLifeCore;
 import org.serverct.sir.citylifecore.api.CityLifeCoreApi;
+import org.serverct.sir.citylifecore.utils.LocaleUtil;
 import org.serverct.sir.citylifefriends.command.CommandHandler;
 import org.serverct.sir.citylifefriends.configuration.ConfigDataManager;
 import org.serverct.sir.citylifefriends.configuration.InventoryConfigManager;
-import org.serverct.sir.citylifefriends.configuration.LocaleManager;
 import org.serverct.sir.citylifefriends.configuration.PlayerDataManager;
 
 public final class CityLifeFriends extends JavaPlugin {
 
-    @Getter private static CityLifeFriends INSTANCE;
+    @Getter private static CityLifeFriends instance;
     @Getter private CityLifeCoreApi coreApi;
     public static final String PLUGIN_VERSION = "1.0-RELEASE";
+    @Getter private LocaleUtil locale;
 
     private String[] enableMsg = {
             "----------------------------------------",
@@ -48,7 +49,7 @@ public final class CityLifeFriends extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        INSTANCE = this;
+        instance = this;
         coreApi = CityLifeCore.getAPI();
 
         init();
@@ -70,12 +71,11 @@ public final class CityLifeFriends extends JavaPlugin {
             Bukkit.getLogger().info(msg);
         }
 
-        /*if(ConfigManager.getInstance().getData().getBoolean("Debug")) {
-            debugMode = true;
+        if(coreApi.getLocaleManager().registerDebugMode(this)) {
             Bukkit.getLogger().info("  > 已启动 Debug 模式.");
-        }*/
+        }
 
-        LocaleManager.getInstance().loadLanguage();
+        locale = coreApi.getLocaleManager().registerLocaleUtil(this);
         ConfigDataManager.getInstance().loadConfig();
         InventoryConfigManager.getInstance().loadGuis();
         PlayerDataManager.getInstance().loadPlayerData();

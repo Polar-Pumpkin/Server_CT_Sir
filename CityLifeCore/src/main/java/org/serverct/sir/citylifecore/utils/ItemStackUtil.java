@@ -6,6 +6,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.serverct.sir.citylifecore.data.Action;
 import org.serverct.sir.citylifecore.data.InventoryItem;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
@@ -15,6 +16,7 @@ import org.serverct.sir.citylifecore.enums.inventoryitem.PositionType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ItemStackUtil {
     public static ItemStack buildBasicItem(ConfigurationSection section) {
@@ -65,7 +67,7 @@ public class ItemStackUtil {
         return result;
     }
 
-    public static InventoryItem buildInventoryItem(ConfigurationSection section) {
+    public static InventoryItem buildInventoryItem(ConfigurationSection section, Plugin plugin) {
         if(section.isConfigurationSection("ItemStack")) {
             ItemStack item = ItemStackUtil.buildBasicItem(section.getConfigurationSection("ItemStack"));
             List<Integer> positionList = new ArrayList<>();
@@ -101,16 +103,16 @@ public class ItemStackUtil {
 
             List<Action> itemActions = new ArrayList<>();
             if(section.isConfigurationSection("Actions")) {
-                itemActions.addAll(buildItemActions(section));
+                itemActions.addAll(buildItemActions(section, plugin));
             }
 
-            return new InventoryItem(section.toString(), item, positionList, itemActions, keepOpen, price, point);
+            return new InventoryItem(section.getName(), item, positionList, itemActions, keepOpen, price, point);
         } else {
             return null;
         }
     }
 
-    public static List<Action> buildItemActions(ConfigurationSection section) {
+    public static List<Action> buildItemActions(ConfigurationSection section, Plugin plugin) {
         List<Action> result = new ArrayList<>();
         ConfigurationSection actionSection = section.getConfigurationSection("Actions");
 
@@ -125,14 +127,24 @@ public class ItemStackUtil {
                 String[] actions = actionConfig.split(";");
                 for(String action : actions) {
                     String[] values = action.split(":");
-                    result.add(new Action(id, clickType, ActionType.valueOf(values[0]), values[1]));
+                    result.add(new Action(id, plugin, clickType, ActionType.valueOf(values[0]), values[1]));
                 }
             } else {
                 String[] values = actionConfig.split(":");
-                result.add(new Action(id, clickType, ActionType.valueOf(values[0]), values[1]));
+                result.add(new Action(id, plugin, clickType, ActionType.valueOf(values[0]), values[1]));
             }
         }
 
         return result;
+    }
+
+    public static ItemStack replaceVariable(ItemStack item, Map<String, String> placeholders) {
+        ItemMeta meta = item.getItemMeta();
+        for(String key : placeholders.keySet()) {
+            meta.setDisplayName(meta.getDisplayName().replace("%" + key + "%", placeholders.get(key)));
+            meta.getLore().replaceAll(s -> s.replace("%" + key + "%", placeholders.get(key)));
+        }
+        item.setItemMeta(meta);
+        return item;
     }
 }

@@ -2,10 +2,9 @@ package org.serverct.sir.citylifemood.command.subcommands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.serverct.sir.citylifemood.enums.MessageType;
+import org.serverct.sir.citylifecore.enums.MessageType;
 import org.serverct.sir.citylifemood.CityLifeMood;
 import org.serverct.sir.citylifemood.command.Subcommand;
-import org.serverct.sir.citylifemood.configuration.LocaleManager;
 
 public class Version implements Subcommand {
 
@@ -29,7 +28,7 @@ public class Version implements Subcommand {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
         } else {
-            sender.sendMessage(LocaleManager.getInstance().getMessage(MessageType.ERROR, "Commands", "Unknown.Param"));
+            sender.sendMessage(CityLifeMood.getInstance().getLocale().getMessage(MessageType.ERROR, "Commands", "Unknown.Param"));
         }
         return true;
     }

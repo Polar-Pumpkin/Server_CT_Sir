@@ -2,11 +2,11 @@ package org.serverct.sir.citylifemood.runnable.tasks;
 
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.serverct.sir.citylifemood.enums.MessageType;
-import org.serverct.sir.citylifemood.data.Punishment;
+import org.serverct.sir.citylifecore.enums.MessageType;
+import org.serverct.sir.citylifemood.CityLifeMood;
 import org.serverct.sir.citylifemood.configuration.ConfigManager;
-import org.serverct.sir.citylifemood.configuration.LocaleManager;
 import org.serverct.sir.citylifemood.configuration.PlayerDataManager;
+import org.serverct.sir.citylifemood.data.Punishment;
 import org.serverct.sir.citylifemood.utils.CommonUtil;
 
 import java.util.HashMap;
@@ -51,7 +51,7 @@ public class CheckTask extends BukkitRunnable {
                 player.performCommand(punishment.getCommand());
                 break;
             case MESSAGE:
-                player.sendMessage(LocaleManager.getInstance().buildMessage(MessageType.INFO, punishment.getMessage()));
+                player.sendMessage(CityLifeMood.getInstance().getLocale().buildMessage(MessageType.INFO, punishment.getMessage()));
                 break;
             default:
                 break;
