@@ -10,20 +10,21 @@ import org.serverct.sir.citylifecore.CityLifeCore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public @Data class InventoryGui {
+public @Data class InventoryGui{
 
-    private String id;
+    private CLID id;
     private Inventory inventory;
     private Plugin plugin;
     private String title;
     private Sound openSound;
     private Sound closeSound;
     private String permission;
-    private List<InventoryItem> items;
+    private Map<CLID, InventoryItem> items;
 
-    public InventoryGui(String id, Inventory inventory, Plugin plugin, List<InventoryItem> items , Sound openSound, Sound closeSound, String permission) {
-        this.id = id;
+    public InventoryGui(String id, Inventory inventory, Plugin plugin, Map<CLID, InventoryItem> items , Sound openSound, Sound closeSound, String permission) {
+        this.id = new CLID(id, plugin);
         this.inventory = inventory;
         this.plugin = plugin;
         this.title = ChatColor.stripColor(inventory.getTitle());
@@ -34,6 +35,17 @@ public @Data class InventoryGui {
     }
 
     public InventoryGui(String id, FileConfiguration data, Plugin plugin) {
+        this.id = new CLID(id, plugin);
+        this.inventory = CityLifeCore.getAPI().getInventoryUtil().buildInventory(data, plugin);
+        this.plugin = plugin;
+        this.title = ChatColor.stripColor(inventory.getTitle());
+        this.openSound = Sound.valueOf(data.getString("Setting.Sound.Open").toUpperCase());
+        this.closeSound = Sound.valueOf(data.getString("Setting.Sound.Close").toUpperCase());
+        this.permission = data.getString("Setting.Permission");
+        this.items = CityLifeCore.getAPI().getInventoryUtil().constructInventoryItemList(this.id, data.getConfigurationSection("Items"), plugin);
+    }
+
+    public InventoryGui(CLID id, FileConfiguration data, Plugin plugin) {
         this.id = id;
         this.inventory = CityLifeCore.getAPI().getInventoryUtil().buildInventory(data, plugin);
         this.plugin = plugin;
@@ -41,7 +53,7 @@ public @Data class InventoryGui {
         this.openSound = Sound.valueOf(data.getString("Setting.Sound.Open").toUpperCase());
         this.closeSound = Sound.valueOf(data.getString("Setting.Sound.Close").toUpperCase());
         this.permission = data.getString("Setting.Permission");
-        this.items = CityLifeCore.getAPI().getInventoryUtil().constructInventoryItemList(data.getConfigurationSection("Items"), plugin);
+        this.items = CityLifeCore.getAPI().getInventoryUtil().constructInventoryItemList(this.id, data.getConfigurationSection("Items"), plugin);
     }
 
     public String[] getInfo() {
@@ -68,29 +80,41 @@ public @Data class InventoryGui {
 
     public List<String> getItemsInfo() {
         List<String> info = new ArrayList<>();
-        for(InventoryItem item : items) {
+        for(InventoryItem item : items.values()) {
             info.addAll(item.getInfo(false));
         }
         return info;
     }
 
-    public boolean containItem(String id) {
-        for(InventoryItem item : items) {
-            if(item.getId().equals(id)) {
+    public boolean containItem(CLID id) {
+        for(CLID itemID : items.keySet()) {
+            if(itemID.equals(id)) {
                 return true;
             }
         }
         return false;
     }
 
-    public InventoryItem getItem(String id) {
+    public InventoryItem getItem(CLID id) {
         if(containItem(id)) {
-            for(InventoryItem item : items) {
+            for(InventoryItem item : items.values()) {
                 if(item.getId().equals(id)) {
                     return item;
                 }
             }
         }
         return null;
+    }
+
+    public InventoryGui Xclone() {
+        return new InventoryGui(
+                this.id.getKey(),
+                this.inventory,
+                this.plugin,
+                this.items,
+                this.openSound,
+                this.closeSound,
+                this.permission
+        );
     }
 }

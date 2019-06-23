@@ -31,6 +31,7 @@ public class PlayerChatListener implements Listener {
         chatRequestMap = chatAPI.getChatRequestMap();
 
         if(chatRequestMap.containsKey(chater)) {
+            locale.debug("");
             event.setCancelled(true);
             chatRequest = chatRequestMap.get(chater);
 
@@ -39,7 +40,7 @@ public class PlayerChatListener implements Listener {
             } else {
                 chatRequest.setValue(message);
 
-                if(chatRequest.validate()) {
+                // if(chatRequest.validate()) {
                     ChatRequestCompletedEvent chatRequestCompletedEvent = new ChatRequestCompletedEvent(chater, chatRequest);
 
                     if(chatRequestCompletedEvent.checkConsistency()) {
@@ -47,7 +48,7 @@ public class PlayerChatListener implements Listener {
                     }
 
                     chater.sendMessage(locale.getMessage(MessageType.INFO, "ChatRequest", "Success").replace("%value%", message));
-                }
+                // }
             }
 
             chatAPI.unregisterChatRequest(chater);

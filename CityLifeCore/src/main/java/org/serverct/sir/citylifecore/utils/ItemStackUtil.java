@@ -8,6 +8,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.serverct.sir.citylifecore.data.Action;
+import org.serverct.sir.citylifecore.data.CLID;
+import org.serverct.sir.citylifecore.data.InventoryClick;
 import org.serverct.sir.citylifecore.data.InventoryItem;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ActionType;
 import org.serverct.sir.citylifecore.enums.inventoryitem.ClickType;
@@ -67,21 +69,20 @@ public class ItemStackUtil {
         return result;
     }
 
-    public static InventoryItem buildInventoryItem(ConfigurationSection section, Plugin plugin) {
+    public static InventoryItem buildInventoryItem(CLID inventoryID, ConfigurationSection section, Plugin plugin) {
         if(section.isConfigurationSection("ItemStack")) {
+            CLID itemID = new CLID(section.getName(), inventoryID);
             ItemStack item = ItemStackUtil.buildBasicItem(section.getConfigurationSection("ItemStack"));
             List<Integer> positionList = new ArrayList<>();
 
             if(section.isConfigurationSection("Position")) {
                 ConfigurationSection position = section.getConfigurationSection("Position");
-
                 positionList = PositionType.resolutionLocation(position.getString("X"), position.getString("Y"));
             }
 
             boolean keepOpen = false;
             int price = 0;
             int point = 0;
-
             if(section.isConfigurationSection("Options")) {
                 ConfigurationSection options = section.getConfigurationSection("Options");
                 for(String key : options.getKeys(false)) {
@@ -101,38 +102,54 @@ public class ItemStackUtil {
                 }
             }
 
-            List<Action> itemActions = new ArrayList<>();
+            List<InventoryClick> itemClicks = new ArrayList<>();
             if(section.isConfigurationSection("Actions")) {
-                itemActions.addAll(buildItemActions(section, plugin));
+                itemClicks.addAll(buildItemClicks(itemID, section, plugin));
             }
 
-            return new InventoryItem(section.getName(), item, positionList, itemActions, keepOpen, price, point);
+            return new InventoryItem(itemID, item, positionList, itemClicks, keepOpen, price, point);
         } else {
             return null;
         }
     }
 
-    public static List<Action> buildItemActions(ConfigurationSection section, Plugin plugin) {
-        List<Action> result = new ArrayList<>();
+    public static List<InventoryClick> buildItemClicks(CLID itemID, ConfigurationSection section, Plugin plugin) {
+        List<InventoryClick> result = new ArrayList<>();
         ConfigurationSection actionSection = section.getConfigurationSection("Actions");
 
         for(String key : actionSection.getKeys(false)) {
+            CLID clickID = new CLID(key, itemID);
             ConfigurationSection targetSection = actionSection.getConfigurationSection(key);
+            result.add(
+                    new InventoryClick(
+                            clickID,
+                            plugin,
+                            ClickType.valueOf(targetSection.getString("Trigger").toUpperCase()),
+                            buildItemActions(clickID, targetSection, plugin)
+                    )
+            );
+        }
 
-            String id = section.getName() + "_" + targetSection.getName();
-            ClickType clickType = ClickType.valueOf(targetSection.getString("Trigger"));
-            String actionConfig = targetSection.getString("Value");
+        return result;
+    }
 
-            if(actionConfig.contains(";")) {
-                String[] actions = actionConfig.split(";");
-                for(String action : actions) {
-                    String[] values = action.split(":");
-                    result.add(new Action(id, plugin, clickType, ActionType.valueOf(values[0]), values[1]));
-                }
-            } else {
-                String[] values = actionConfig.split(":");
-                result.add(new Action(id, plugin, clickType, ActionType.valueOf(values[0]), values[1]));
+    public static List<Action> buildItemActions(CLID clickID, ConfigurationSection section, Plugin plugin) {
+        List<Action> result = new ArrayList<>();
+        CLID actionID;
+
+        String actionConfig = section.getString("Value");
+
+        if(actionConfig.contains(";")) {
+            String[] actions = actionConfig.split(";");
+            for(String action : actions) {
+                String[] values = action.split(":");
+                actionID = new CLID(values[0], clickID);
+                result.add(new Action(actionID, plugin, ActionType.valueOf(values[0]), values[1]));
             }
+        } else {
+            String[] values = actionConfig.split(":");
+            actionID = new CLID(values[0], clickID);
+            result.add(new Action(actionID, plugin, ActionType.valueOf(values[0]), values[1]));
         }
 
         return result;

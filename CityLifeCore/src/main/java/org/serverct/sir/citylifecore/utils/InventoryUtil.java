@@ -11,17 +11,17 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.serverct.sir.citylifecore.CityLifeCore;
-import org.serverct.sir.citylifecore.data.InventoryGui;
-import org.serverct.sir.citylifecore.data.InventoryItem;
+import org.serverct.sir.citylifecore.data.*;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InventoryUtil {
 
     private BukkitRunnable invTask;
 
-    private List<InventoryItem> items;
+    private Map<CLID, InventoryItem> items;
     private Inventory targetInventory;
 
     private InventoryItem targetInventoryItem;
@@ -38,9 +38,10 @@ public class InventoryUtil {
                 data.getInt("Setting.Row") * 9,
                 ChatColor.translateAlternateColorCodes('&', data.getString("Setting.Title"))
         );
-        items = constructInventoryItemList(data.getConfigurationSection("Items"), plugin);
+        CLID inventoryID = new CLID(data.getName(), plugin);
+        items = constructInventoryItemList(inventoryID, data.getConfigurationSection("Items"), plugin);
 
-        for(InventoryItem item : items) {
+        for(InventoryItem item : items.values()) {
             for(int position : item.getPositionList()) {
                 targetInventory.setItem(position, item.getItem());
             }
@@ -53,28 +54,49 @@ public class InventoryUtil {
         targetInventory = gui.getInventory();
         items = gui.getItems();
 
-        for(InventoryItem item : items) {
+        Map<CLID, InventoryItem> updatedItems = new HashMap<>();
+        for(InventoryItem item : items.values()) {
+            item.setId(new CLID(item.getId().getKey(), gui));
+
+            Map<CLID, InventoryClick> updatedClicks = new HashMap<>();
+            for(InventoryClick click : item.getClicks().values()) {
+                click.setId(new CLID(click.getId().getKey(), item));
+
+                Map<CLID, Action> updatedActions = new HashMap<>();
+                for(Action action : click.getActionList().values()) {
+                    action.setId(new CLID(action.getId().getKey(), click));
+                    updatedActions.put(action.getId(), action);
+                }
+                click.setActionList(updatedActions);
+
+                updatedClicks.put(click.getId(), click);
+            }
+            item.setClicks(updatedClicks);
+
             for(int position : item.getPositionList()) {
                 targetInventory.setItem(position, item.getItem());
             }
         }
 
+        gui.setItems(updatedItems);
         gui.setInventory(targetInventory);
         return gui;
     }
 
-    public List<InventoryItem> constructInventoryItemList(ConfigurationSection section, Plugin plugin) {
-        items = new ArrayList<>();
+    public Map<CLID, InventoryItem> constructInventoryItemList(CLID inventoryID, ConfigurationSection section, Plugin plugin) {
+        items = new HashMap<>();
 
         for(String key : section.getKeys(false)) {
-            targetInventoryItem = ItemStackUtil.buildInventoryItem(section.getConfigurationSection(key), plugin);
-            items.add(targetInventoryItem);
+            targetInventoryItem = ItemStackUtil.buildInventoryItem(inventoryID, section.getConfigurationSection(key), plugin);
+            if(targetInventoryItem != null) {
+                items.put(targetInventoryItem.getId(), targetInventoryItem);
+            }
         }
         return items;
     }
 
     public InventoryGui replaceMultiInventoryItem(InventoryGui inventory, InventoryItem targetItem, List<InventoryItem> replaceItems) {
-        if(inventory.getItems().contains(targetItem)) {
+        if(inventory.getItems().containsValue(targetItem)) {
             targetItemSlotAmount = targetItem.getPositionList().size();
             replaceItemAmount = replaceItems.size();
             targetReplacedInventory = inventory.getInventory();
@@ -88,8 +110,8 @@ public class InventoryUtil {
         return null;
     }
 
-    public InventoryItem getInventoryItem(ItemStack targetItem, List<InventoryItem> items) {
-        for(InventoryItem item : items) {
+    public InventoryItem getInventoryItem(ItemStack targetItem, Map<String, InventoryItem> items) {
+        for(InventoryItem item : items.values()) {
             if(targetItem.isSimilar(item.getItem())) {
                 return item;
             }

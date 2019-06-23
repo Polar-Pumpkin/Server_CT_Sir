@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.bukkit.plugin.Plugin;
 import org.serverct.sir.citylifecore.data.ChatRequest;
 
 public class ChatRequestCompletedEvent extends Event implements Cancellable {
@@ -21,15 +22,15 @@ public class ChatRequestCompletedEvent extends Event implements Cancellable {
         return handlers;
     }
 
-    @Getter String pluginName;
     @Getter private Player player;
+    @Getter private Plugin plugin;
     @Getter private ChatRequest chatRequest;
     @Getter private String message;
 
     public ChatRequestCompletedEvent(Player player, ChatRequest chatRequest) {
         this.player = player;
+        this.plugin = chatRequest.getPlugin();
         this.chatRequest = chatRequest;
-        this.pluginName = chatRequest.getPluginName();
         this.message = chatRequest.getValue();
     }
 

@@ -7,15 +7,16 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public @Data @AllArgsConstructor class InventoryItem {
 
-    private String id;
+    private CLID id;
 
     private ItemStack item;
     private List<Integer> positionList;
 
-    private List<InventoryClick> clicks;
+    private Map<CLID, InventoryClick> clicks;
 
     private boolean keepOpen;
     private int price;
@@ -35,7 +36,7 @@ public @Data @AllArgsConstructor class InventoryItem {
         };
         List<String> infoMsg = new ArrayList<>(Arrays.asList(info));
         if(withActionInfo) {
-            for(InventoryClick action : clicks) {
+            for(InventoryClick action : clicks.values()) {
                 infoMsg.addAll(Arrays.asList(action.getInfo()));
             }
         }
@@ -43,7 +44,7 @@ public @Data @AllArgsConstructor class InventoryItem {
     }
 
     public boolean containclick(String id) {
-        for(InventoryClick click : clicks) {
+        for(InventoryClick click : clicks.values()) {
             if(click.getId().equals(id)) {
                 return true;
             }
@@ -53,7 +54,7 @@ public @Data @AllArgsConstructor class InventoryItem {
 
     public InventoryClick getClick(String id) {
         if(containclick(id)) {
-            for(InventoryClick click : clicks) {
+            for(InventoryClick click : clicks.values()) {
                 if(click.getId().equals(id)) {
                     return click;
                 }

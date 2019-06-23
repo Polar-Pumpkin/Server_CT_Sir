@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
+import org.serverct.sir.citylifecore.data.CLID;
 import org.serverct.sir.citylifecore.data.InventoryGui;
 
 import java.util.HashMap;
@@ -11,10 +12,10 @@ import java.util.Map;
 
 public class InventoryManager {
 
-    @Getter private Map<String, InventoryGui> loadedInventory = new HashMap<>();
+    @Getter private Map<CLID, InventoryGui> loadedInventory = new HashMap<>();
 
-    public void loadInventory(String id, FileConfiguration data, Plugin plugin) {
-        loadedInventory.put(id, new InventoryGui(data, plugin));
+    public void loadInventory(CLID id, FileConfiguration data, Plugin plugin) {
+        loadedInventory.put(id, new InventoryGui(id, data, plugin));
     }
 
     public String getNoColorName(String id) {

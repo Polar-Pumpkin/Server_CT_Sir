@@ -7,7 +7,8 @@ Plugin:
   NotPlayer: "&7此操作仅玩家可执行."
 ChatRequest:
   Cancelled: "&7您已取消输入."
-  Success: "&7设置成功. 值: &c%value%"
+  Success: "&7数据发送成功. 值: &c%value%"
+  Waiting: "&7插件 &c%plugin% &7对您发起数据输入请求, 数据类型: &c%datatype%&7."
 Commands:
   Unknown:
     Param: "&7未知参数, 请检查您的命令拼写."

@@ -14,7 +14,7 @@ import java.util.Map;
 
 public @Data @AllArgsConstructor class Action {
 
-    private String id;
+    private CLID id;
     private Plugin plugin;
     private ActionType actionType;
     private String value;
@@ -44,7 +44,7 @@ public @Data @AllArgsConstructor class Action {
                 player.sendMessage(CityLifeCore.getAPI().getLocaleManager().getTargetLocaleUtil(plugin).buildMessage(MessageType.valueOf(value.split("//.")[0].toUpperCase()), value.split("//.")[1]));
                 break;
             case CHATREQUEST:
-                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(id, CityLifeCore.getInstance(), ChatRequestDataType.valueOf(value.toUpperCase()), player);
+                CityLifeCore.getAPI().getChatRequestAPI().registerChatRequest(id, "ChatRequest", plugin, ChatRequestDataType.valueOf(value.toUpperCase()), player);
                 break;
             default:
                 break;

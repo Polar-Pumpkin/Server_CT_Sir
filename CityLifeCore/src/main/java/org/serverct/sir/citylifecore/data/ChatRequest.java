@@ -9,7 +9,7 @@ import org.serverct.sir.citylifecore.utils.CommonUtil;
 
 public @Data @AllArgsConstructor class ChatRequest {
 
-    private String id;
+    private CLID id;
     private Plugin plugin;
     private ChatRequestDataType type;
     private Player player;

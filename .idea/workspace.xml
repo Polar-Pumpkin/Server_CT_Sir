@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="4" />
+  </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerMoveListener.java" line="34" />
+    <bookmark url="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerMoveListener.java" line="30" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="deee23cc-a96d-4227-b721-0e0b3540a975" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/LocaleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/util/FriendUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/CLID.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/IDManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/libs/CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/libs/CityLifeCore-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/CityLifeFriends.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/CityLifeFriends.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/command/subcommands/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/command/subcommands/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/ConfigDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/ConfigDataManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/InventoryConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/InventoryConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/LocaleManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/PlayerDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/PlayerDataManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/ChatRequestCompletedListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/ChatRequestCompletedListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/Guis/Friends.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/Guis/Friends.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/CityLifeFriends-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/CityLifeFriends-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/Guis/Friends.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/Guis/Friends.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/config.yml" afterDir="false" />
@@ -34,26 +33,6 @@
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/original-CityLifeFriends-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/original-CityLifeFriends-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/libs/CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/libs/CityLifeCore-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/CityLifeMood.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/CityLifeMood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Do.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Do.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/List.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Reload.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Reload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Select.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Select.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Version.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/ConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/LocaleManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/PlayerDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/PlayerDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/data/MoodArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/data/MoodArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/enums/MessageType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/AreaEnterListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/AreaEnterListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/AreaLeaveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/AreaLeaveListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/PlayerInteractListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/PlayerInteractListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/runnable/RunnableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/runnable/RunnableManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/runnable/tasks/CheckTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/runnable/tasks/CheckTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/resources/Language.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/resources/Locale.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/CityLifeMood-1.0-RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/CityLifeMood-1.0-RELEASE.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/Language.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/CityLifeMood.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/CityLifeMood.class" afterDir="false" />
@@ -83,33 +62,27 @@
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/original-CityLifeMood-1.0-RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/original-CityLifeMood-1.0-RELEASE.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/CityLifeCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/CityLifeCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/api/CityLifeCoreApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/api/CityLifeCoreApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/CommandHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/subcommand/VersionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/subcommand/VersionCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/configuration/LanguageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/LocaleUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/Area.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/ChatRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/ChatRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryClick.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryClick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerChatListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerChatListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerMoveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerMoveListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/ChatRequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/ChatRequestManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/InventoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/InventoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/SelectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/SelectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/CommonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/CommonUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/InventoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/InventoryUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/ItemStackUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/ItemStackUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/resources/Language.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/resources/Locale.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/CityLifeCore-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/src/main/resources/Locale.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/src/main/resources/Locale.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/Language.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/CityLifeCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/CityLifeCore.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/api/CityLifeCoreApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/api/CityLifeCoreApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/CommandHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/CommandHandler.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/subcommand/VersionCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/subcommand/VersionCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/configuration/ConfigData.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/configuration/ConfigData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/configuration/ConfigData.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/configuration/LanguageData.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/Area.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/ChatRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/ChatRequest.class" afterDir="false" />
@@ -117,24 +90,29 @@
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItemAction$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItemAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/enums/inventoryitem/OptionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/AreaEnterEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/AreaLeaveEvent.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerChatListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerChatListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerInteractListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerInteractListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerMoveListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerMoveListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerInteractListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerMoveListener.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/ChatRequestManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/ChatRequestManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/InventoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/InventoryManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/SelectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/SelectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/CommonUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/CommonUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/CommonUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/CommonUtil.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-archiver/pom.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/original-CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/original-CityLifeCore-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/original-CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SoulRing/target/SoulRing-1.1-RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/SoulRing-1.1-RELEASE.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/Attributes.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/Attributes.class" afterDir="false" />
@@ -170,47 +148,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="56" column="34" lean-forward="true" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryClick.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryGui.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1924">
-              <caret line="83" column="5" selection-start-line="76" selection-start-column="4" selection-end-line="83" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1014">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -227,6 +165,7 @@
       <find>getDataManager</find>
       <find>=</find>
       <find>LocaleManager.getInstance()</find>
+      <find>clone</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\12247\IdeaProjects\Server CT\SoulRing\src\main\java\org\serverct\sir\soulring</dir>
@@ -241,15 +180,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/configuration/AttributeManager.java" />
-        <option value="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/listener/OnPlayerHeld.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/configuration/ConfigData.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerInteractListener.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/ConfigDataManager.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerChatListener.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/subcommand/VersionCommand.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/SelectionManager.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/InventoryManager.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/LocaleManager.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/resources/config.yml" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/CityLifeMood.java" />
@@ -271,27 +203,34 @@
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/runnable/RunnableManager.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/CityLifeCore.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerMoveListener.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/CityLifeFriends.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/InventoryUtil.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/LocaleUtil.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/Area.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/CommandHandler.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/subcommand/InfoCommand.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/ItemStackUtil.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/command/subcommands/MainMenu.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/config.yml" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/PlayerDataManager.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/manager/ActionManager.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/Guis/Friends.yml" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/CityLifeFriends.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/resources/Locale.yml" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/CommonUtil.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerChatListener.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/ChatRequestCompletedListener.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/ChatRequest.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryGui.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/ChatRequestManager.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/Action.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/Guis/Friends.yml" />
-        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryItem.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/ChatRequestCompletedListener.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/ItemStackUtil.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/InventoryManager.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/InventoryConfigManager.java" />
-        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/CLID.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryGui.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/util/FriendUtil.java" />
         <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryClick.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryItem.java" />
+        <option value="$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/InventoryUtil.java" />
       </list>
     </option>
   </component>
@@ -332,8 +271,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -430,6 +367,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="citylifefriends" type="462c0819:PsiDirectoryNode" />
               <item name="listener" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server CT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Server CT" type="462c0819:PsiDirectoryNode" />
+              <item name="CityLifeCore" type="462c0819:PsiDirectoryNode" />
+              <item name="CityLifeFriends" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="citylifefriends" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Server CT" type="b2602c69:ProjectViewProjectNode" />
@@ -550,12 +498,32 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="citylifecore" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server CT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Server CT" type="462c0819:PsiDirectoryNode" />
+              <item name="CityLifeCore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="citylifecore" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server CT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Server CT" type="462c0819:PsiDirectoryNode" />
+              <item name="CityLifeCore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -592,7 +560,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.CityLife Friends build">
+  <component name="RunManager" selected="Maven.CityLife Core build">
     <configuration name="Paper 1.8.8" type="JarApplication">
       <option name="JAR_PATH" value="D:/Minecraft/Test Environment/[Test Envir]Paper 1.8.8/Core.jar" />
       <option name="WORKING_DIRECTORY" value="D:\Minecraft\Test Environment\[Test Envir]Paper 1.8.8" />
@@ -895,7 +863,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561129114275</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="[PRE-RELEASE PATCH 4]全部都有大幅度改动, 但是我忘记了.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - API 新增 LocaleManager(语言信息管理器), 可以快捷管理语言信息, 比如发送/构建消息, 以及debug.&#10;    - 应用工具类 LocaleUtil, 所有 CL Series 项目语言信息方面都具有大幅度改动.&#10;    - 更改数据类结构, 新增数据类 InventoryClick 管理单次点击操作.&#10;  &#10;  &gt; CityLife Mood&#10;    - 修复多处 Bug, 准备重写区域调度器.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Gui 模块的大部分 Bug, 正在处理 Click/Action 动作执行模块的问题.">
+      <created>1561218924449</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561218924449</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -909,15 +884,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21641791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2185501" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32998884" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32887402" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.32887402" />
@@ -997,7 +972,9 @@
     <MESSAGE value="CityLife Friends 初步开发, 适配其需求 CL Core 多处改动.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 修改了数据类 InventoryItemAction(菜单物品操作后动作数据) 以在执行操作时支持自定变量.&#10;    - 修改了容器管理器中的 loadInventory() 方法(从数据文件创建 Gui 容器对象)以便于甄别(加入了 ID).&#10;    - Inventory 工具中新增了批量替换物品的方法, 以适配 CityLife Friends 的需求.&#10;    - 修改 ItemStack 工具中的 buildBasicItem() 方法(从数据中创建 ItemStack 对象)以兼容数字 ID 附加值.&#10;  &#10;  &gt; CityLife Friends&#10;    - 初步开发进行中, 当前完成 Gui 数据文件管理器和玩家数据管理器." />
     <MESSAGE value="[PRE-RELEASE PATCH 1]CityLife Friends 继续开发, 适配其需求 CL Core 多处改动.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 数据类 InventoryItemAction(菜单物品操作后动作数据) 已改名为 Action 以扩大功能范围, 同时独立自定变量替换为一方法以适配需求.&#10;    - 数据类 ChatRequest 新增 参数: 数据要求类型, 及其对应判断方法; 参数: Todo, 以在完成一次数据请求后自动执行接下来的 Action 动作.&#10;    - 数据类 InventoryItem 移除不需要的导入包.&#10;    - 枚举类 PositionType 优化了坐标解析算法以修复 Bug.&#10;    - 枚举类 MessageType 新增枚举值: DEBUG 以准备添加 Debug 模式.&#10;    - 监听器 PlayerChatListener 优化了算法以验证玩家输入的数据是否符合所请求数据类型.&#10;    - 管理器 InventoryManager 新增获取无颜色 Inventory 名的方法.&#10;    - 工具类 ItemStackUtil 优化了 buildBasicItem() 算法以同时兼容数字和英文的物品 ID, 同时将 Lore 键列为可选选项, 新增对应判断以防止出现 NullPointerException 异常.&#10;  &#10;  &gt; CityLife Friends&#10;    - 开发进行中, 当前完成 Gui, 语言信息和玩家数据管理模块, 同时通过第一次测试." />
     <MESSAGE value="[PRE-RELEASE PATCH 3]CityLife Core 新功能添加, CL Mood Debug 新进展.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新增枚举类 ChatRequestDataType 以用于验证请求的数据类型.&#10;    - 数据类 InventoryItem 新增 hasChatRequestAction 方法判断是否含有聊天栏数据请求动作以分类执行动作处理.&#10;    - 监听器 PlayerInteractListener 修复了区域选择器选择时会把方块打破的问题(创造模式), 新增 方块黑名单 功能的实现代码.&#10;    - 管理器 ChatRequestManager 注册方法新增对应请求数据类型参数.&#10;    - 工具类 InventoryUtil 新增 rebuildInventory 方法以重构 Gui.&#10;    - 工具类 ItemStackUtil 优化算法以适配 CL Friends 需求及解决潜在的 Bug.&#10;    - 配置文件 Config.yml 新增新功能的配置选项.&#10;    - 配置文件 Language.yml &amp; Config.yml 修改了过时的插件前缀.&#10;  &#10;  &gt; CityLife Friends&#10;    - 重写 Gui 配置文件管理器 中的大多数方法.&#10;    - 以及其他 Gui 管理器 的核心方法改动等.&#10;    &#10;  &gt; CityLife Mood&#10;    - 修复部分子命令在发送提示信息时的报错.&#10;    - 修复读取 Area 时的报错.&#10;    - 修复读取随机操作时的报错.&#10;    - 修复了一个可能导致消耗品失效的问题.&#10;    - 配置文件 Language.yml 新增了部分语言信息.&#10;    &#10;  &gt; SoulRing&#10;    - 更改了数据读取方式, 全部使用 int 型整数.&#10;    - 适配上述更改重写了部分属性读取方法.&#10;    - 新属性: HEALTH(生命力), 可以提升生命值上限.[UNFINISHED]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[PRE-RELEASE PATCH 3]CityLife Core 新功能添加, CL Mood Debug 新进展.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新增枚举类 ChatRequestDataType 以用于验证请求的数据类型.&#10;    - 数据类 InventoryItem 新增 hasChatRequestAction 方法判断是否含有聊天栏数据请求动作以分类执行动作处理.&#10;    - 监听器 PlayerInteractListener 修复了区域选择器选择时会把方块打破的问题(创造模式), 新增 方块黑名单 功能的实现代码.&#10;    - 管理器 ChatRequestManager 注册方法新增对应请求数据类型参数.&#10;    - 工具类 InventoryUtil 新增 rebuildInventory 方法以重构 Gui.&#10;    - 工具类 ItemStackUtil 优化算法以适配 CL Friends 需求及解决潜在的 Bug.&#10;    - 配置文件 Config.yml 新增新功能的配置选项.&#10;    - 配置文件 Language.yml &amp; Config.yml 修改了过时的插件前缀.&#10;  &#10;  &gt; CityLife Friends&#10;    - 重写 Gui 配置文件管理器 中的大多数方法.&#10;    - 以及其他 Gui 管理器 的核心方法改动等.&#10;    &#10;  &gt; CityLife Mood&#10;    - 修复部分子命令在发送提示信息时的报错.&#10;    - 修复读取 Area 时的报错.&#10;    - 修复读取随机操作时的报错.&#10;    - 修复了一个可能导致消耗品失效的问题.&#10;    - 配置文件 Language.yml 新增了部分语言信息.&#10;    &#10;  &gt; SoulRing&#10;    - 更改了数据读取方式, 全部使用 int 型整数.&#10;    - 适配上述更改重写了部分属性读取方法.&#10;    - 新属性: HEALTH(生命力), 可以提升生命值上限.[UNFINISHED]" />
+    <MESSAGE value="[PRE-RELEASE PATCH 4]全部都有大幅度改动, 但是我忘记了.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - API 新增 LocaleManager(语言信息管理器), 可以快捷管理语言信息, 比如发送/构建消息, 以及debug.&#10;    - 应用工具类 LocaleUtil, 所有 CL Series 项目语言信息方面都具有大幅度改动.&#10;    - 更改数据类结构, 新增数据类 InventoryClick 管理单次点击操作.&#10;  &#10;  &gt; CityLife Mood&#10;    - 修复多处 Bug, 准备重写区域调度器.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Gui 模块的大部分 Bug, 正在处理 Click/Action 动作执行模块的问题." />
+    <MESSAGE value="[PRE-RELEASE PATCH 5]CityLife Friends 核心问题濒临解决, 引入全新 ID 系统 CLID.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新的数据类 CLID, 并为了适配其作了大量更改.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Action 模块的大部分 Bug, 正在应用新的 ID 系统 CLID.&#10;    &#10;Ps: 这其中经过了无数次调试/Debug, 我快死了嘤嘤嘤." />
+    <option name="LAST_COMMIT_MESSAGE" value="[PRE-RELEASE PATCH 5]CityLife Friends 核心问题濒临解决, 引入全新 ID 系统 CLID.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新的数据类 CLID, 并为了适配其作了大量更改.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Action 模块的大部分 Bug, 正在应用新的 ID 系统 CLID.&#10;    &#10;Ps: 这其中经过了无数次调试/Debug, 我快死了嘤嘤嘤." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1005,109 +982,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/LocaleManager.java" />
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/ConfigManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="177" column="18" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/runnable/tasks/CheckTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="50" column="63" lean-forward="true" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/configuration/PlayerDataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="127" column="29" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/PlayerInteractListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="50" column="46" lean-forward="true" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Reload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="65" lean-forward="true" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Select.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Do.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="60" column="69" selection-start-line="60" selection-start-column="69" selection-end-line="60" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/command/subcommands/Version.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/data/MoodArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <element signature="e#1195#1196#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/runnable/RunnableManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="46" column="35" lean-forward="true" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/src/main/java/org/serverct/sir/citylifemood/listener/AreaLeaveListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -1151,30 +1025,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/LocaleManager.java" />
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/CityLifeFriends.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/ConfigDataManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="21" column="93" selection-start-line="21" selection-start-column="93" selection-end-line="21" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/InventoryUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="68" column="50" lean-forward="true" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1216,30 +1070,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/subcommand/InfoCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Objects.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="204" column="5" lean-forward="true" selection-start-line="185" selection-start-column="1" selection-end-line="204" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/ItemStackUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="142" column="38" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1262,20 +1096,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/PlayerDataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="169" column="64" lean-forward="true" selection-start-line="169" selection-start-column="64" selection-end-line="169" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/enums/inventoryitem/ActionType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1284,30 +1104,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/manager/ActionManager.java" />
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/ChatRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/command/subcommands/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="28" column="147" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="147" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/ChatRequestManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/Guis/Friends.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -1315,10 +1111,255 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/resources/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/CityLifeFriends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="59" column="86" selection-start-line="59" selection-start-column="86" selection-end-line="59" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/PlayerDataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="172" column="31" lean-forward="true" selection-start-line="172" selection-start-column="31" selection-end-line="172" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Coding Project Repo/org/spigotmc/spigot-api/1.8-R0.1-SNAPSHOT/spigot-api-1.8-R0.1-20150227.224658-194-sources.jar!/org/bukkit/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="71" lean-forward="true" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Cloneable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="51" column="3" lean-forward="true" selection-start-line="30" selection-start-column="2" selection-end-line="51" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/command/subcommands/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="28" column="76" selection-start-line="28" selection-start-column="76" selection-end-line="28" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/command/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/enums/ChatRequestDataType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/resources/Locale.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/CommonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding>
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/command/subcommand/InfoCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/listener/PlayerChatListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="45" column="56" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/ChatRequestCompletedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/IDManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/ChatRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/ChatRequestManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/Action.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        <state relative-caret-position="616">
+          <caret line="46" column="94" selection-start-line="46" selection-start-column="94" selection-end-line="46" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4722">
+          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Coding Project Repo/org/projectlombok/lombok/1.18.6/lombok-1.18.6-sources.jar!/lombok/Value.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="54" column="51" lean-forward="true" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Coding Project Repo/org/projectlombok/lombok/1.18.6/lombok-1.18.6-sources.jar!/lombok/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/manager/InventoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/InventoryConfigManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1022">
+          <caret line="68" column="71" lean-forward="true" selection-start-line="68" selection-start-column="71" selection-end-line="68" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/ItemStackUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2552">
+          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3301#3524#1" />
+            <element signature="e#3677#4412#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/CLID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/util/FriendUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryClick.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="75" column="51" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1022">
+          <caret line="56" column="54" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/utils/InventoryUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1327,50 +1368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1924">
-          <caret line="83" column="5" selection-start-line="76" selection-start-column="4" selection-end-line="83" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1014">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/ChatRequestCompletedListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/configuration/InventoryConfigManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="166" column="54" selection-start-line="166" selection-start-column="54" selection-end-line="166" selection-end-column="54" />
-          <folding>
-            <element signature="method#getFriendPlaceholderIndex#0;class#InventoryConfigManager#0" />
-            <element signature="method#getFriendPlaceholder#0;class#InventoryConfigManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/src/main/java/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="56" column="34" lean-forward="true" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CityLifeCore/src/main/java/org/serverct/sir/citylifecore/data/InventoryClick.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="394">
+          <caret line="110" column="32" lean-forward="true" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
         </state>
       </provider>
     </entry>

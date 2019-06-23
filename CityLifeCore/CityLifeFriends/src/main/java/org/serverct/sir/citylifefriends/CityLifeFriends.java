@@ -10,6 +10,8 @@ import org.serverct.sir.citylifefriends.command.CommandHandler;
 import org.serverct.sir.citylifefriends.configuration.ConfigDataManager;
 import org.serverct.sir.citylifefriends.configuration.InventoryConfigManager;
 import org.serverct.sir.citylifefriends.configuration.PlayerDataManager;
+import org.serverct.sir.citylifefriends.listener.ChatRequestCompletedListener;
+import org.serverct.sir.citylifefriends.listener.InventoryInteractListener;
 
 public final class CityLifeFriends extends JavaPlugin {
 
@@ -54,6 +56,9 @@ public final class CityLifeFriends extends JavaPlugin {
 
         init();
 
+        Bukkit.getPluginManager().registerEvents(new ChatRequestCompletedListener(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryInteractListener(), this);
+        Bukkit.getLogger().info("  > 已注册监听器.");
         Bukkit.getPluginCommand("citylifefriends").setExecutor(new CommandHandler());
         Bukkit.getLogger().info("  > 已注册命令.");
 
