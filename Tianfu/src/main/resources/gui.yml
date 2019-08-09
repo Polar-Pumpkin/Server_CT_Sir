@@ -1,0 +1,92 @@
+Setting:
+  Title: "&9&l天赋系统"
+  Row: 1
+  Sound:
+    Open: NOTE_BASS
+    Close: NOTE_BASS
+Items:
+  DAMAGE:
+    Display: "%TALENT_NAME%"
+    Material: DIAMOND_SWORD
+    Lore:
+      - "&7&o当前天赋效果:"
+      - "&7&o%TALENT_DESC_SHORT%"
+      - ""
+      - "&9&l>> &7天赋: &c%TALENT_NAME%"
+      - ""
+      - "&a&l>> &7当前天赋等级: &c%TALENT_LEVEL_SHORT%"
+      - "&e&l>> &7下一等级效果: &a%TALENT_DESC_SHORT_NEXT%"
+      - ""
+      - "&5&l* &7%TALENT_COST% &5&l*"
+      - ""
+      - "&c%TALENT_PROCESS%"
+    X: 1
+    Y: 1
+  HEALTHREFILL:
+    Display: "%TALENT_NAME%"
+    Material: DIAMOND
+    Lore:
+      - "&7&o当前天赋效果:"
+      - "&7&o%TALENT_DESC_SHORT%"
+      - ""
+      - "&9&l>> &7天赋: &c%TALENT_NAME%"
+      - ""
+      - "&a&l>> &7当前天赋等级: &c%TALENT_LEVEL%&7/%TALENT_LEVEL_MAX%"
+      - "&e&l>> &7下一等级效果: &a%TALENT_DESC_SHORT_NEXT%"
+      - ""
+      - "&5&l* &7%TALENT_COST% &5&l*"
+      - ""
+      - "&c%TALENT_PROCESS%"
+    X: 3
+    Y: 1
+  REGEN:
+    Display: "%TALENT_NAME%"
+    Material: GOLDEN_APPLE
+    Lore:
+      - "&7&o当前天赋效果:"
+      - "&7&o%TALENT_DESC_SHORT%"
+      - ""
+      - "&9&l>> &7天赋: &c%TALENT_NAME%"
+      - ""
+      - "&a&l>> &7当前天赋等级: &c%TALENT_LEVEL%&7/%TALENT_LEVEL_MAX%"
+      - "&e&l>> &7下一等级效果: &a%TALENT_DESC_SHORT_NEXT%"
+      - ""
+      - "&5&l* &7%TALENT_COST% &5&l*"
+      - ""
+      - "&c%TALENT_PROCESS%"
+    X: 5
+    Y: 1
+  IMPRISONMENT:
+    Display: "%TALENT_NAME%"
+    Material: CHAINMAIL_BOOTS
+    Lore:
+      - "&7&o当前天赋效果:"
+      - "&7&o%TALENT_DESC_SHORT%"
+      - ""
+      - "&9&l>> &7天赋: &c%TALENT_NAME%"
+      - ""
+      - "&a&l>> &7当前天赋等级: &c%TALENT_LEVEL%&7/%TALENT_LEVEL_MAX%"
+      - "&e&l>> &7下一等级效果: &a%TALENT_DESC_SHORT_NEXT%"
+      - ""
+      - "&5&l* &7%TALENT_COST% &5&l*"
+      - ""
+      - "&c%TALENT_PROCESS%"
+    X: 7
+    Y: 1
+  LIGHTNING:
+    Display: "%TALENT_NAME%"
+    Material: TNT
+    Lore:
+      - "&7&o当前天赋效果:"
+      - "&7&o%TALENT_DESC_SHORT%"
+      - ""
+      - "&9&l>> &7天赋: &c%TALENT_NAME%"
+      - ""
+      - "&a&l>> &7当前天赋等级: &c%TALENT_LEVEL%&7/%TALENT_LEVEL_MAX%"
+      - "&e&l>> &7下一等级效果: &a%TALENT_DESC_SHORT_NEXT%"
+      - ""
+      - "&5&l* &7%TALENT_COST% &5&l*"
+      - ""
+      - "&c%TALENT_PROCESS%"
+    X: 9
+    Y: 1

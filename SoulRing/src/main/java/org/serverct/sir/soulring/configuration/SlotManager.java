@@ -61,12 +61,14 @@ public class SlotManager {
         if(item.hasItemMeta()) {
             targetLore = item.getItemMeta().getLore();
 
-            if(targetLore.contains(RingManager.getRingManager().getEmptySlotDisplay())) {
-                return true;
-            }
-            for(String lore : targetLore) {
-                if(lore.contains(RingManager.getRingManager().getFilledSlotDisplay())) {
+            if(targetLore != null) {
+                if(targetLore.contains(RingManager.getRingManager().getEmptySlotDisplay())) {
                     return true;
+                }
+                for(String lore : targetLore) {
+                    if(lore.contains(RingManager.getRingManager().getFilledSlotDisplay())) {
+                        return true;
+                    }
                 }
             }
         }

@@ -1,0 +1,10 @@
+name: Tianfu
+version: ${project.version}
+main: org.serverct.sir.tianfu.Tianfu
+api-version: 1.13
+depend: [Vault, PlayerPoints]
+authors: [EntityParrot_]
+commands:
+  tianfu:
+    aliases:
+      - gk

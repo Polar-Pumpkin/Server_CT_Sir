@@ -1,0 +1,10 @@
+name: ChongSheng
+version: ${project.version}
+main: org.serverct.sir.chongsheng.ChongSheng
+commands:
+  chongsheng:
+    aliases:
+      - cs
+  huixue:
+    aliases:
+      - hx

@@ -1,0 +1,10 @@
+name: Duobao
+version: ${project.version}
+main: org.serverct.sir.duobao.Duobao
+api-version: 1.13
+authors: [EntityParrot_]
+commands:
+  treasure:
+    aliases:
+      - duobao
+      - db

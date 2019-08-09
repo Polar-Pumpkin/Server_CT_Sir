@@ -1,0 +1,49 @@
+Plugin:
+  Prefix: "&9[&bHunhuan &6&l魂环&9] "
+  INFO: "&a&l>> "
+  ERROR: "&e&l>> "
+  WARN: "&c&l>> "
+  NoPermission: "&7您没有权限这么做. :("
+  NotPlayer: "&7此操作仅玩家可执行."
+  ReloadSuccess: "&7重载成功."
+  HelpMessage:
+    - "&d&m                                                            "
+    - ""
+    - "  &6&lHunhuan &7| &d&l魂环 &7>>>"
+    - ""
+    - "  &7作者: &c&l&oEntityParrot_"
+    - "  &7版本: &c&l&o 1.0-Release"
+    - ""
+    - "  &6&l指令列表 &7>>>"
+    - ""
+    - "  &d/hunhuan list &9- &7查看帮助."
+    - "  &d/hunhuan xq &9- &7开始镶嵌魂环."
+    - "  &d/hunhuan unload &7<&c魂环ID&7> &9- &7从手持物品中拆下指定魂环."
+    - ""
+    - "  &d/hunhuan reload &9- &7重载配置文件."
+    - ""
+    - "  &d/hunhuan get &7<&c魂环ID&7> &7<&c数量&7> &9- &7获取指定数量的指定魂环."
+    - ""
+    - "&d&m                                                            "
+Command:
+  Unknown:
+    Command: "&7未知命令, 输入 &d/hunhuan list &7查看帮助."
+  Success:
+    Inlay:
+      Message: "&7成功镶嵌魂环 &a%hunhuan%&7."
+      Broadcast: "&7恭喜玩家 &a%player% &7成功为 &b%item% &7镶嵌上 &c%hunhuan%&7!"
+    Unload:
+      Message: "&7成功拆卸魂环 &c%hunhuan%&7."
+      Broadcast: "&7恭喜玩家 &a%player% &7成功将 &c%hunhuan% &7从 &b%item% &7上拆卸!"
+  Invalid:
+    Item:
+      Amount: "&7将要进行镶嵌的目标装备数量必须为 &a1&7."
+      Empty: "&7该装备上未镶嵌指定魂环."
+      ReachLimit: "&7目标装备已达到最大镶嵌限制&8(&c%limit%&8)&7."
+      NothingInHand: "&7需要手持目标装备."
+    Hungu:
+      Empty: "&7目标魂环位&8(快捷栏第 &c9 &8格)&7为空或目标魂环无效."
+      InvalidID: "&7指定魂环ID无效."
+  Cost:
+    NotEnough: "&7您的账户余额&8(&a%money%&8)&7不足以进行一次镶嵌&8(&c%cost%&8)&7."
+    Success: "&7支付成功! 花费 &c%cost% &7进行一次镶嵌, 当前账户余额 &a%money%&7."

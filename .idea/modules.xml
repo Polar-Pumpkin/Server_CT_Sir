@@ -3,11 +3,19 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ANOHANA Marry.iml" filepath="$PROJECT_DIR$/ANOHANA Marry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BossBroadCast/BossBroadCast.iml" filepath="$PROJECT_DIR$/BossBroadCast/BossBroadCast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChongSheng/ChongSheng.iml" filepath="$PROJECT_DIR$/ChongSheng/ChongSheng.iml" />
       <module fileurl="file://$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" filepath="$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" />
       <module fileurl="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends/CityLife Friends.iml" filepath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/CityLife Friends.iml" />
       <module fileurl="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" filepath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DisplaynameSetter/DisplaynameSetter.iml" filepath="$PROJECT_DIR$/DisplaynameSetter/DisplaynameSetter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Duobao/Duobao.iml" filepath="$PROJECT_DIR$/Duobao/Duobao.iml" />
       <module fileurl="file://$PROJECT_DIR$/GUGUGU/GUGUGU.iml" filepath="$PROJECT_DIR$/GUGUGU/GUGUGU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HunHuan/HunHuan.iml" filepath="$PROJECT_DIR$/HunHuan/HunHuan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hungu/Hungu.iml" filepath="$PROJECT_DIR$/Hungu/Hungu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoreReplace/LoreReplace.iml" filepath="$PROJECT_DIR$/LoreReplace/LoreReplace.iml" />
       <module fileurl="file://$PROJECT_DIR$/SoulRing/SoulRing.iml" filepath="$PROJECT_DIR$/SoulRing/SoulRing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tianfu/Tianfu.iml" filepath="$PROJECT_DIR$/Tianfu/Tianfu.iml" />
     </modules>
   </component>
 </project>

@@ -65,9 +65,13 @@ public class Ring implements SubCommand {
                                 }
 
                                 if(!RingManager.getRingManager().getLoadedRings().isEmpty()) {
-                                    for(TextComponent msg : buildGetActionMessage()) {
-                                        playerSender.spigot().sendMessage(msg);
+                                    for(String key : RingManager.getRingManager().getLoadedRings()) {
+                                        playerSender.sendMessage(key + ChatColor.translateAlternateColorCodes('&', ChatColor.WHITE + "(" + RingManager.getRingManager().getRingDisplay(key) + ChatColor.WHITE + ")"));
                                     }
+
+                                    /*for(TextComponent msg : buildGetActionMessage()) {
+                                        playerSender.spigot().sendMessage(msg);
+                                    }*/
                                 } else {
                                     playerSender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l无."));
                                 }

@@ -1,0 +1,79 @@
+Debug: false
+Language: Chinese
+Setting:
+  Level:
+    Reached: "&a■"
+    Not: "&7■"
+  Sound:
+    Upgrade:
+      Success: LEVEL_UP
+      Failure: VILLAGER_NO
+Talent:
+  DAMAGE:
+    Display: "&c&l伤害提升"
+    Description: "攻击力"
+    Symbol: ""
+    Levels:
+      1: 10
+      2: 20
+      3: 30
+      4: 40
+      5: 50
+      6: 60
+      7: 70
+      8: 80
+      9: 90
+      10: 100
+    Cost:
+      Money: 100
+      Point: 100
+  HEALTHREFILL:
+    Display: "&a&l重生"
+    Description: "生命低于10%时回满几率"
+    Symbol: "%"
+    Levels:
+      1: 5
+      2: 10
+      3: 15
+      4: 20
+      5: 25
+    Cost:
+      Money: 100
+      Point: 100
+  REGEN:
+    Display: "&c&l生命恢复"
+    Description: "生命恢复"
+    Symbol: "/s"
+    Levels:
+      1: 1
+      2: 3
+      3: 5
+      4: 7
+      5: 9
+    Cost:
+      Money: 100
+      Point: 100
+  IMPRISONMENT:
+    Display: "&8&l禁锢"
+    Description: "禁锢时长"
+    Symbol: "s"
+    Levels:
+      1: 3
+      2: 6
+      3: 12
+      4: 24
+      5: 48
+    Cost:
+      Money: 100
+      Point: 100
+  LIGHTNING:
+    Display: "&9&l雷击"
+    Description: "雷击几率"
+    Symbol: "%"
+    Levels:
+      1: 10
+      2: 30
+      3: 50
+    Cost:
+      Money: 100
+      Point: 100

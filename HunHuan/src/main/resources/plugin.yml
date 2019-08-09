@@ -1,0 +1,6 @@
+name: HunHuan
+version: ${project.version}
+main: org.serverct.sir.hunhuan.HunHuan
+authors: [EntityParrot_]
+commands:
+  hunhuan:

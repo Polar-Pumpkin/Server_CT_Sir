@@ -1,0 +1,5 @@
+name: Hungu
+version: ${project.version}
+main: org.serverct.sir.hungu.Hungu
+commands:
+  hungu:

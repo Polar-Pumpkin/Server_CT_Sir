@@ -1,0 +1,10 @@
+name: BossBroadCast
+version: ${project.version}
+main: org.serverct.sir.bossbroadcast.BossBroadCast
+authors: [EntityParrot_]
+depend:
+  - BarAPI
+commands:
+  bossbroadcast:
+    aliases:
+      - bar

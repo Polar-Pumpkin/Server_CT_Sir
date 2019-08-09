@@ -1,0 +1,14 @@
+Plugin:
+  Prefix: "&7[&9Duobao &8| &6&l夺宝&7] "
+  INFO: "&a&l&o>> "
+  WARN: "&e&l&o>> "
+  ERROR: "&c&l&o>> "
+Game:
+  Start: "&7夺宝开始! 已生成 &c%amount% &7个宝箱! (提示, 有一个宝箱在 %loc%&7)"
+  Stop: "&7本次夺宝已结束."
+  respawnChest: "&7新的一波宝箱来临! 已重新生成 &c%amount% &7个宝箱!"
+  Found: "&a%player% &7找到了一个箱子!"
+Command:
+  Unknown:
+    Command: "&7未知命令."
+    Permission: "&7你没有权限这么做."

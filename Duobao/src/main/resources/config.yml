@@ -1,0 +1,28 @@
+Debug: false
+Language: Chinese
+Items:
+  diamond:
+    Material: DIAMOND
+    MinAmount: 1
+    Range: 2
+    Rate: 3
+  iron:
+    Material: IRON_INGOT
+    MinAmount: 5
+    Range: 5
+    Rate: 20
+  coal:
+    Material: COAL
+    MinAmount: 10
+    Range: 10
+    Rate: 50
+  gold:
+    Material: GOLD_INGOT
+    MinAmount: 3
+    Range: 2
+    Rate: 10
+  emerald:
+    Material: EMERALD
+    MinAmount: 1
+    Range: 1
+    Rate: 1

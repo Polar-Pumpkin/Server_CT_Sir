@@ -1,0 +1,71 @@
+Plugin:
+  Prefix: "&7[&9&lTianfu &8| &6天赋&7] "
+  INFO: "&a&l>> "
+  WARN: "&e&l>> "
+  ERROR: "&c&l>> "
+  HelpMessage:
+    - "&d&m                                                            "
+    - ""
+    - "  &6&lTianfu &7| &d&l天赋 &7>>>"
+    - ""
+    - "  &7作者: &c&l&oEntityParrot_"
+    - "  &7版本: &c&l&o 1.7-Release"
+    - ""
+    - "  &6&l指令列表 &7>>>"
+    - ""
+    - "  &d/gk help &9- &7查看帮助."
+    - "  &d/gk gui &7(或 &d/gk &7) &9- &7打开天赋菜单."
+    - "  &d/gk stats &7[&c玩家ID&7] &9- &7查询指定玩家天赋等级信息."
+    - ""
+    - "  &d/gk reload &9- &7重载配置文件."
+    - ""
+    - "  &d/gk talent add &7<&c天赋ID&7> &7<&c值&7> &9- &7设置天赋指定等级的值."
+    - "  &d/gk talent set &7<&c天赋ID&7> &7<&c等级&7> &7<&c值&7> &9- &7设置天赋指定等级的值."
+#    - "  &d/gk talent info &7<&c天赋ID&7> &9- &7查看指定天赋的详细信息."
+    - ""
+    - "&d&m                                                            "
+Talent:
+  HealthRefill: "&7天赋 &c%TALENT_NAME% &7发动!"
+  Regen:
+    Welcome: "&7欢迎回到服务器! 天赋 &c%TALENT_NAME% &7已为您提供 &a%TALENT_AMOUNT%&7/s 的回血 Buff!"
+    Update: "&7你的回血 Buff 已随着天赋等级提升而更新为 &a%TALENT_AMOUNT%&7/s."
+  Imprisonment:
+    Cast: "&7天赋 &c%TALENT_NAME% &7发动!"
+    Victim: "&7对方发动了天赋 &c%TALENT_NAME%&7."
+  Lightning: "&7天赋 &c%TALENT_NAME% &7发动!"
+Command:
+  Upgrade:
+    ReachedLimit: "&7您已达到最大等级(&c%TALENT_LEVEL_MAX%&7)."
+    Broadcast: "&7恭喜玩家 &a%PLAYER% &7将 &c%TALENT_NAME% &7升至 &6%TALENT_LEVEL% &7级."
+  Cost:
+    Success: "&7成功花费 &c%TALENT_COST% &7将 &c%TALENT_NAME% &7升至 &6%TALENT_LEVEL_NEXT% &7级."
+    NotEnough: "&7你没有足够的 &c%TALENT_COST% 来升级."
+  NoPermission: "&7你没有权限这么做."
+  NotPlayer: "&7此命令仅玩家可用(或当前命令参数下无法控制台执行命令)."
+  ReloadSuccess: "&7重载成功."
+  Admin:
+    Success:
+      Add: "&7成功为 &c%name% &7添加新的等级 &6%level%&7(&c%value%&7)."
+      Set: "&7成功设置 &c%name% &7在等级 &d%level% &7时的值为 &c%value%&7."
+    Failure:
+      Add: "&7添加等级失败, 一般来讲这不可能."
+      Set: "&7设置等级值失败, 请不要把非 &c最高级/最高级 + 1 &7等级值设置为 &c0&7."
+  Unknown:
+    Command: "&7未知命令, 使用 &d/gk help &7查看帮助."
+    Player: "&7目标玩家无效."
+    TalentType: "&7未知天赋."
+  Info:
+    Player:
+      - ""
+      - "  &7玩家 &a%PLAYER% &7天赋信息 &9&l&o>>> "
+      - ""
+      - "  &b&l- &c%DAMAGE_NAME%&7(&C%DAMAGE_LEVEL_SHORT%&7): &a%DAMAGE_DESC_SHORT%"
+      - "  &b&l- &c%HEALTHREFILL_NAME%&7(&C%HEALTHREFILL_LEVEL_SHORT%&7): &a%HEALTHREFILL_DESC_SHORT%"
+      - "  &b&l- &c%IMPRISONMENT_NAME%&7(&C%IMPRISONMENT_LEVEL_SHORT%&7): &a%IMPRISONMENT_DESC_SHORT%"
+      - "  &b&l- &c%LIGHTNING_NAME%&7(&C%LIGHTNING_LEVEL_SHORT%&7): &a%LIGHTNING_DESC_SHORT%"
+      - "  &b&l- &c%REGEN_NAME%&7(&C%REGEN_LEVEL_SHORT%&7): &a%REGEN_DESC_SHORT%"
+      - ""
+    Talent:
+      - ""
+      - "  &7天赋 &a%TALENT_NAME% &7天赋信息 &9&l&o>>> "
+      - ""

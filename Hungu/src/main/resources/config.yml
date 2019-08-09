@@ -1,0 +1,18 @@
+Debug: false
+Format:
+  Display: "&a&l> &7已镶嵌: "
+  Header: "&6&l> &7魂骨列表"
+  Footer: "&6&m                              "
+Absorb:
+  Limit: 2
+  Cost: 100
+Hungu:
+  1:
+    Display: "&5&l示例魂骨"
+    ID: CLAY_BALL
+    Lore:
+      - "&7&o这个魂骨只是一个示例."
+      - "&7&o支持多行 Lore 显示."
+    fjLore:
+      - "&7镶嵌后的Lore"
+      - "&7同样支持多行显示."

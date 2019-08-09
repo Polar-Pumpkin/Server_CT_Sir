@@ -1,0 +1,10 @@
+name: DisplaynameSetter
+version: ${project.version}
+main: org.serverct.sir.displaynamesetter.DisplaynameSetter
+authors: [EntityParrot_]
+commands:
+  displaynamesetter:
+    aliases:
+      - ds
+      - displayname
+      - nameset

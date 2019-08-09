@@ -1,0 +1,8 @@
+name: LoreReplace
+version: ${project.version}
+main: org.serverct.sir.lorereplace.LoreReplace
+authors: [EntityParrot_]
+commands:
+  lorereplace:
+    aliases:
+      - lorerep

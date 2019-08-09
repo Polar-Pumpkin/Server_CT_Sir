@@ -7,21 +7,37 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CityLife Core" />
-        <module name="CityLife Friends" />
         <module name="SoulRing" />
         <module name="GUGUGU" />
+        <module name="Duobao" />
+        <module name="CityLife Core" />
         <module name="CityLife Mood" />
+        <module name="BossBroadCast" />
+        <module name="LoreReplace" />
+        <module name="Hungu" />
+        <module name="HunHuan" />
+        <module name="CityLife Friends" />
+        <module name="DisplaynameSetter" />
+        <module name="ChongSheng" />
         <module name="ANOHANA Marry" />
+        <module name="Tianfu" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ANOHANA Marry" target="1.8" />
+      <module name="BossBroadCast" target="1.8" />
+      <module name="ChongSheng" target="1.8" />
       <module name="CityLife Core" target="1.8" />
       <module name="CityLife Friends" target="1.8" />
       <module name="CityLife Mood" target="1.8" />
+      <module name="DisplaynameSetter" target="1.8" />
+      <module name="Duobao" target="1.8" />
       <module name="GUGUGU" target="1.8" />
+      <module name="Hungu" target="1.8" />
+      <module name="HunHuan" target="1.8" />
+      <module name="LoreReplace" target="1.8" />
       <module name="SoulRing" target="1.8" />
+      <module name="Tianfu" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

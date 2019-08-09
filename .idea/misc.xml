@@ -19,6 +19,14 @@
         <option value="$PROJECT_DIR$/CityLifeCore/pom.xml" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/pom.xml" />
         <option value="$PROJECT_DIR$/CityLifeCore/CityLifeMood/pom.xml" />
+        <option value="$PROJECT_DIR$/Hungu/pom.xml" />
+        <option value="$PROJECT_DIR$/ChongSheng/pom.xml" />
+        <option value="$PROJECT_DIR$/Tianfu/pom.xml" />
+        <option value="$PROJECT_DIR$/Duobao/pom.xml" />
+        <option value="$PROJECT_DIR$/BossBroadCast/pom.xml" />
+        <option value="$PROJECT_DIR$/HunHuan/pom.xml" />
+        <option value="$PROJECT_DIR$/LoreReplace/pom.xml" />
+        <option value="$PROJECT_DIR$/DisplaynameSetter/pom.xml" />
       </list>
     </option>
   </component>

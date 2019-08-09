@@ -2,11 +2,19 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/BossBroadCast" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ChongSheng" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CityLifeCore" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CityLifeCore/CityLifeFriends" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CityLifeCore/CityLifeMood" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DisplaynameSetter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Duobao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GUGUGU" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HunHuan" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Hungu" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LoreReplace" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SoulRing" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Tianfu" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
