@@ -70,10 +70,10 @@ public class AreaUtil {
     }
 
     public static boolean checkAround(Location loc) {
-        boolean n = loc.add(0, 0, 1).getBlock().getType() != Material.CHEST;
-        boolean s = loc.add(0, 0, -1).getBlock().getType() != Material.CHEST;
-        boolean w = loc.add(-1, 0, 0).getBlock().getType() != Material.CHEST;
-        boolean e = loc.add(1, 0, 0).getBlock().getType() != Material.CHEST;
+        boolean n = loc.clone().add(0, 0, 1).getBlock().getType() != Material.CHEST;
+        boolean s = loc.clone().add(0, 0, -1).getBlock().getType() != Material.CHEST;
+        boolean w = loc.clone().add(-1, 0, 0).getBlock().getType() != Material.CHEST;
+        boolean e = loc.clone().add(1, 0, 0).getBlock().getType() != Material.CHEST;
         return n && s && w && e;
     }
 }

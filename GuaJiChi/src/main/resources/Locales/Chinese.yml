@@ -1,0 +1,7 @@
+Plugin:
+  Prefix: "&7[&9GJC &8| &6&l挂机池&7] "
+  INFO: "&a&l&o>> "
+  WARN: "&e&l&o>> "
+  ERROR: "&c&l&o>> "
+Reward:
+  Success: "&7已获得挂机收益! (金币 +$&c%money%&7, 经验值 +&c%exp%&7 Exp)."

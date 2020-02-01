@@ -2,6 +2,7 @@ package org.serverct.sir.duobao.manager;
 
 import lombok.Getter;
 import org.bukkit.*;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -34,30 +35,34 @@ public class GameManager {
     public void loadArea() {
         FileConfiguration config = Duobao.getInstance().getConfig();
 
-        if(config.isConfigurationSection("Area.1") && config.isConfigurationSection("Area.2")) {
-            area.put(
-                    1,
-                    new Location(
-                            Bukkit.getWorld(config.getString("Area.1.World")),
-                            config.getDouble("Area.1.X"),
-                            config.getDouble("Area.1.Y"),
-                            config.getDouble("Area.1.Z")
-                    )
-            );
-            area.put(
-                    2,
-                    new Location(
-                            Bukkit.getWorld(config.getString("Area.2.World")),
-                            config.getDouble("Area.2.X"),
-                            config.getDouble("Area.2.Y"),
-                            config.getDouble("Area.2.Z")
-                    )
-            );
+        ConfigurationSection areaSection = config.getConfigurationSection("Area");
+        if(areaSection != null) {
+            if(areaSection.getKeys(false).contains("1") && areaSection.getKeys(false).contains("2")) {
+                area.put(
+                        1,
+                        new Location(
+                                Bukkit.getWorld(config.getString("Area.1.World")),
+                                config.getDouble("Area.1.X"),
+                                config.getDouble("Area.1.Y"),
+                                config.getDouble("Area.1.Z")
+                        )
+                );
+                area.put(
+                        2,
+                        new Location(
+                                Bukkit.getWorld(config.getString("Area.2.World")),
+                                config.getDouble("Area.2.X"),
+                                config.getDouble("Area.2.Y"),
+                                config.getDouble("Area.2.Z")
+                        )
+                );
+            }
         }
     }
 
     public void spawnChest(String id, int amount, boolean sendMsg) {
         locale.debug("执行 spawnChest 方法.");
+        loadArea();
         List<Location> area = AreaUtil.generateTreasureLocation(getArea());
         locale.debug("生成区域坐标列表: " + area.toString());
 

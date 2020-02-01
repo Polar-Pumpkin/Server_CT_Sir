@@ -9,15 +9,12 @@ import org.serverct.sir.tianfu.enums.TalentType;
 public class Imprisonment implements TalentExecutor{
 
     private final TalentType talentKey = TalentType.IMPRISONMENT;
-    private Player user;
-    private int level;
-    private int amount;
 
     @Override
     public Object execute(PlayerData data) {
-        user = Bukkit.getPlayer(data.getPlayerName());
-        level = data.getLevel().get(talentKey);
-        amount = TalentManager.getInstance().getTalent(talentKey).getLevels().get(level);
+        Player user = Bukkit.getPlayer(data.getPlayerName());
+        int level = data.getLevel().get(talentKey);
+        int amount = TalentManager.getInstance().getTalent(talentKey).getLevels().get(level);
         return amount;
     }
 }

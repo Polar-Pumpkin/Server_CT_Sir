@@ -6,7 +6,7 @@
 
     <groupId>org.serverct.sir</groupId>
     <artifactId>HunHuan</artifactId>
-    <version>1.0-RELEASE</version>
+    <version>1.2-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>HunHuan</name>

@@ -11,17 +11,14 @@ import java.util.Random;
 public class Lightning implements TalentExecutor {
 
     private final TalentType talentKey = TalentType.LIGHTNING;
-    private Player user;
-    private int level;
-    private int amount;
 
     private Random random = new Random();
 
     @Override
     public Object execute(PlayerData data) {
-        user = Bukkit.getPlayer(data.getPlayerName());
-        level = data.getLevel().get(talentKey);
-        amount = TalentManager.getInstance().getTalent(talentKey).getLevels().get(level);
-        return random.nextInt(100) <= amount;
+        Player user = Bukkit.getPlayer(data.getPlayerName());
+        int level = data.getLevel().get(talentKey);
+        int amount = TalentManager.getInstance().getTalent(talentKey).getLevels().get(level);
+        return (amount != 0 && random.nextInt(100) <= amount);
     }
 }

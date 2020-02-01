@@ -5,232 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="deee23cc-a96d-4227-b721-0e0b3540a975" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BossBroadCast/BossBroadCast.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BossBroadCast/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BossBroadCast/src/main/java/org/serverct/sir/bossbroadcast/BossBroadCast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BossBroadCast/src/main/java/org/serverct/sir/bossbroadcast/BroadCast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BossBroadCast/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BossBroadCast/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChongSheng/ChongSheng.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChongSheng/src/main/java/org/serverct/sir/chongsheng/ChongSheng.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChongSheng/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChongSheng/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DisplaynameSetter/DisplaynameSetter.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DisplaynameSetter/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DisplaynameSetter/src/main/java/org/serverct/sir/displaynamesetter/DisplaynameSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DisplaynameSetter/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/Duobao.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/Duobao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/CommandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/Subcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/Selector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/StartGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/StopGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/data/TreasureItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/enums/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/listener/PlayerInteractListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/ItemManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/util/AreaUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/util/CommonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/resources/Locales/Chinese.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/HunHuan.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/libs/spigot-1.7.10-SNAPSHOT-b1657.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/HunHuan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/CommandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/Subcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Get.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Inlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Reload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Unload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/configuration/EffectManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/configuration/HunhuanManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/data/HunhuanData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/enums/HunHuanEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/enums/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/hooks/VaultHook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/listener/ItemHeldListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/task/EnderEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/task/FlameEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/task/PotionEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/task/SmokeEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/utils/HunhuanUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/utils/LocaleUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/resources/Locale.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HunHuan/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/Subcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Get.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Inlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Reload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Unload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/data/HunguData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/enums/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/hooks/VaultHook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/utils/HunguUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/utils/LocaleUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/src/main/resources/Locale.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoreReplace/LoreReplace.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoreReplace/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoreReplace/src/main/java/org/serverct/sir/lorereplace/LoreReplace.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoreReplace/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/Tianfu.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/Tianfu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/command/CommandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/command/Subcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/command/subcommands/Gui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/command/subcommands/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/command/subcommands/Reload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/command/subcommands/Stats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/command/subcommands/TalentC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/config/GuiManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/config/PlayerDataManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/config/TalentExecutorManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/config/TalentManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/data/PlayerData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/data/Talent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/enums/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/enums/PlaceholderType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/enums/TalentType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/hooks/PlayerPointsHook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/hooks/VaultHook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/InventoryClickListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerAttackListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerJoinListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Damage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/HealthRefill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Imprisonment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Lightning.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Regen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/TalentExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/task/RegenTalentTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/util/PlaceholderUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/resources/Locales/Chinese.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/resources/gui.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tianfu/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/GuaJiChi.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/GuaJiChi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/CommandHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/Subcommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/Subcommands/Create.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/Subcommands/Remove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/config/ConfigManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/data/Area.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/hooks/VaultHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/listener/InteractListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/listener/MoveListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/utils/CommonUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/utils/LocaleUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/resources/Locales/Chinese.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hungu/libs/spigot-1.7.10-SNAPSHOT-b1657.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hungu/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/12247.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/12247.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_13_1_R0_1_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_21.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/CityLifeFriends-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/CityLifeFriends-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/Guis/Friends.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/Guis/Friends.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/CityLifeFriends.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/CityLifeFriends.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/command/subcommands/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/command/subcommands/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/InventoryConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/InventoryConfigManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/LocaleManager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/LocaleManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/PlayerDataManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/PlayerDataManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/PlayerDataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/configuration/PlayerDataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/classes/org/serverct/sir/citylifefriends/listener/InventoryInteractListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/original-CityLifeFriends-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeFriends/target/original-CityLifeFriends-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/CityLifeMood-1.0-RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/CityLifeMood-1.0-RELEASE.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/Language.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/CityLifeMood.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/CityLifeMood.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Do.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Do.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Help.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Help.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/List.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/List.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Reload.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Reload.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Select.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Select.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Version.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/command/subcommands/Version.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/AreaManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/AreaManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/ConfigManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/ConfigManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/ConfigManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/LocaleManager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/LocaleManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/PlayerDataManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/PlayerDataManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/PlayerDataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/configuration/PlayerDataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/data/MoodArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/data/MoodArea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/enums/MessageType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/listener/AreaEnterListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/listener/AreaEnterListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/listener/AreaLeaveListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/listener/AreaLeaveListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/listener/PlayerInteractListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/listener/PlayerInteractListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/runnable/RunnableManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/runnable/RunnableManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/runnable/tasks/CheckTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/classes/org/serverct/sir/citylifemood/runnable/tasks/CheckTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/original-CityLifeMood-1.0-RELEASE.jar" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/target/original-CityLifeMood-1.0-RELEASE.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/Language.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/CityLifeCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/CityLifeCore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/api/CityLifeCoreApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/api/CityLifeCoreApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/CommandHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/subcommand/VersionCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/command/subcommand/VersionCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/configuration/ConfigData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/configuration/LanguageData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/Area.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/ChatRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/ChatRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryGui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItemAction$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/data/InventoryItemAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/enums/inventoryitem/OptionType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/AreaEnterEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/AreaLeaveEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/event/ChatRequestCompletedEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerChatListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerChatListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerInteractListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/listener/PlayerMoveListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/ChatRequestManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/ChatRequestManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/InventoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/InventoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/SelectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/manager/SelectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/CommonUtil$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/CommonUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/InventoryUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/classes/org/serverct/sir/citylifecore/utils/ItemStackUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/target/original-CityLifeCore-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/SoulRing.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/SoulRing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/command/subcommand/Ring.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/command/subcommand/Ring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/configuration/SlotManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/src/main/java/org/serverct/sir/soulring/configuration/SlotManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/SoulRing-1.1-RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/Attributes.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/Attributes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/SoulRing.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/SoulRing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Help.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Help.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Reload.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Reload.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Ring.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Ring.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Stat.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Stat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Version.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/command/subcommand/Version.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/AttributeManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/AttributeManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/AttributeManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/AttributeManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/RingManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/RingManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/SlotManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/configuration/SlotManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/listener/OnPlayerAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/listener/OnPlayerAttack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/listener/OnPlayerHeld.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/listener/OnPlayerHeld.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/util/NMSUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/org/serverct/sir/soulring/util/NMSUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/target/original-SoulRing-1.1-RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ANOHANA Marry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ANOHANA Marry.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/util/AreaUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/util/AreaUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HunHuan/HunHuan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/HunHuan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HunHuan/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Inlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Inlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Unload.java" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Unload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HunHuan/src/main/resources/Locale.yml" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/src/main/resources/Locale.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hungu/Hungu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/Hungu.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Inlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Inlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Unload.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Unload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hungu/src/main/resources/Locale.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/resources/Locale.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoulRing/SoulRing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/SoulRing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/Tianfu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/Tianfu.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerAttackListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerAttackListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/HealthRefill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/HealthRefill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Imprisonment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Imprisonment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Lightning.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Lightning.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,8 +65,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -284,16 +106,22 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553953118525" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CityLifeCore/CityLifeMood/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Hungu" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -306,25 +134,20 @@
       <recent name="C:\Users\12247\IdeaProjects\Server CT\CityLife Core" />
       <recent name="C:\Users\12247\IdeaProjects\Server CT\Mood" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\12247\IdeaProjects\Server_CT_Sir\Hungu" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.serverct.sir.guajichi.utils" />
+      <recent name="org.serverct.sir.guajichi.hooks" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.serverct.sir.hunhuan.enums" />
       <recent name="org.serverct.sir.duobao.util" />
       <recent name="org.serverct.sir.hungu" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Maven.DisplaynameSetter build">
+  <component name="RunManager" selected="Maven.Tianfu build">
     <configuration name="Paper 1.8.8" type="JarApplication">
       <option name="JAR_PATH" value="D:/Minecraft/Test Environment/[Test Envir]Paper 1.8.8/Core.jar" />
       <option name="WORKING_DIRECTORY" value="D:\Minecraft\Test Environment\[Test Envir]Paper 1.8.8" />
@@ -539,6 +362,32 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="GuaJiChi build" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/GuaJiChi" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="HunHuan build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -711,6 +560,7 @@
       <item itemvalue="Maven.HunHuan build" />
       <item itemvalue="Maven.LoreReplace build" />
       <item itemvalue="Maven.DisplaynameSetter build" />
+      <item itemvalue="Maven.GuaJiChi build" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -919,6 +769,48 @@
     <MESSAGE value="[PRE-RELEASE PATCH 5]CityLife Friends 核心问题濒临解决, 引入全新 ID 系统 CLID.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新的数据类 CLID, 并为了适配其作了大量更改.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Action 模块的大部分 Bug, 正在应用新的 ID 系统 CLID.&#10;    &#10;Ps: 这其中经过了无数次调试/Debug, 我快死了嘤嘤嘤." />
     <option name="LAST_COMMIT_MESSAGE" value="[PRE-RELEASE PATCH 5]CityLife Friends 核心问题濒临解决, 引入全新 ID 系统 CLID.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新的数据类 CLID, 并为了适配其作了大量更改.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Action 模块的大部分 Bug, 正在应用新的 ID 系统 CLID.&#10;    &#10;Ps: 这其中经过了无数次调试/Debug, 我快死了嘤嘤嘤." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="702" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580358734726">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580358734726" />
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1580371078945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580371078945" />
+    <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1580349186823">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580349186823" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1580358309604">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580358309604" />
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1580555246927">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246927" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1580555246926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246926" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1580555246926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246926" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1580555246926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246926" />
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1580553686881">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580553686881" />
+    <state x="334" y="126" key="new project wizard" timestamp="1580349167481">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="334" y="126" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1580349167481" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

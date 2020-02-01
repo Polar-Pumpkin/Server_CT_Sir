@@ -41,6 +41,7 @@ Command:
       Empty: "&7该装备上未镶嵌指定魂骨."
       ReachLimit: "&7目标装备已达到最大镶嵌限制&8(&c%limit%&8)&7."
       NothingInHand: "&7需要手持目标装备."
+      NoHungu: "&7请不要将魂骨镶嵌到魂骨上."
     Hungu:
       Empty: "&7目标魂骨位&8(快捷栏第 &c9 &8格)&7为空或目标魂骨无效."
       InvalidID: "&7指定魂骨ID无效."

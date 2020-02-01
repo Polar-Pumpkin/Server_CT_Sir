@@ -19,59 +19,53 @@ import java.util.List;
 
 public class Inlay implements Subcommand {
 
-    private Player user;
-    private Inventory playerInv;
     private LocaleUtil locale = Hungu.getInstance().getLocale();
-    private HunguManager hunguManager;
-
-    private HunguData target;
-    private ItemStack targetHunguItem;
-    private ItemStack itemInHand;
-    private ItemMeta handItemMeta;
-    private String handItemDisplay;
-    private String handItemType;
-    private List<String> handItemLore;
-    private List<HunguData> handItemHungu;
 
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         locale.debug("准备镶嵌魂骨.");
         if(sender instanceof Player) {
             locale.debug("命令发送者为玩家对象.");
-            hunguManager = Hungu.getInstance().getHunguManager();
+            HunguManager hunguManager = Hungu.getInstance().getHunguManager();
             locale.debug("获取魂骨数据管理器成功.");
-            user = (Player) sender;
+            Player user = (Player) sender;
             locale.debug("命令发送者: (玩家)" + user.getName());
-            playerInv = user.getInventory();
+            Inventory playerInv = user.getInventory();
             locale.debug("获取玩家背包成功");
 
-            itemInHand = user.getItemInHand();
+            ItemStack itemInHand = user.getItemInHand();
             locale.debug("获取目标装备成功.");
-            targetHunguItem = playerInv.getItem(8);
+            ItemStack targetHunguItem = playerInv.getItem(8);
             locale.debug("获取魂骨位物品成功.");
 
             if((targetHunguItem != null && targetHunguItem.getType() != Material.AIR) && hunguManager.isHungu(targetHunguItem)) {
                 locale.debug("魂骨位物品有效.");
-                target = hunguManager.getHungu(targetHunguItem);
+                HunguData target = hunguManager.getHungu(targetHunguItem);
                 locale.debug("获取目标魂骨数据成功.");
 
                 if(itemInHand != null && itemInHand.getType() != Material.AIR) {
+
+                    if(hunguManager.isHungu(itemInHand)) {
+                        user.sendMessage(locale.getMessage(MessageType.WARN, "Command", "Invalid.Item.NoHungu"));
+                        return true;
+                    }
+
                     locale.debug("目标装备有效.");
-                    handItemMeta = itemInHand.getItemMeta();
-                    handItemDisplay = handItemMeta.getDisplayName();
-                    handItemType = itemInHand.getType().toString();
+                    ItemMeta handItemMeta = itemInHand.getItemMeta();
+                    String handItemDisplay = handItemMeta.getDisplayName();
+                    String handItemType = itemInHand.getType().toString();
                     locale.debug("获取目标装备数据有效.");
 
                     if(itemInHand.getAmount() == 1) {
                         locale.debug("目标装备数量为 1.");
                         if(handItemMeta.hasLore()) {
                             locale.debug("目标装备包含 Lore.");
-                            handItemLore = handItemMeta.getLore();
+                            List<String> handItemLore = handItemMeta.getLore();
                             locale.debug("获取目标装备 Lore 数据成功.");
 
                             if(handItemLore != null && !handItemLore.isEmpty()) {
                                 locale.debug("目标装备 Lore 数据有效.");
-                                handItemHungu = HunguUtil.getInstance().hasHungu(handItemLore);
+                                List<HunguData> handItemHungu = HunguUtil.getInstance().hasHungu(handItemLore);
                                 locale.debug("获取目标装备 Lore 中的已镶嵌魂骨成功.");
                                 locale.debug("已镶嵌魂骨: " + handItemHungu.toString());
 

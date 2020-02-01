@@ -21,10 +21,7 @@ import java.util.Random;
 
 public class PlayerAttackListener implements Listener{
 
-    private Player attacker;
-    private PlayerData attackerData;
     private Player victim;
-    private PlayerData victimData;
 
     private Talent lightning = TalentManager.getInstance().getTalent(TalentType.LIGHTNING);
     private Talent imprisonment = TalentManager.getInstance().getTalent(TalentType.IMPRISONMENT);
@@ -39,7 +36,7 @@ public class PlayerAttackListener implements Listener{
 
         if(event.getEntity() instanceof Player) {
             victim = (Player) event.getEntity();
-            victimData = PlayerDataManager.getInstance().getPlayerData(victim.getName());
+            PlayerData victimData = PlayerDataManager.getInstance().getPlayerData(victim.getName());
 
             if(victim.getHealth() < (victim.getMaxHealth() * 0.1)) {
                 if((boolean) healthRefill.getExecutor().execute(victimData)) {
@@ -56,8 +53,8 @@ public class PlayerAttackListener implements Listener{
         }
 
         if(event.getDamager() instanceof Player) {
-            attacker = (Player) event.getDamager();
-            attackerData = PlayerDataManager.getInstance().getPlayerData(attacker.getName());
+            Player attacker = (Player) event.getDamager();
+            PlayerData attackerData = PlayerDataManager.getInstance().getPlayerData(attacker.getName());
 
             if(victim != null) {
                 if((boolean) lightning.getExecutor().execute(attackerData)) {
@@ -71,8 +68,8 @@ public class PlayerAttackListener implements Listener{
                     );
                 }
 
-                if(random.nextInt(100) <= 10) {
-                    if(attackerData.getLevel().get(TalentType.IMPRISONMENT) > 0) {
+                if(attackerData.getLevel().get(TalentType.IMPRISONMENT) > 0) {
+                    if(random.nextInt(100) <= 10) {
                         victim.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, (int) imprisonment.getExecutor().execute(attackerData) * 20, 10), true);
                         attacker.sendMessage(
                                 PlaceholderUtil.check(
@@ -81,14 +78,14 @@ public class PlayerAttackListener implements Listener{
                                         attackerData
                                 )
                         );
+                        victim.sendMessage(
+                                PlaceholderUtil.check(
+                                        locale.getMessage(Tianfu.getInstance().getLocaleKey(), MessageType.INFO, "Talent", "Imprisonment.Victim"),
+                                        TalentType.IMPRISONMENT,
+                                        attackerData
+                                )
+                        );
                     }
-                    victim.sendMessage(
-                            PlaceholderUtil.check(
-                                    locale.getMessage(Tianfu.getInstance().getLocaleKey(), MessageType.INFO, "Talent", "Imprisonment.Victim"),
-                                    TalentType.IMPRISONMENT,
-                                    attackerData
-                            )
-                    );
                 }
             }
             event.setDamage(event.getDamage() + (int) damage.getExecutor().execute(attackerData));

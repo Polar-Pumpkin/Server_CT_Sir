@@ -1,0 +1,6 @@
+name: GuaJiChi
+version: ${project.version}
+main: org.serverct.sir.guajichi.GuaJiChi
+authors: [EntityParrot_]
+commands:
+  gjc:
