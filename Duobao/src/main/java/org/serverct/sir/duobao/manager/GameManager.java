@@ -9,6 +9,7 @@ import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.serverct.sir.duobao.Duobao;
 import org.serverct.sir.duobao.data.TreasureItem;
+import org.serverct.sir.duobao.enums.AutoRefreshType;
 import org.serverct.sir.duobao.enums.MessageType;
 import org.serverct.sir.duobao.util.AreaUtil;
 import org.serverct.sir.duobao.util.CommonUtil;
@@ -166,11 +167,15 @@ public class GameManager {
             removeGamingLocation(id, loc);
             locale.debug("从已生成箱子坐标列表中移除此坐标.");
 
-            if(gameMap.get(id).size() < 3) {
-                locale.debug("剩余箱子数量小于 3, 重新生成 5 个箱子.");
-                spawnChest(id, 5, true);
+            if(AutoRefreshManager.getInstance().trigger(gameMap.get(id).size())) {
+                locale.debug("剩余箱子数量小于指定数量, 重新生成箱子.");
+                spawnChest(id, AutoRefreshManager.getInstance().get(AutoRefreshType.LOWER), true);
             }
 
+            int amount = AutoRefreshManager.getInstance().get(AutoRefreshType.FOUND);
+            if(amount > 0) {
+                spawnChest(id, amount, true);
+            }
             return true;
         }
         return false;

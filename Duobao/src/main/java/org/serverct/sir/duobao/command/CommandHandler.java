@@ -3,6 +3,7 @@ package org.serverct.sir.duobao.command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.serverct.sir.duobao.command.subcommands.Reload;
 import org.serverct.sir.duobao.command.subcommands.StartGame;
 import org.serverct.sir.duobao.command.subcommands.StopGame;
 
@@ -16,6 +17,7 @@ public class CommandHandler implements CommandExecutor {
     public CommandHandler() {
         registerSubcommand("start", new StartGame());
         registerSubcommand("stop", new StopGame());
+        registerSubcommand("reload", new Reload());
     }
 
     private void registerSubcommand(String cmd, Subcommand executor) {

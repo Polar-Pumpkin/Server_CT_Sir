@@ -10,11 +10,9 @@ import org.serverct.sir.duobao.util.LocaleUtil;
 
 public class StartGame implements Subcommand {
 
-    private LocaleUtil locale;
-
     @Override
     public boolean execute(CommandSender sender, String[] args) {
-        locale = Duobao.getInstance().getLocale();
+        LocaleUtil locale = Duobao.getInstance().getLocale();
         if(sender.hasPermission("Duobao.start")) {
             if(args.length == 2) {
                 GameManager.getInstance().startNewGame("gameone", Integer.valueOf(args[1]));

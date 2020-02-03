@@ -5,53 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="deee23cc-a96d-4227-b721-0e0b3540a975" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/GuaJiChi.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/GuaJiChi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/CommandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/Subcommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/Subcommands/Create.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/command/Subcommands/Remove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/config/ConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/data/Area.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/hooks/VaultHook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/listener/InteractListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/listener/MoveListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/utils/CommonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/java/org/serverct/sir/guajichi/utils/LocaleUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/resources/Locales/Chinese.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GuaJiChi/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/libs/spigot-1.7.10-SNAPSHOT-b1657.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hungu/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_13_1_R0_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_21.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/enums/AutoRefreshType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/AutoRefreshManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ANOHANA Marry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ANOHANA Marry.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLife Core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CityLifeCore/CityLifeMood/CityLife Mood.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/Selector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/Reload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/StartGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/util/AreaUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/util/AreaUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HunHuan/HunHuan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/HunHuan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HunHuan/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Inlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Inlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Unload.java" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/src/main/java/org/serverct/sir/hunhuan/command/subcommands/Unload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HunHuan/src/main/resources/Locale.yml" beforeDir="false" afterPath="$PROJECT_DIR$/HunHuan/src/main/resources/Locale.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hungu/Hungu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/Hungu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Inlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Inlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Unload.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/subcommands/Unload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hungu/src/main/resources/Locale.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/resources/Locale.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoulRing/SoulRing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SoulRing/SoulRing.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tianfu/Tianfu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/Tianfu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tianfu/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerAttackListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerAttackListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/HealthRefill.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/HealthRefill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Imprisonment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Imprisonment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Lightning.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/talents/Lightning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +48,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="899c3a9b-f6f9-46bb-9c44-06375d689e45" />
+    <option name="defaultAccountId" value="d25994de-f6a4-4669-baea-096694f8b9b8" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -122,11 +84,11 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553953118525" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="yaml" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Hungu" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.21944036" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -147,7 +109,7 @@
       <recent name="org.serverct.sir.hungu" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.Tianfu build">
+  <component name="RunManager" selected="Maven.Duobao build">
     <configuration name="Paper 1.8.8" type="JarApplication">
       <option name="JAR_PATH" value="D:/Minecraft/Test Environment/[Test Envir]Paper 1.8.8/Core.jar" />
       <option name="WORKING_DIRECTORY" value="D:\Minecraft\Test Environment\[Test Envir]Paper 1.8.8" />
@@ -707,7 +669,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561276009546</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="很多改动.">
+      <created>1580555449100</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1580555449100</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -767,46 +736,63 @@
     <MESSAGE value="[PRE-RELEASE PATCH 3]CityLife Core 新功能添加, CL Mood Debug 新进展.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新增枚举类 ChatRequestDataType 以用于验证请求的数据类型.&#10;    - 数据类 InventoryItem 新增 hasChatRequestAction 方法判断是否含有聊天栏数据请求动作以分类执行动作处理.&#10;    - 监听器 PlayerInteractListener 修复了区域选择器选择时会把方块打破的问题(创造模式), 新增 方块黑名单 功能的实现代码.&#10;    - 管理器 ChatRequestManager 注册方法新增对应请求数据类型参数.&#10;    - 工具类 InventoryUtil 新增 rebuildInventory 方法以重构 Gui.&#10;    - 工具类 ItemStackUtil 优化算法以适配 CL Friends 需求及解决潜在的 Bug.&#10;    - 配置文件 Config.yml 新增新功能的配置选项.&#10;    - 配置文件 Language.yml &amp; Config.yml 修改了过时的插件前缀.&#10;  &#10;  &gt; CityLife Friends&#10;    - 重写 Gui 配置文件管理器 中的大多数方法.&#10;    - 以及其他 Gui 管理器 的核心方法改动等.&#10;    &#10;  &gt; CityLife Mood&#10;    - 修复部分子命令在发送提示信息时的报错.&#10;    - 修复读取 Area 时的报错.&#10;    - 修复读取随机操作时的报错.&#10;    - 修复了一个可能导致消耗品失效的问题.&#10;    - 配置文件 Language.yml 新增了部分语言信息.&#10;    &#10;  &gt; SoulRing&#10;    - 更改了数据读取方式, 全部使用 int 型整数.&#10;    - 适配上述更改重写了部分属性读取方法.&#10;    - 新属性: HEALTH(生命力), 可以提升生命值上限.[UNFINISHED]" />
     <MESSAGE value="[PRE-RELEASE PATCH 4]全部都有大幅度改动, 但是我忘记了.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - API 新增 LocaleManager(语言信息管理器), 可以快捷管理语言信息, 比如发送/构建消息, 以及debug.&#10;    - 应用工具类 LocaleUtil, 所有 CL Series 项目语言信息方面都具有大幅度改动.&#10;    - 更改数据类结构, 新增数据类 InventoryClick 管理单次点击操作.&#10;  &#10;  &gt; CityLife Mood&#10;    - 修复多处 Bug, 准备重写区域调度器.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Gui 模块的大部分 Bug, 正在处理 Click/Action 动作执行模块的问题." />
     <MESSAGE value="[PRE-RELEASE PATCH 5]CityLife Friends 核心问题濒临解决, 引入全新 ID 系统 CLID.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新的数据类 CLID, 并为了适配其作了大量更改.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Action 模块的大部分 Bug, 正在应用新的 ID 系统 CLID.&#10;    &#10;Ps: 这其中经过了无数次调试/Debug, 我快死了嘤嘤嘤." />
-    <option name="LAST_COMMIT_MESSAGE" value="[PRE-RELEASE PATCH 5]CityLife Friends 核心问题濒临解决, 引入全新 ID 系统 CLID.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新的数据类 CLID, 并为了适配其作了大量更改.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Action 模块的大部分 Bug, 正在应用新的 ID 系统 CLID.&#10;    &#10;Ps: 这其中经过了无数次调试/Debug, 我快死了嘤嘤嘤." />
+    <MESSAGE value="很多改动." />
+    <option name="LAST_COMMIT_MESSAGE" value="很多改动." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Project_Structure" timestamp="1580617166135">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1580617166135" />
     <state x="702" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580358734726">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="702" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580358734726" />
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1580371078945">
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1580558023501">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580371078945" />
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580558023501" />
     <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1580349186823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580349186823" />
+    <state x="509" y="0" key="CommitChangelistDialog2" timestamp="1580555437328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="509" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580555437328" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1580358309604">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580358309604" />
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1580555246927">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1580562453659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246927" />
-    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1580555246926">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1580562453659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246926" />
-    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1580555246926">
+    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1580562453659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246926" />
-    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1580555246926">
+    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1580562453659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580555246926" />
-    <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1580553686881">
+    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1580555499022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580553686881" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580555499022" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1580555469260">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580555469260" />
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1580715272013">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580715272013" />
     <state x="334" y="126" key="new project wizard" timestamp="1580349167481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -815,81 +801,5 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Minecraft</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>GUGUGU</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: com.google.code.gson:gson:2.8.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
