@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="deee23cc-a96d-4227-b721-0e0b3540a975" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/enums/AutoRefreshType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/AutoRefreshManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Duobao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/CommandHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/Selector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/Reload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/command/subcommands/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Duobao/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerAttackListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/PlayerAttackListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +103,7 @@
       <recent name="org.serverct.sir.hungu" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.Duobao build">
+  <component name="RunManager" selected="Maven.Tianfu build">
     <configuration name="Paper 1.8.8" type="JarApplication">
       <option name="JAR_PATH" value="D:/Minecraft/Test Environment/[Test Envir]Paper 1.8.8/Core.jar" />
       <option name="WORKING_DIRECTORY" value="D:\Minecraft\Test Environment\[Test Envir]Paper 1.8.8" />
@@ -676,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580555449100</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="对夺宝的自动刷新添加了一些改动.">
+      <created>1580715397548</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1580715397548</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -737,7 +738,8 @@
     <MESSAGE value="[PRE-RELEASE PATCH 4]全部都有大幅度改动, 但是我忘记了.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - API 新增 LocaleManager(语言信息管理器), 可以快捷管理语言信息, 比如发送/构建消息, 以及debug.&#10;    - 应用工具类 LocaleUtil, 所有 CL Series 项目语言信息方面都具有大幅度改动.&#10;    - 更改数据类结构, 新增数据类 InventoryClick 管理单次点击操作.&#10;  &#10;  &gt; CityLife Mood&#10;    - 修复多处 Bug, 准备重写区域调度器.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Gui 模块的大部分 Bug, 正在处理 Click/Action 动作执行模块的问题." />
     <MESSAGE value="[PRE-RELEASE PATCH 5]CityLife Friends 核心问题濒临解决, 引入全新 ID 系统 CLID.&#10;&#10;本次更新改动:&#10;  &gt; CityLife Core&#10;    - 新的数据类 CLID, 并为了适配其作了大量更改.&#10;    &#10;  &gt; CityLife Friends&#10;    - 修复 Action 模块的大部分 Bug, 正在应用新的 ID 系统 CLID.&#10;    &#10;Ps: 这其中经过了无数次调试/Debug, 我快死了嘤嘤嘤." />
     <MESSAGE value="很多改动." />
-    <option name="LAST_COMMIT_MESSAGE" value="很多改动." />
+    <MESSAGE value="对夺宝的自动刷新添加了一些改动." />
+    <option name="LAST_COMMIT_MESSAGE" value="对夺宝的自动刷新添加了一些改动." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -757,42 +759,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580349186823" />
-    <state x="509" y="0" key="CommitChangelistDialog2" timestamp="1580555437328">
+    <state x="456" y="0" width="1301" height="990" key="CommitChangelistDialog2" timestamp="1580715387757">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="509" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580555437328" />
+    <state x="456" y="0" width="1301" height="990" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580715387757" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1580358309604">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580358309604" />
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1580562453659">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1580890103204">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
-    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1580562453659">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580890103204" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1580890103203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
-    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1580562453659">
+    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580890103203" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1580890103203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
-    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1580562453659">
+    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580890103203" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1580890103203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580562453659" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580890103203" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1580555499022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580555499022" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1580555469260">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1580715401429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580555469260" />
-    <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1580715272013">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580715401429" />
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1580888807677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580715272013" />
+    <state x="616" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580888807677" />
     <state x="334" y="126" key="new project wizard" timestamp="1580349167481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

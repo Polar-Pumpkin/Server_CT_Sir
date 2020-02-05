@@ -6,7 +6,7 @@
 
     <groupId>org.serverct.sir</groupId>
     <artifactId>Tianfu</artifactId>
-    <version>1.8-RELEASE</version>
+    <version>1.8.1-BETA</version>
     <packaging>jar</packaging>
 
     <name>Tianfu</name>
