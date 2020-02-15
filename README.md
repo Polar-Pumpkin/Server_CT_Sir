@@ -1,35 +1,43 @@
 # Server_CT_Sir
-个人 Minecraft 插件项目存储库, 该存储库下的所有插件项目都以 *org.serverct.sir* 作为包名.
 
-## 项目列表
-- ANOHANA Marry
-- Soul Ring
-- GUGUGU
-- CityLife Core
-  - CityLife Mood 
-  - CityLife Friends
+**代码写的很烂, 各位大佬轻喷. qwq**
+
+~~个人 Minecraft 插件项目存储库, 该存储库下的所有插件项目都以 *org.serverct.sir* 作为包名.~~
+
+该项目结构年久失修(误), 且绝大多数项目为 Kafei 的定制插件, 现已专门用于保存 Kafei 的定制插件.
+
+*ANOHANA* 系列项目已另起项目管理.
+
+现在我使用的包名大多数为 *org.serverct.parrot*.
 
 * * *
-## 项目描述
 
-### ANOHANA 插件系列
+## 项目列表:
 
-#### ANOHANA Marry
-来自一个公益服的设想, 一款拥有多种特性的有趣插件.
+## ANOHANA 系列
 
-### Soul Ring
-为 *kafei* 的定制插件.
+- ANOHANA Marry (未完成项目)
 
-### GUGUGU
-Server CT 组员 *eweweszdsd* 用来放玩家鸽子的插件设想.
+插件灵感来自一个公益服, AMarry 作为该项目的一部分现版本已弃坑, 另起于其他项目管理.
 
-### CityLife 插件系列
+## CityLife 系列
 
-#### CityLife Core
-都市人生系列插件的前置, 拥有*玩家聊天栏数据请求*, *区域进出检测*, *选区工具*, *Gui工具*等特性, 起简化开发, 减少重复代码作用.
+- CityLife Core
+  - CityLife Mood
+  - CityLife Friend (未完成项目)
 
-#### CityLife Mood
-都市人生 · 心情, 为 Minecraft 生存提供一项新的基础属性, 可以对数值过低的人执行惩罚, 提供了多种方式提升数值.
+曾经是我的一个插件定制客户的项目, 现在合作终止了.
 
-#### CityLife Friends
-都市人生 · 好友, 为服务器生存添加一项方便玩家之间互动的功能, 高度可自定义化.
+## Kafei 系列
+
+- BossBroadCast
+- ChongSheng
+- DisplaynameSetter
+- Duobao
+- GuaJiChi
+  - **允许该插件由 *[1147127977zxc](https://www.mcbbs.net/home.php?mod=space&uid=2061451)* 转载至[MCBBS](https://www.mcbbs.net/thread-960334-1-1.html)**
+- Hungu
+- HunHuan
+- LoreReplace
+- SoulRing
+- Tianfu
