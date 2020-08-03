@@ -1,12 +1,11 @@
 package org.serverct.sir.duobao.manager;
 
 import lombok.Getter;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Firework;
-import org.bukkit.inventory.meta.FireworkMeta;
 import org.serverct.sir.duobao.Duobao;
 import org.serverct.sir.duobao.data.TreasureItem;
 import org.serverct.sir.duobao.enums.AutoRefreshType;
@@ -22,23 +21,26 @@ public class GameManager {
     private static LocaleUtil locale;
 
     private static GameManager instance;
+
     public static GameManager getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new GameManager();
         }
         locale = Duobao.getInstance().getLocale();
         return instance;
     }
 
-    @Getter private Map<String, List<Location>> gameMap = new HashMap<>();
-    @Getter private Map<Integer, Location> area = new HashMap<>();
+    @Getter
+    private final Map<String, List<Location>> gameMap = new HashMap<>();
+    @Getter
+    private final Map<Integer, Location> area = new HashMap<>();
 
     public void loadArea() {
         FileConfiguration config = Duobao.getInstance().getConfig();
 
         ConfigurationSection areaSection = config.getConfigurationSection("Area");
-        if(areaSection != null) {
-            if(areaSection.getKeys(false).contains("1") && areaSection.getKeys(false).contains("2")) {
+        if (areaSection != null) {
+            if (areaSection.getKeys(false).contains("1") && areaSection.getKeys(false).contains("2")) {
                 area.put(
                         1,
                         new Location(
@@ -138,28 +140,28 @@ public class GameManager {
         if(isGamingLocation(loc)) {
             String id = getGameID(loc);
             locale.debug("传入坐标为游戏箱子坐标.");
-            Firework firework = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
-            FireworkMeta meta = firework.getFireworkMeta();
+//            Firework firework = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+//            FireworkMeta meta = firework.getFireworkMeta();
 
             loc.getBlock().setType(Material.AIR);
             locale.debug("摧毁奖励箱子.");
 
-            meta.addEffect(
-                    FireworkEffect.builder()
-                            .with(FireworkEffect.Type.BALL_LARGE)
-                            .withColor(Color.LIME, Color.RED, Color.PURPLE, Color.ORANGE)
-                            .withFade(Color.GRAY, Color.SILVER)
-                            .withFlicker()
-                            .withTrail()
-                            .build()
-            );
-            firework.setFireworkMeta(meta);
-            locale.debug("构建特效烟花.");
+//            meta.addEffect(
+//                    FireworkEffect.builder()
+//                            .with(FireworkEffect.Type.BALL_LARGE)
+//                            .withColor(Color.LIME, Color.RED, Color.PURPLE, Color.ORANGE)
+//                            .withFade(Color.GRAY, Color.SILVER)
+//                            .withFlicker()
+//                            .withTrail()
+//                            .build()
+//            );
+//            firework.setFireworkMeta(meta);
+//            locale.debug("构建特效烟花.");
 
             locale.debug("开始循环奖品列表.");
-            for(TreasureItem treasure : ItemManager.getInstance().getTreasures()) {
+            for (TreasureItem treasure : ItemManager.getInstance().getTreasures()) {
                 locale.debug("奖品: " + treasure.toString());
-                if(treasure.check()) {
+                if (treasure.check()) {
                     loc.getWorld().dropItemNaturally(loc, treasure.item());
                     locale.debug("命中几率, 已投放奖品.");
                 }

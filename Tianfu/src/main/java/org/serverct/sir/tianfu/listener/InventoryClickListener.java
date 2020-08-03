@@ -22,11 +22,12 @@ import org.serverct.sir.tianfu.util.CommonUtil;
 import org.serverct.sir.tianfu.util.LocaleUtil;
 import org.serverct.sir.tianfu.util.PlaceholderUtil;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryClickListener implements Listener {
 
-    private LocaleUtil locale = Tianfu.getInstance().getLocale();
+    private final LocaleUtil locale = Tianfu.getInstance().getLocale();
 
     private Player user;
     private Inventory inventory;
@@ -79,7 +80,7 @@ public class InventoryClickListener implements Listener {
                             Sound upgradeSuccess = Sound.valueOf(Tianfu.getInstance().getConfig().getString("Setting.Sound.Upgrade.Success").toUpperCase());
                             user.playSound(user.getLocation(), upgradeSuccess, 1, 1);
 
-                            Collection<? extends Player> onlines = Tianfu.getInstance().getServer().getOnlinePlayers();
+                            List<Player> onlines = new ArrayList<>(Tianfu.getInstance().getServer().getOnlinePlayers());
                             onlines.remove(user);
                             for(Player player : onlines) {
                                 player.sendMessage(

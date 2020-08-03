@@ -25,7 +25,7 @@ public class HunguUtil {
     }
 
     private HunguManager hunguManager = Hungu.getInstance().getHunguManager();
-    private LocaleUtil locale = Hungu.getInstance().getLocale();
+    private final LocaleUtil locale = Hungu.getInstance().getLocale();
 
     public void reloadHunguManager() {
         hunguManager = Hungu.getInstance().getHunguManager();
@@ -80,7 +80,7 @@ public class HunguUtil {
     }
 
     public int getFooterIndex(List<String> lore) {
-        return lore.indexOf(hunguManager.getFooter());
+        return lore.lastIndexOf(hunguManager.getFooter());
     }
 
     public ItemStack inlay(ItemStack item, HunguData hungu) {
@@ -110,7 +110,8 @@ public class HunguUtil {
     public ItemStack unload(ItemStack item, HunguData hungu) {
         locale.debug("执行 unload 方法.");
         locale.debug("参数 ItemStack 数据: " + item.toString());
-        ItemMeta meta = item.getItemMeta();
+        ItemStack result = item.clone();
+        ItemMeta meta = result.getItemMeta();
         List<String> lore = meta.getLore();
         List<HunguData> hunguList = hasHungu(lore);
         String inlayTag = hunguManager.getDisplay() + hungu.getItem().getItemMeta().getDisplayName();
@@ -118,7 +119,7 @@ public class HunguUtil {
         locale.debug("已镶嵌魂骨列表: " + hunguList.toString());
         locale.debug("生成镶嵌标签: " + inlayTag);
 
-        if(hunguList.contains(hungu)) {
+        if (hunguList.contains(hungu)) {
             locale.debug("目标装备镶嵌有目标魂骨.");
             int index = lore.lastIndexOf(inlayTag);
             locale.debug("获取末镶嵌标签索引值: " + index);
@@ -146,7 +147,6 @@ public class HunguUtil {
         locale.debug("最终 Lore 数据: " + lore.toString());
         meta.setLore(lore);
         locale.debug("最终 Meta 数据: " + meta.toString());
-        ItemStack result = item.clone();
         if(result.setItemMeta(meta)) {
             locale.debug("ItemMeta 设置成功.");
         }

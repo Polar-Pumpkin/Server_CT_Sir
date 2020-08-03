@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="deee23cc-a96d-4227-b721-0e0b3540a975" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Duobao/src/main/java/org/serverct/sir/duobao/manager/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/command/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/utils/HunguUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hungu/src/main/java/org/serverct/sir/hungu/utils/HunguUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tianfu/src/main/java/org/serverct/sir/tianfu/listener/InventoryClickListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,17 +56,13 @@
       <MavenImportingSettings>
         <option name="downloadDocsAutomatically" value="true" />
         <option name="downloadSourcesAutomatically" value="true" />
-        <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1Ohw3U8DWzKgj3ltzMY0t2VqxGI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -102,13 +101,7 @@
       <recent name="org.serverct.sir.hungu" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.Tianfu build">
-    <configuration name="Paper 1.8.8" type="JarApplication">
-      <option name="JAR_PATH" value="D:/Minecraft/Test Environment/[Test Envir]Paper 1.8.8/Core.jar" />
-      <option name="WORKING_DIRECTORY" value="D:\Minecraft\Test Environment\[Test Envir]Paper 1.8.8" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Maven.Duobao build">
     <configuration name="BossBroadCast build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -500,7 +493,6 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JAR Application.Paper 1.8.8" />
       <item itemvalue="Maven.BossBroadCast build" />
       <item itemvalue="Maven.ChongSheng build" />
       <item itemvalue="Maven.CityLife Core build" />
@@ -683,7 +675,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580890775703</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="更新了 README.md">
+      <created>1581739039995</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1581739039995</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -700,9 +699,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -721,6 +718,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
@@ -746,66 +744,29 @@
     <MESSAGE value="很多改动." />
     <MESSAGE value="对夺宝的自动刷新添加了一些改动." />
     <MESSAGE value="修复了关于天赋的禁锢之类的." />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了关于天赋的禁锢之类的." />
+    <MESSAGE value="更新了 README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新了 README.md" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="179" key="#Project_Structure" timestamp="1580617166135">
+    <state width="1877" height="275" key="GridCell.Tab.0.bottom" timestamp="1594709126104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="179" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1580617166135" />
-    <state x="702" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580358734726">
+    <state width="1877" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594709126104" />
+    <state width="1877" height="275" key="GridCell.Tab.0.center" timestamp="1594709126104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="702" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580358734726" />
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1580558023501">
+    <state width="1877" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594709126104" />
+    <state width="1877" height="275" key="GridCell.Tab.0.left" timestamp="1594709126104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580558023501" />
-    <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1580349186823">
+    <state width="1877" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594709126104" />
+    <state width="1877" height="275" key="GridCell.Tab.0.right" timestamp="1594709126104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580349186823" />
-    <state x="456" y="0" width="1301" height="990" key="CommitChangelistDialog2" timestamp="1580890769751">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="456" y="0" width="1301" height="990" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580890769751" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1580358309604">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580358309604" />
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1580891037548">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580891037548" />
-    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1580891037547">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580891037547" />
-    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1580891037547">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580891037547" />
-    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1580891037547">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580891037547" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1581738500265">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581738500265" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1580890778896">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580890778896" />
-    <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1580950607686">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580950607686" />
-    <state x="334" y="126" key="new project wizard" timestamp="1580349167481">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="334" y="126" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1580349167481" />
+    <state width="1877" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594709126104" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

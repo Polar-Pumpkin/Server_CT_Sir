@@ -4,7 +4,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.serverct.sir.hungu.Hungu;
-import org.serverct.sir.hungu.command.subcommands.*;
+import org.serverct.sir.hungu.command.subcommands.Get;
+import org.serverct.sir.hungu.command.subcommands.Help;
+import org.serverct.sir.hungu.command.subcommands.Inlay;
+import org.serverct.sir.hungu.command.subcommands.Reload;
 import org.serverct.sir.hungu.enums.MessageType;
 import org.serverct.sir.hungu.utils.LocaleUtil;
 
@@ -13,14 +16,14 @@ import java.util.Map;
 
 public class CommandHandler implements CommandExecutor {
 
-    private LocaleUtil locale = Hungu.getInstance().getLocale();
+    private final LocaleUtil locale = Hungu.getInstance().getLocale();
 
-    private Map<String, Subcommand> subcommandMap = new HashMap<>();
+    private final Map<String, Subcommand> subcommandMap = new HashMap<>();
 
     public CommandHandler() {
         registerSubcommand("list", new Help());
         registerSubcommand("xq", new Inlay());
-        registerSubcommand("chai", new Unload());
+        // registerSubcommand("chai", new Unload());
         registerSubcommand("get", new Get());
         registerSubcommand("reload", new Reload());
     }
